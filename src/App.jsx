@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import ProfileModal from "./components/ProfileModal";
@@ -6,50 +12,31 @@ import ProfileModal from "./components/ProfileModal";
 import HomePage from "./pages/HomePage";
 import GalleryPage from "./pages/GalleryPage";
 import TripDetailPage from "./pages/TripDetailPage";
-import AboutMePage from "./pages/AboutMePage"; // ✅ Import AboutMePage
+import AboutMePage from "./pages/AboutMePage";
 
 import { MOCK_TRIPS } from "./data/trips";
 
-const App = () => {
-  const [userId] = useState("mock-user-001"); // Mock user id
+// ✅ Internal wrapper to use navigate inside Router
+const AppContent = () => {
+  const [userId] = useState("mock-user-001");
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
-
   const [trips] = useState(MOCK_TRIPS);
   const [selectedTripId, setSelectedTripId] = useState(null);
-  const [currentView, setCurrentView] = useState("home"); // 'home', 'tripDetail', 'gallery', 'about'
+
+  const navigate = useNavigate();
 
   const handleSelectTrip = (id) => {
     setSelectedTripId(id);
-    setCurrentView("tripDetail");
+    navigate(`/trip/${id}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleBackToHome = () => {
     setSelectedTripId(null);
-    setCurrentView("home");
+    navigate("/");
   };
 
   const currentTrip = trips.find((t) => t.id === selectedTripId);
-
-  const renderContent = () => {
-    switch (currentView) {
-      case "gallery":
-        return <GalleryPage />;
-      case "tripDetail":
-        return <TripDetailPage trip={currentTrip} onBack={handleBackToHome} />;
-      case "about": // ✅ About Me view
-        return <AboutMePage onBack={handleBackToHome} />;
-      case "home":
-      default:
-        return (
-          <HomePage
-            trips={trips}
-            onSelectTrip={handleSelectTrip}
-            userId={userId}
-          />
-        );
-    }
-  };
 
   return (
     <div className="min-h-screen text-gray-200 p-4 md:p-8 font-sans bg-slate-900">
@@ -70,12 +57,35 @@ const App = () => {
 
       <main className="max-w-6xl mx-auto bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 p-6 md:p-12 rounded-lg shadow-2xl">
         <Navbar
-          onShowGallery={() => setCurrentView("gallery")}
+          onShowGallery={() => navigate("/gallery")}
           onShowHome={handleBackToHome}
           onProfileClick={() => setIsProfileModalOpen(true)}
-          onShowAbout={() => setCurrentView("about")} // ✅ Add About Me button handler
+          onShowAbout={() => navigate("/about")}
         />
-        {renderContent()}
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                trips={trips}
+                onSelectTrip={handleSelectTrip}
+                userId={userId}
+              />
+            }
+          />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route
+            path="/trip/:id"
+            element={
+              <TripDetailPage trip={currentTrip} onBack={handleBackToHome} />
+            }
+          />
+          <Route
+            path="/about"
+            element={<AboutMePage onBack={handleBackToHome} />}
+          />
+        </Routes>
       </main>
 
       <footer className="text-center mt-10 text-gray-500 text-sm">
@@ -84,5 +94,11 @@ const App = () => {
     </div>
   );
 };
+
+const App = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
 
 export default App;
