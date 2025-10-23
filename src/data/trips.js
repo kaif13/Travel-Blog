@@ -19,7 +19,7 @@ import Lake5 from "../assets/nani5.jpg";
 import Snow1 from "../assets/snow1.jpg";
 import Snow2 from "../assets/snow2.jpg";
 import Snow3 from "../assets/gandola.mp4";
-import Khurpataal from "../assets/khurpataal.jpg";
+import Khurpataal from "../assets/Khurpataal.jpg";
 import Cave1 from "../assets/Cave3.jpg";
 import Cave2 from "../assets/Cave1.jpg";
 import Cave3 from "../assets/Cave2.mp4";
