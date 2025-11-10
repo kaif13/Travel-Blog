@@ -22,7 +22,6 @@ import Snow3 from "../assets/gandola.mp4";
 import Khurpataal from "../assets/Khurpataal.jpg";
 import Cave1 from "../assets/Cave3.jpg";
 import Cave2 from "../assets/Cave1.jpg";
-import Cave3 from "../assets/Cave2.mp4";
 import Trek1 from "../assets/Trek1.mp4";
 import Trek2 from "../assets/Trek2.jpg";
 import Trek3 from "../assets/Trek3.jpg";
@@ -32,10 +31,18 @@ import Trek6 from "../assets/Trek6.jpg";
 import Trek7 from "../assets/Trek7.mp4";
 import lover1 from "../assets/lover1.jpg";
 import lover2 from "../assets/lover2.jpg";
-import lover3 from "../assets/lover3.mp4";
+import Mountain1 from "../assets/mountain.jpg";
+
 import bhim1 from "../assets/bhim1.jpg";
 import bhim2 from "../assets/bhim2.jpg";
 import bhim3 from "../assets/bhim3.jpg";
+import bhalu1 from "../assets/bhalu1.jpg";
+import bhalu2 from "../assets/bhalu2.jpg";
+import bhalu3 from "../assets/bhalu3.jpg";
+import nauka from "../assets/naukuchiya.jpg";
+import maggie from "../assets/maggie.mp4";
+import sunset from "../assets/sunset.mp4";
+import { Mountain } from "lucide-react";
 
 export const MOCK_TRIPS = [
   {
@@ -101,7 +108,6 @@ export const MOCK_TRIPS = [
         description:
           "We went to see Lovers Point, known for its beautiful valley views, and then the dramatic Suicide Point, which offers breathtaking sights from its steep cliffs. Both spots are popular for their stunning natural grandeur.",
         images: [lover1, lover2],
-        videos: [lover3],
       },
       {
         type: "memory",
@@ -109,7 +115,6 @@ export const MOCK_TRIPS = [
         description:
           "We went to see Cave Garden, a unique place with several interconnected natural caves that you can explore. It's an interesting spot for a different kind of natural beauty.",
         images: [Cave1, Cave2],
-        videos: [Cave3],
       },
       {
         type: "memory",
@@ -163,54 +168,29 @@ export const MOCK_TRIPS = [
         time: "11:30 AM",
         description:
           "After driving our scooty for 2.5 hours, we reached Bhalu Gaad waterfall.",
-        images: [
-          "https://placehold.co/400x300/0E7490/FFFFFF?text=Tiffin+Top+View",
-          "https://placehold.co/400x300/059669/FFFFFF?text=Group+Selfie",
-          "https://placehold.co/400x300/BE123C/FFFFFF?text=My+Solo+Shot",
-        ],
+        images: [bhalu1, bhalu2, bhalu3],
       },
       {
         type: "memory",
         time: "01:00 AM",
         description:
-          "After enjoying our time at Bhalu Gaad waterfall, we left for Naukuchiatal.",
-        images: [
-          "https://placehold.co/400x300/0E7490/FFFFFF?text=Tiffin+Top+View",
-          "https://placehold.co/400x300/059669/FFFFFF?text=Group+Selfie",
-          "https://placehold.co/400x300/BE123C/FFFFFF?text=My+Solo+Shot",
-        ],
+          "After enjoying our time at Bhalu Gaad Waterfall, we left for Naukuchiatal and, after a 2-hour drive, reached there and spent an hour.",
+        images: [nauka],
       },
-      {
-        type: "memory",
-        time: "03:00 AM",
-        description:
-          "After driving for 2 hours, we reached Naukuchiatal and spent an hour there.",
-        images: [
-          "https://placehold.co/400x300/0E7490/FFFFFF?text=Tiffin+Top+View",
-          "https://placehold.co/400x300/059669/FFFFFF?text=Group+Selfie",
-          "https://placehold.co/400x300/BE123C/FFFFFF?text=My+Solo+Shot",
-        ],
-      },
+
       {
         type: "memory",
         time: "05:00 AM",
         description: "Then we came back to Bhimtal and ate Maggie",
-        images: [
-          "https://placehold.co/400x300/0E7490/FFFFFF?text=Tiffin+Top+View",
-          "https://placehold.co/400x300/059669/FFFFFF?text=Group+Selfie",
-          "https://placehold.co/400x300/BE123C/FFFFFF?text=My+Solo+Shot",
-        ],
+        videos: [maggie],
       },
       {
         type: "memory",
         time: "06:00 AM",
         description:
           "And finally, after spending an hour at Bhimtal Lake, we left for Kathgodam station, enjoying a beautiful sunset view.",
-        images: [
-          "https://placehold.co/400x300/0E7490/FFFFFF?text=Tiffin+Top+View",
-          "https://placehold.co/400x300/059669/FFFFFF?text=Group+Selfie",
-          "https://placehold.co/400x300/BE123C/FFFFFF?text=My+Solo+Shot",
-        ],
+
+        videos: [sunset],
       },
       {
         type: "quote",
@@ -243,7 +223,7 @@ export const MOCK_TRIPS = [
 
 export const GALLERY_IMAGES = [
   {
-    src: "https://placehold.co/400x400/0891B2/FFFFFF?text=Me+at+the+lake",
+    image: [Lake4],
     caption: "Nainital Lake, Oct 2023",
   },
   {
@@ -251,8 +231,8 @@ export const GALLERY_IMAGES = [
     caption: "Friends at Tiffin Top",
   },
   {
-    src: "https://placehold.co/400x400/065F46/FFFFFF?text=Mountain+Pose",
-    caption: "Solo Trip Moment",
+    src: "Mountain1",
+    caption: "Mountain Pose",
   },
   {
     src: "https://placehold.co/400x400/BE123C/FFFFFF?text=Foodie+Time",
