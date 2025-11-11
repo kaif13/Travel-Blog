@@ -200,12 +200,14 @@ export const MOCK_TRIPS = [
     status: "completed",
   },
   {
-    id: "upcoming-adventure",
-    title: "Next Adventure: The Peaks Await",
+    id: "kashmir-2025-winter",
+    title: "Winter Magic of Kashmir",
     date: "Coming Soon",
-    location: "Destination Unknown",
-    quote: "The best stories are found between the pages of a passport.",
-    coverImage: "https://placehold.co/600x400/475569/FFFFFF?text=Upcoming",
+    location: "Kashmir, India",
+    quote:
+      "Where the mountains rest under a blanket of snow, peace finds its true home.",
+    coverImage:
+      "https://images.unsplash.com/photo-1707762895288-6988d51c2c7f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1435",
     details: [],
     status: "upcoming",
   },
