@@ -1,7 +1,7 @@
 import React from "react";
 import { Archive, MapPin, Calendar } from "lucide-react";
 import MemoryTimeline from "../components/MemoryTimeline";
-import LazyImageCarousel from "../components/LazyImageCarousel"; // <-- added import
+import LazyImageCarousel from "../components/LazyImageCarousel"; // updated API: expects `images` array
 
 const TripDetailPage = ({ trip, onBack }) => {
   if (!trip) return null;
@@ -16,17 +16,17 @@ const TripDetailPage = ({ trip, onBack }) => {
         Back to All Memories
       </button>
 
+      {/* Parent must be relative so the overlay (absolute) sits on top of the carousel */}
       <div className="relative overflow-hidden rounded-xl shadow-2xl mb-8">
-        {/* REPLACED <img> WITH Lazy Loading Carousel */}
+        {/* Pass images array and alt text (imgAlt) — spinner prop removed (shimmer used by component) */}
         <LazyImageCarousel
-          src={trip.coverImage}
-          alt={trip.title}
+          images={[trip.coverImage]}
+          imgAlt={() => trip.title}
           className="w-full h-80"
-          slideCount={3}
-          slideInterval={1200}
+          spinnerDelay={150} // optional: adjust shimmer delay (ms)
         />
 
-        {/* Top overlay remains same */}
+        {/* Overlay on top of the carousel */}
         <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
           <h1 className="text-5xl font-extrabold text-white mb-2">
             {trip.title}

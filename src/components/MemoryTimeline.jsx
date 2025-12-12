@@ -1,7 +1,102 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BookOpen } from "lucide-react";
 
-const MemoryTimeline = ({ details }) => {
+/**
+ * Lightweight LazyImage used for thumbnails inside MemoryTimeline.
+ * Props:
+ * - src: image url
+ * - alt: alt text
+ * - className: tailwind classes (should include width & height like "w-full h-40")
+ * - spinnerDelay: ms before showing shimmer (default 120)
+ * - fallbackSrc: fallback image url (optional)
+ */
+function LazyImage({
+  src,
+  alt = "",
+  className = "w-full h-40 object-cover",
+  spinnerDelay = 120,
+  fallbackSrc = "https://placehold.co/300x300/1E293B/94A3B8?text=Photo",
+}) {
+  const [loaded, setLoaded] = useState(false);
+  const [showShimmer, setShowShimmer] = useState(false);
+  const [errored, setErrored] = useState(false);
+  const imgRef = useRef(null);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    setLoaded(false);
+    setShowShimmer(false);
+    setErrored(false);
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+
+    const imgEl = imgRef.current;
+    if (imgEl && imgEl.complete && imgEl.naturalWidth !== 0) {
+      setLoaded(true);
+      return;
+    }
+
+    // show shimmer only after small delay to avoid flicker for very fast loads
+    timerRef.current = setTimeout(() => setShowShimmer(true), spinnerDelay);
+
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+  }, [src, spinnerDelay]);
+
+  function handleLoad() {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    setLoaded(true);
+    setShowShimmer(false);
+    setErrored(false);
+  }
+
+  function handleError() {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    setErrored(true);
+    setLoaded(true); // hide shimmer
+    setShowShimmer(false);
+  }
+
+  const displaySrc = errored ? fallbackSrc : src;
+
+  return (
+    <div className={`relative overflow-hidden rounded-lg ${className}`}>
+      {/* shimmer */}
+      {showShimmer && !loaded && (
+        <div className="absolute inset-0 bg-gray-300 overflow-hidden">
+          <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+        </div>
+      )}
+
+      <img
+        ref={imgRef}
+        src={displaySrc}
+        alt={alt}
+        loading="lazy"
+        onLoad={handleLoad}
+        onError={handleError}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ position: "absolute" }}
+      />
+    </div>
+  );
+}
+
+const MemoryTimeline = ({ details = [] }) => {
   return (
     <div className="relative border-l-2 border-cyan-700/50 ml-3 md:ml-5 pl-6 md:pl-8 mt-6">
       {details.map((item, index) => {
@@ -34,20 +129,20 @@ const MemoryTimeline = ({ details }) => {
                   {item.description}
                 </p>
 
-                {/* 📸 Images Section */}
+                {/* 📸 Images Section -> replaced with LazyImage */}
                 {item.images && item.images.length > 0 && (
                   <div className="mt-3 md:mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {item.images.map((imgSrc, imgIndex) => (
-                      <img
+                      <LazyImage
                         key={imgIndex}
                         src={imgSrc}
                         alt={`Trip moment ${imgIndex + 1}`}
-                        className="rounded-lg object-cover w-full h-40 sm:h-48 shadow-inner"
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src =
-                            "https://placehold.co/300x300/1E293B/94A3B8?text=Photo";
-                        }}
+                        // supply tailwind classes to size each thumbnail
+                        className="w-full h-40 sm:h-48"
+                        // optional: change spinner delay for thumbnails
+                        spinnerDelay={100}
+                        // optional fallback - keeps same as before
+                        fallbackSrc="https://placehold.co/300x300/1E293B/94A3B8?text=Photo"
                       />
                     ))}
                   </div>
