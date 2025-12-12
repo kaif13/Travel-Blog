@@ -44,7 +44,7 @@ const AboutMePage = ({ onBack }) => {
           </h2>
           <div className="flex items-center gap-4 mt-2">
             <a
-              href="https://github.com/username"
+              href="https://github.com/kaif13"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition"
@@ -52,7 +52,7 @@ const AboutMePage = ({ onBack }) => {
               <Github size={28} />
             </a>
             <a
-              href="https://linkedin.com/in/username"
+              href="https://www.linkedin.com/in/mohammadkaif1311/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition"
@@ -60,7 +60,7 @@ const AboutMePage = ({ onBack }) => {
               <Linkedin size={28} />
             </a>
             <a
-              href="https://instagram.com/username"
+              href="https://www.instagram.com/__mohammad_kaif/?hl=en"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition"
@@ -68,7 +68,7 @@ const AboutMePage = ({ onBack }) => {
               <Instagram size={28} />
             </a>
             <a
-              href="mailto:kaif@example.com"
+              href="mailto:mohammaddkaif0602@gmail.com"
               className="hover:text-white transition"
             >
               <Mail size={28} />
