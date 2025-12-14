@@ -2,78 +2,50 @@ import React, { useEffect, useRef, useState } from "react";
 import { BookOpen } from "lucide-react";
 
 /**
- * Lightweight LazyImage used for thumbnails inside MemoryTimeline.
- * Props:
- * - src: image url
- * - alt: alt text
- * - className: tailwind classes (should include width & height like "w-full h-40")
- * - spinnerDelay: ms before showing shimmer (default 120)
- * - fallbackSrc: fallback image url (optional)
+ * Optimized LazyImage — FAST version
+ * ✔ Instantly shows image if it loads fast
+ * ✔ Shows shimmer ONLY if image takes >150ms
+ * ✔ Smooth fade-in
  */
 function LazyImage({
   src,
   alt = "",
   className = "w-full h-40 object-cover",
-  spinnerDelay = 120,
   fallbackSrc = "https://placehold.co/300x300/1E293B/94A3B8?text=Photo",
 }) {
   const [loaded, setLoaded] = useState(false);
   const [showShimmer, setShowShimmer] = useState(false);
   const [errored, setErrored] = useState(false);
-  const imgRef = useRef(null);
-  const timerRef = useRef(null);
 
   useEffect(() => {
     setLoaded(false);
     setShowShimmer(false);
     setErrored(false);
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
 
-    const imgEl = imgRef.current;
-    if (imgEl && imgEl.complete && imgEl.naturalWidth !== 0) {
-      setLoaded(true);
-      return;
-    }
+    // Show shimmer only for slow loads
+    const t = setTimeout(() => {
+      if (!loaded) setShowShimmer(true);
+    }, 150);
 
-    // show shimmer only after small delay to avoid flicker for very fast loads
-    timerRef.current = setTimeout(() => setShowShimmer(true), spinnerDelay);
+    return () => clearTimeout(t);
+  }, [src]);
 
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, [src, spinnerDelay]);
-
-  function handleLoad() {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
+  const handleLoad = () => {
     setLoaded(true);
     setShowShimmer(false);
-    setErrored(false);
-  }
+  };
 
-  function handleError() {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
+  const handleError = () => {
     setErrored(true);
-    setLoaded(true); // hide shimmer
+    setLoaded(true);
     setShowShimmer(false);
-  }
+  };
 
-  const displaySrc = errored ? fallbackSrc : src;
+  const finalSrc = errored ? fallbackSrc : src;
 
   return (
     <div className={`relative overflow-hidden rounded-lg ${className}`}>
-      {/* shimmer */}
+      {/* Shimmer only if slow */}
       {showShimmer && !loaded && (
         <div className="absolute inset-0 bg-gray-300 overflow-hidden">
           <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent" />
@@ -81,16 +53,14 @@ function LazyImage({
       )}
 
       <img
-        ref={imgRef}
-        src={displaySrc}
+        src={finalSrc}
         alt={alt}
         loading="lazy"
         onLoad={handleLoad}
         onError={handleError}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
-        style={{ position: "absolute" }}
       />
     </div>
   );
@@ -115,6 +85,7 @@ const MemoryTimeline = ({ details = [] }) => {
 
         if (item.type === "memory") {
           const Icon = item.icon || BookOpen;
+
           return (
             <div key={index} className="mb-8 md:mb-10 relative">
               <div className="absolute -left-6 md:-left-8 transform -translate-x-1/2 bg-slate-900 border-4 border-cyan-500 rounded-full p-2 shadow-xl">
@@ -125,11 +96,12 @@ const MemoryTimeline = ({ details = [] }) => {
                 <p className="text-xs md:text-sm font-semibold text-gray-400 mb-1">
                   {item.time}
                 </p>
+
                 <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                   {item.description}
                 </p>
 
-                {/* 📸 Images Section -> replaced with LazyImage */}
+                {/* Images */}
                 {item.images && item.images.length > 0 && (
                   <div className="mt-3 md:mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {item.images.map((imgSrc, imgIndex) => (
@@ -137,18 +109,14 @@ const MemoryTimeline = ({ details = [] }) => {
                         key={imgIndex}
                         src={imgSrc}
                         alt={`Trip moment ${imgIndex + 1}`}
-                        // supply tailwind classes to size each thumbnail
                         className="w-full h-40 sm:h-48"
-                        // optional: change spinner delay for thumbnails
-                        spinnerDelay={100}
-                        // optional fallback - keeps same as before
                         fallbackSrc="https://placehold.co/300x300/1E293B/94A3B8?text=Photo"
                       />
                     ))}
                   </div>
                 )}
 
-                {/* 🎥 Videos Section - auto play + loop + muted */}
+                {/* Videos */}
                 {item.videos && item.videos.length > 0 && (
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
                     {item.videos.map((videoSrc, vidIndex) => (
