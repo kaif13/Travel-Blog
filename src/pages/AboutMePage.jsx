@@ -34,9 +34,9 @@ const AboutMePage = ({ onBack }) => {
 
           <h2 className="text-2xl font-bold text-cyan-200 mb-2">Contact Me</h2>
           <ul className="text-gray-300 mb-6 space-y-1">
-            <li>Email: kaif@example.com</li>
-            <li>Phone: +91 98765 43210</li>
-            <li>Location: Varanasi, India</li>
+            <li>Email: mohammaddkaif0602@gmail.com</li>
+            <li>Phone: +91 8112351108</li>
+            <li>Location: Ballia, India</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-cyan-200 mb-2">
