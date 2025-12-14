@@ -1,0 +1,11 @@
+# Allow Google to fetch sitemap normally
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+# SPA Redirect (React apps)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
