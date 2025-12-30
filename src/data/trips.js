@@ -244,6 +244,19 @@ export const MOCK_TRIPS = [
     status: "completed",
   },
   {
+    id: "rajgir-2025-trip",
+    title: "The Calm Hills of Rajgir",
+    date: "Coming Soon",
+    location: "Rajgir, Bihar, India",
+    quote:
+      "Among ancient hills and quiet paths, Rajgir whispers stories of peace and time.",
+    coverImage:
+      "https://images.unsplash.com/photo-1607920592516-6a4b1f1c4a9d?auto=format&fit=crop&q=80&w=1400",
+    details: [],
+    status: "upcoming",
+  },
+
+  {
     id: "kashmir-2025-winter",
     title: "Winter Magic of Kashmir",
     date: "Coming Soon",
