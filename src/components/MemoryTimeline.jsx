@@ -174,7 +174,7 @@ const MemoryTimeline = ({ details = [] }) => {
           return (
             <div key={index} className="mt-10 relative">
               {/* Closed book icon */}
-              <div className="absolute -left-6 md:-left-8 -translate-x-1/2 top-14 bg-slate-900 border-4 border-cyan-500 rounded-full p-2 shadow-xl">
+              <div className="absolute -left-6 md:-left-8 -translate-x-1/2 top-[7rem] sm:top-30 md:top-[5.5rem]  bg-slate-900 border-4 border-cyan-500 rounded-full p-2 shadow-xl">
                 <Book className="w-4 md:w-5 h-4 md:h-5 text-cyan-400" />
               </div>
 
