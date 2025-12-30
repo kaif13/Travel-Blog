@@ -86,10 +86,11 @@ import { Mountain } from "lucide-react";
 export const MOCK_TRIPS = [
   {
     id: "nainital-2023",
-    title: "The Serene Lakes of Nainital",
+    title: "The Lakes of Nainital",
     date: "May 2025",
     location: "Uttarakhand, India",
-    quote: "In the lap of the mountains, every breath tells a story.",
+    quote:
+      "Gentle lakes reflect quiet hills, where time slows and every moment feels peaceful and complete.",
     coverImage: NainitalCover,
     details: [
       { type: "day", day: 1, title: "Arrival & a Calm Evening at Naini Lake" },
@@ -251,14 +252,14 @@ export const MOCK_TRIPS = [
     quote:
       "Among ancient hills and quiet paths, Rajgir whispers stories of peace and time.",
     coverImage:
-      "https://images.unsplash.com/photo-1607920592516-6a4b1f1c4a9d?auto=format&fit=crop&q=80&w=1400",
+      "https://media.istockphoto.com/id/2175930297/photo/scattered-votive-stupas-at-number-3-temple-of-nalanda-university-archeological-ruins-site.webp?a=1&b=1&s=612x612&w=0&k=20&c=6p-sTXMbhxx0_3eDt1W9ka_iYaJ2L2Ocl8i1rpgZWIM=",
     details: [],
     status: "upcoming",
   },
 
   {
     id: "kashmir-2025-winter",
-    title: "Winter Magic of Kashmir",
+    title: "Frozen Kashmir",
     date: "Coming Soon",
     location: "Kashmir, India",
     quote:
