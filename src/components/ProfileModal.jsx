@@ -1,7 +1,8 @@
 import React from "react";
 import { X } from "lucide-react";
 
-import PROFILE_IMAGE_URL from "../assets/kaif.jpg";
+const PROFILE_IMAGE_URL =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/kaif_iaaei5.jpg";
 
 const ProfileModal = ({ onClose }) => (
   <div

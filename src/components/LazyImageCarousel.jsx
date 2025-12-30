@@ -127,7 +127,7 @@ export default function LazyImageCarousel({
         />
       </div>
 
-      {/* Controls (small) */}
+      {/* Controls (small)
       <button
         onClick={prev}
         aria-label="Previous"
@@ -141,7 +141,7 @@ export default function LazyImageCarousel({
         className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 rounded-full shadow hover:bg-white"
       >
         ›
-      </button>
+      </button> */}
 
       {/* Dots */}
       <div className="flex justify-center gap-2 mt-3">

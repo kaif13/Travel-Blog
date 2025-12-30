@@ -1,47 +1,86 @@
 // src/data/mockData.js
 // We keep all the static data here to keep our components clean.
 
-import NainitalCover from "../assets/Nainitaal-Bg.jpg";
-import Boating from "../assets/Boating.jpg";
-import KTV from "../assets/KTNV.mp4";
-import KTV1 from "../assets/KTNV1.mp4";
-import KTN from "../assets/KTN.jpg";
-import KTN1 from "../assets/KTN2.jpg";
-import KTN2 from "../assets/KTN3.jpg";
-import Nani1 from "../assets/Nani-LakeV-1.mp4";
-import Nani2 from "../assets/Nani-LakeV-2.mp4";
-import Lake1 from "../assets/nani1.jpg";
-import Lake2 from "../assets/nani2.jpg";
-import Lake3 from "../assets/nani3.jpg";
-import Lake4 from "../assets/nani4.jpg";
-import Lake5 from "../assets/nani5.jpg";
-// import Nainitaal from "../assets/Nainitaal.mp4";
-import Snow1 from "../assets/snow1.jpg";
-import Snow2 from "../assets/snow2.jpg";
-import Snow3 from "../assets/gandola.mp4";
-import Khurpataal from "../assets/Khurpataal.jpg";
-import Cave1 from "../assets/Cave3.jpg";
-import Cave2 from "../assets/Cave1.jpg";
-import Trek1 from "../assets/Trek1.mp4";
-import Trek2 from "../assets/Trek2.jpg";
-import Trek3 from "../assets/Trek3.jpg";
-import Trek4 from "../assets/Trek4.jpg";
-import Trek5 from "../assets/Trek5.jpg";
-import Trek6 from "../assets/Trek6.jpg";
-import Trek7 from "../assets/Trek7.mp4";
-import lover1 from "../assets/lover1.jpg";
-import lover2 from "../assets/lover2.jpg";
-import Mountain1 from "../assets/mountain.jpg";
+const NainitalCover =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075171/Nainitaal-Bg_fckfb8.avif";
+const Boating =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/w_800,dpr_auto,q_85,f_auto/v1767075159/Boating_ma1sdj.jpg";
+const KTV =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075169/KTNV_lmhwbd.mp4";
+const KTV1 =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075169/KTNV1_splhwa.mp4";
+const KTN =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075162/KTN_x2uwls.jpg";
+const KTN1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/KTN2_pkmocp.jpg";
+const KTN2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075169/KTN3_jqsrym.jpg";
+const Nani1 =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/Nani-LakeV-1_anmbjk.mp4";
+const Nani2 =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075158/Nani-LakeV-2_lrfdmu.mp4";
+const Lake1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075172/nani1_ppiu2t.jpg";
+const Lake2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075157/nani2_tvustw.jpg";
+const Lake3 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani3_io7udq.jpg";
+const Lake4 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani4_sskpv6.jpg";
+const Lake5 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani5_ekjdkn.jpg";
+// const Nainitaal from "../assets/Nainitaal.mp4";
+const Snow1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075160/snow1_lmqims.jpg";
+const Snow2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075161/snow2_gnofol.jpg";
+const Snow3 =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075198/gandola_i6nbvo.mp4";
+const Khurpataal =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075163/Khurpataal_rlfdgt.jpg";
+const Cave1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075161/Cave3_e4ew3p.jpg";
+const Cave2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075160/Cave1_wxksbd.jpg";
+const Trek1 =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075165/Trek1_fkrlh6.mp4";
+const Trek2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/Trek2_ibmvbp.jpg";
+const Trek3 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek3_ioymy8.jpg";
+const Trek4 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek4_m0vbam.jpg";
+const Trek5 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek5_yxd9ej.jpg";
+const Trek6 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075167/Trek6_zxaiug.jpg";
+const Trek7 =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075174/Trek7_sgj2q9.mp4";
+const lover1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075170/lover1_rqhlmu.jpg";
+const lover2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075170/lover2_n1ny5r.jpg";
+const Mountain1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075171/mountain_frbvon.jpg";
 
-import bhim1 from "../assets/bhim1.jpg";
-import bhim2 from "../assets/bhim2.jpg";
-import bhim3 from "../assets/bhim3.jpg";
-import bhalu1 from "../assets/bhalu1.jpg";
-import bhalu2 from "../assets/bhalu2.jpg";
-import bhalu3 from "../assets/bhalu3.jpg";
-import nauka from "../assets/naukuchiya.jpg";
-import maggie from "../assets/maggie.mp4";
-import sunset from "../assets/sunset.mp4";
+const bhim1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075157/bhim1_vlmofy.jpg";
+const bhim2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/bhim2_fetgnc.jpg";
+const bhim3 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/bhim3_wvlkob.jpg";
+const bhalu1 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu1_opsz9f.jpg";
+const bhalu2 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu2_n46vjm.jpg";
+const bhalu3 =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu3_zss3pd.jpg";
+const nauka =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/naukuchiya_jvhkcu.jpg";
+const maggie =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075171/maggie_ny2bt4.mp4";
+const sunset =
+  "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/sunset_ht6ntq.mp4";
 import { Mountain } from "lucide-react";
 
 export const MOCK_TRIPS = [
@@ -193,7 +232,12 @@ export const MOCK_TRIPS = [
         videos: [sunset],
       },
       {
-        type: "quote",
+        type: "partner",
+        label: "Travel Partner",
+        names: ["Iftakhar Ahmad Khan"],
+      },
+      {
+        type: "end",
         text: "Beneath the endless sky and over the winding roads… I found peace in every breath of the journey.",
       },
     ],

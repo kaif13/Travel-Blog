@@ -1,7 +1,8 @@
 // src/pages/AboutMePage.jsx
 import React from "react";
 import { Github, Linkedin, Instagram, Mail } from "lucide-react";
-import kaif from "../assets/kaif.jpg";
+const kaif =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/kaif_iaaei5.jpg";
 
 const AboutMePage = ({ onBack }) => {
   return (

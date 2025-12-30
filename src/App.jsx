@@ -88,8 +88,16 @@ const AppContent = () => {
         </Routes>
       </main>
 
-      <footer className="text-center mt-10 text-gray-500 text-sm">
-        <p>The Journey Blog | A Personal Travel Journal</p>
+      <footer className="mt-14 text-center text-gray-400 text-sm">
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="tracking-wide">
+            The Journey Blog · A Personal Travel Journal
+          </h1>
+          <p className="text-xs text-gray-500">
+            Crafted with memories by{" "}
+            <span className="text-cyan-400 font-medium">Mohammad Kaif</span>
+          </p>
+        </div>
       </footer>
     </div>
   );

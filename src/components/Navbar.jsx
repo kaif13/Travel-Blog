@@ -1,7 +1,8 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { Home as HomeIcon, Image as ImageIcon, User } from "lucide-react";
-import kaif from "../assets/kaif.jpg";
+const kaif =
+  "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/kaif_iaaei5.jpg";
 
 const Navbar = ({ onShowGallery, onShowHome, onProfileClick, onShowAbout }) => (
   <nav className="flex justify-between items-center mb-8 p-3 bg-slate-900/60 backdrop-blur-md rounded-lg border border-slate-700">
@@ -13,7 +14,7 @@ const Navbar = ({ onShowGallery, onShowHome, onProfileClick, onShowAbout }) => (
         onClick={onProfileClick}
       />
       <h1
-        className="text-lg sm:text-xl font-bold text-white cursor-pointer"
+        className="text-sm sm:text-lg md:text-xl font-bold text-white cursor-pointer"
         onClick={onShowHome}
       >
         Mohammad Kaif
