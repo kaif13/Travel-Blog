@@ -13,5 +13,5 @@
 [functions]
   node_bundler = "esbuild"
 
-[functions.update-trip]
+[functions.updateTrip]
   external_node_modules = ["@octokit/rest"]
