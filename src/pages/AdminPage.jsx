@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from "react";
+import { MOCK_TRIPS } from "../data/mockData";
 
 /* =========================================
-   LOCAL STORAGE
+   STORAGE
 ========================================= */
 const STORAGE_KEY = "TRAVEL_CMS_DATA";
 
-const getTrips = () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+const getTrips = () => {
+  const stored = localStorage.getItem(STORAGE_KEY);
+
+  if (stored) return JSON.parse(stored);
+
+  // FIRST TIME → load default trips
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(MOCK_TRIPS));
+  return MOCK_TRIPS;
+};
 
 const saveTrips = (data) =>
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
 /* =========================================
-   EMPTY TRIP TEMPLATE
+   EMPTY TRIP
 ========================================= */
 const emptyTrip = () => ({
   id: "",
@@ -25,7 +34,7 @@ const emptyTrip = () => ({
 });
 
 /* =========================================
-   TIMELINE ITEM EDITOR
+   TIMELINE ITEM
 ========================================= */
 function TimelineItem({ item, index, updateItem, removeItem }) {
   const update = (field, value) =>
@@ -109,15 +118,7 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
         </>
       )}
 
-      {item.type === "quote" && (
-        <textarea
-          className="input"
-          value={item.text || ""}
-          onChange={(e) => update("text", e.target.value)}
-        />
-      )}
-
-      {item.type === "end" && (
+      {(item.type === "quote" || item.type === "end") && (
         <textarea
           className="input"
           value={item.text || ""}
@@ -139,17 +140,13 @@ export default function AdminPage() {
     setTrips(getTrips());
   }, []);
 
-  /* LOAD EXISTING TRIP */
   const loadTrip = (id) => {
     const t = trips.find((tr) => tr.id === id);
-    if (!t) return alert("Trip not found");
     setTrip(JSON.parse(JSON.stringify(t)));
   };
 
-  /* NEW TRIP */
   const newTrip = () => setTrip(emptyTrip());
 
-  /* DELETE TRIP */
   const deleteTrip = (id) => {
     const updated = trips.filter((t) => t.id !== id);
     setTrips(updated);
@@ -157,7 +154,6 @@ export default function AdminPage() {
     setTrip(emptyTrip());
   };
 
-  /* SAVE OR UPDATE */
   const saveTrip = () => {
     if (!trip.id) return alert("Trip ID required");
 
@@ -167,10 +163,10 @@ export default function AdminPage() {
     setTrips(updated);
     saveTrips(updated);
 
-    alert("Trip saved");
+    alert("Trip saved successfully");
+    setTrip(emptyTrip()); // reset form
   };
 
-  /* TIMELINE */
   const updateDetail = (i, val) => {
     const arr = [...trip.details];
     arr[i] = val;
@@ -189,11 +185,8 @@ export default function AdminPage() {
       details: [...trip.details, { type: "memory", images: [], videos: [] }],
     });
 
-  /* ========================================= */
-
   return (
     <div className="flex h-screen bg-slate-900 text-white">
-      {/* SIDEBAR */}
       <div className="w-64 border-r border-slate-700 p-4 space-y-3">
         <button onClick={newTrip} className="btn-primary w-full">
           + New Trip
@@ -207,7 +200,6 @@ export default function AdminPage() {
             <span className="cursor-pointer" onClick={() => loadTrip(t.id)}>
               {t.title || t.id}
             </span>
-
             <button onClick={() => deleteTrip(t.id)} className="text-red-400">
               X
             </button>
@@ -215,7 +207,6 @@ export default function AdminPage() {
         ))}
       </div>
 
-      {/* EDITOR */}
       <div className="flex-1 p-6 overflow-y-auto space-y-4">
         <input
           className="input"
