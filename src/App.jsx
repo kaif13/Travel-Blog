@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import GalleryPage from "./pages/GalleryPage";
 import TripDetailPage from "./pages/TripDetailPage";
 import AboutMePage from "./pages/AboutMePage";
+import AdminPage from "./pages/AdminPage";
 
 import { MOCK_TRIPS } from "./data/trips";
 
@@ -85,6 +86,7 @@ const AppContent = () => {
             path="/about"
             element={<AboutMePage onBack={handleBackToHome} />}
           />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </main>
 
