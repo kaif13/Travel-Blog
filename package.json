@@ -8,12 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-   "generate-sitemap": "node sitemap-generator.js",
-  "start": "react-scripts start"
-  
-
+    "generate-sitemap": "node sitemap-generator.js",
+    "start": "react-scripts start"
   },
   "dependencies": {
+    "@octokit/rest": "^22.0.1",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.546.0",
     "react": "^19.1.0",
