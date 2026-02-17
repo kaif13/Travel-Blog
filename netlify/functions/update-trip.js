@@ -1,7 +1,7 @@
-const { Octokit } = require("@octokit/rest");
-
 exports.handler = async (event) => {
   try {
+    const { Octokit } = await import("@octokit/rest");
+
     const { tripId, details } = JSON.parse(event.body);
 
     const octokit = new Octokit({
@@ -12,7 +12,7 @@ exports.handler = async (event) => {
     const repo = "Travel-Blog";
     const path = "src/data/mockData.js";
 
-    // 1️⃣ Get existing file
+    // get file
     const file = await octokit.repos.getContent({
       owner,
       repo,
@@ -21,38 +21,27 @@ exports.handler = async (event) => {
 
     const content = Buffer.from(file.data.content, "base64").toString();
 
-    // 2️⃣ Extract array from JS file
-    const arrayMatch = content.match(
-      /export const MOCK_TRIPS = (\[[\s\S]*?\]);/,
-    );
+    const match = content.match(/export const MOCK_TRIPS = (\[[\s\S]*?\]);/);
 
-    if (!arrayMatch) {
-      throw new Error("MOCK_TRIPS not found");
-    }
+    if (!match) throw new Error("MOCK_TRIPS not found");
 
-    const trips = eval(arrayMatch[1]);
+    const trips = eval(match[1]);
 
-    // 3️⃣ Update correct trip
     const index = trips.findIndex((t) => t.id === tripId);
-
-    if (index === -1) {
-      throw new Error("Trip not found");
-    }
+    if (index === -1) throw new Error("Trip not found");
 
     trips[index].details = details;
 
-    // 4️⃣ Replace array in file
     const updatedFile = content.replace(
       /export const MOCK_TRIPS = (\[[\s\S]*?\]);/,
       "export const MOCK_TRIPS = " + JSON.stringify(trips, null, 2) + ";",
     );
 
-    // 5️⃣ Commit update
     await octokit.repos.createOrUpdateFileContents({
       owner,
       repo,
       path,
-      message: "Update trip details",
+      message: "Update trip",
       content: Buffer.from(updatedFile).toString("base64"),
       sha: file.data.sha,
     });
