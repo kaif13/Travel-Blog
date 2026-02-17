@@ -1,3 +1,12 @@
+if (!event.body) {
+  return {
+    statusCode: 400,
+    body: "No data received",
+  };
+}
+
+const { tripId, details } = JSON.parse(event.body);
+
 exports.handler = async (event) => {
   try {
     const { Octokit } = await import("@octokit/rest");

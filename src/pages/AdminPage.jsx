@@ -23,6 +23,9 @@ export default function AdminPage() {
 
       await fetch("/.netlify/functions/update-trip", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           tripId: selectedTrip,
           details: parsed,
