@@ -81,7 +81,7 @@
 //   "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075171/maggie_ny2bt4.mp4";
 // const sunset =
 //   "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/sunset_ht6ntq.mp4";
-import { Mountain } from "lucide-react";
+// import { Mountain } from "lucide-react";
 
 export const MOCK_TRIPS = [
   // {
@@ -458,7 +458,7 @@ export const MOCK_TRIPS = [
 
 export const GALLERY_IMAGES = [
   {
-    image: [Lake4],
+    image: [],
     caption: "Nainital Lake, Oct 2023",
   },
   {
