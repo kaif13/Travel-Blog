@@ -21,7 +21,7 @@ export default function AdminPage() {
     try {
       const parsed = JSON.parse(jsonText);
 
-      await fetch("/.netlify/functions/update-trip", {
+      await fetch("/.netlify/functions/updateTrip", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
