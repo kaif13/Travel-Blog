@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MOCK_TRIPS } from "../data/mockData";
+import { MOCK_TRIPS } from "../data/trips";
 
 /* =========================================
    STORAGE
