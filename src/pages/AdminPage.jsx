@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { MOCK_TRIPS } from "../data/trips";
+import React, { useEffect, useState } from "react";
 
-/* =========================================
-   STORAGE
-========================================= */
-const STORAGE_KEY = "TRAVEL_CMS_DATA";
+/* ==============================
+   CONFIG
+============================== */
 
-const getTrips = () => {
-  const stored = localStorage.getItem(STORAGE_KEY);
+const GITHUB_RAW =
+  "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/mockData.js";
 
-  if (stored) return JSON.parse(stored);
+const API = "/.netlify/functions/updateTrip";
 
-  // FIRST TIME → load default trips
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(MOCK_TRIPS));
-  return MOCK_TRIPS;
-};
+/* ==============================
+   HELPERS
+============================== */
 
-const saveTrips = (data) =>
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-
-/* =========================================
-   EMPTY TRIP
-========================================= */
 const emptyTrip = () => ({
   id: "",
   title: "",
@@ -33,46 +24,63 @@ const emptyTrip = () => ({
   details: [],
 });
 
-/* =========================================
-   TIMELINE ITEM
-========================================= */
-function TimelineItem({ item, index, updateItem, removeItem }) {
-  const update = (field, value) =>
-    updateItem(index, { ...item, [field]: value });
+const extractTrips = (text) => {
+  const match = text.match(/export const MOCK_TRIPS = (\[[\s\S]*?\]);/);
+  if (!match) return [];
+  return JSON.parse(match[1]);
+};
 
-  const updateArray = (field, i, value) => {
+/* ==============================
+   TIMELINE EDITOR
+============================== */
+
+function TimelineItem({ item, index, update, remove }) {
+  const change = (field, val) => update(index, { ...item, [field]: val });
+
+  const updateArr = (field, i, val) => {
     const arr = [...(item[field] || [])];
-    arr[i] = value;
-    update(field, arr);
+    arr[i] = val;
+    change(field, arr);
   };
 
-  const addArray = (field) => update(field, [...(item[field] || []), ""]);
+  const addArr = (field) => change(field, [...(item[field] || []), ""]);
 
-  const removeArray = (field, i) => {
+  const removeArr = (field, i) => {
     const arr = [...(item[field] || [])];
     arr.splice(i, 1);
-    update(field, arr);
+    change(field, arr);
   };
 
   return (
-    <div className="bg-slate-800 border border-slate-700 p-4 rounded space-y-3">
-      <div className="flex justify-between">
-        <select
-          className="input"
-          value={item.type}
-          onChange={(e) => update("type", e.target.value)}
-        >
-          <option value="day">Day</option>
-          <option value="memory">Memory</option>
-          <option value="quote">Quote</option>
-          <option value="partner">Partner</option>
-          <option value="end">End</option>
-        </select>
+    <div className="bg-slate-800 p-4 rounded space-y-3">
+      <select
+        className="input"
+        value={item.type}
+        onChange={(e) => change("type", e.target.value)}
+      >
+        <option value="day">Day</option>
+        <option value="memory">Memory</option>
+        <option value="quote">Quote</option>
+        <option value="partner">Partner</option>
+        <option value="end">End</option>
+      </select>
 
-        <button onClick={() => removeItem(index)} className="text-red-400">
-          Delete
-        </button>
-      </div>
+      {item.type === "day" && (
+        <>
+          <input
+            className="input"
+            placeholder="Day"
+            value={item.day || ""}
+            onChange={(e) => change("day", e.target.value)}
+          />
+          <input
+            className="input"
+            placeholder="Title"
+            value={item.title || ""}
+            onChange={(e) => change("title", e.target.value)}
+          />
+        </>
+      )}
 
       {item.type === "memory" && (
         <>
@@ -80,14 +88,14 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
             className="input"
             placeholder="Time"
             value={item.time || ""}
-            onChange={(e) => update("time", e.target.value)}
+            onChange={(e) => change("time", e.target.value)}
           />
 
           <textarea
             className="input"
             placeholder="Description"
             value={item.description || ""}
-            onChange={(e) => update("description", e.target.value)}
+            onChange={(e) => change("description", e.target.value)}
           />
 
           <p className="text-cyan-400">Images</p>
@@ -96,25 +104,25 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
               <input
                 className="input"
                 value={img}
-                onChange={(e) => updateArray("images", i, e.target.value)}
+                onChange={(e) => updateArr("images", i, e.target.value)}
               />
-              <button onClick={() => removeArray("images", i)}>X</button>
+              <button onClick={() => removeArr("images", i)}>X</button>
             </div>
           ))}
-          <button onClick={() => addArray("images")}>Add Image</button>
+          <button onClick={() => addArr("images")}>Add Image</button>
 
           <p className="text-cyan-400">Videos</p>
-          {(item.videos || []).map((vid, i) => (
+          {(item.videos || []).map((v, i) => (
             <div key={i} className="flex gap-2">
               <input
                 className="input"
-                value={vid}
-                onChange={(e) => updateArray("videos", i, e.target.value)}
+                value={v}
+                onChange={(e) => updateArr("videos", i, e.target.value)}
               />
-              <button onClick={() => removeArray("videos", i)}>X</button>
+              <button onClick={() => removeArr("videos", i)}>X</button>
             </div>
           ))}
-          <button onClick={() => addArray("videos")}>Add Video</button>
+          <button onClick={() => addArr("videos")}>Add Video</button>
         </>
       )}
 
@@ -122,49 +130,81 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
         <textarea
           className="input"
           value={item.text || ""}
-          onChange={(e) => update("text", e.target.value)}
+          onChange={(e) => change("text", e.target.value)}
         />
       )}
+
+      {item.type === "partner" && (
+        <textarea
+          className="input"
+          placeholder="Names comma separated"
+          value={(item.names || []).join(",")}
+          onChange={(e) =>
+            change(
+              "names",
+              e.target.value.split(",").map((n) => n.trim()),
+            )
+          }
+        />
+      )}
+
+      <button onClick={() => remove(index)} className="text-red-400">
+        Delete Item
+      </button>
     </div>
   );
 }
 
-/* =========================================
+/* ==============================
    ADMIN PAGE
-========================================= */
+============================== */
+
 export default function AdminPage() {
   const [trips, setTrips] = useState([]);
   const [trip, setTrip] = useState(emptyTrip());
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
+  /* LOAD FROM GITHUB */
   useEffect(() => {
-    setTrips(getTrips());
+    const load = async () => {
+      const res = await fetch(GITHUB_RAW + "?t=" + Date.now());
+      const text = await res.text();
+      setTrips(extractTrips(text));
+      setLoading(false);
+    };
+    load();
   }, []);
 
   const loadTrip = (id) => {
-    const t = trips.find((tr) => tr.id === id);
+    const t = trips.find((x) => x.id === id);
     setTrip(JSON.parse(JSON.stringify(t)));
   };
 
   const newTrip = () => setTrip(emptyTrip());
 
-  const deleteTrip = (id) => {
-    const updated = trips.filter((t) => t.id !== id);
-    setTrips(updated);
-    saveTrips(updated);
-    setTrip(emptyTrip());
-  };
-
-  const saveTrip = () => {
+  const saveTrip = async () => {
     if (!trip.id) return alert("Trip ID required");
 
-    const updated = trips.filter((t) => t.id !== trip.id);
-    updated.push(trip);
+    setSaving(true);
 
-    setTrips(updated);
-    saveTrips(updated);
+    try {
+      const res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(trip),
+      });
 
-    alert("Trip saved successfully");
-    setTrip(emptyTrip()); // reset form
+      const text = await res.text();
+
+      if (!res.ok) throw new Error(text);
+
+      alert("Saved. Netlify deploying...");
+    } catch (err) {
+      alert("Save failed: " + err.message);
+    }
+
+    setSaving(false);
   };
 
   const updateDetail = (i, val) => {
@@ -173,7 +213,7 @@ export default function AdminPage() {
     setTrip({ ...trip, details: arr });
   };
 
-  const deleteDetail = (i) => {
+  const removeDetail = (i) => {
     const arr = [...trip.details];
     arr.splice(i, 1);
     setTrip({ ...trip, details: arr });
@@ -185,32 +225,28 @@ export default function AdminPage() {
       details: [...trip.details, { type: "memory", images: [], videos: [] }],
     });
 
+  if (loading) return <div className="p-10">Loading trips...</div>;
+
   return (
     <div className="flex h-screen bg-slate-900 text-white">
+      {/* SIDEBAR */}
       <div className="w-64 border-r border-slate-700 p-4 space-y-3">
         <button onClick={newTrip} className="btn-primary w-full">
           + New Trip
         </button>
 
         {trips.map((t) => (
-          <div
-            key={t.id}
-            className="flex justify-between bg-slate-800 p-2 rounded"
-          >
-            <span className="cursor-pointer" onClick={() => loadTrip(t.id)}>
-              {t.title || t.id}
-            </span>
-            <button onClick={() => deleteTrip(t.id)} className="text-red-400">
-              X
-            </button>
+          <div key={t.id} className="bg-slate-800 p-2 rounded">
+            <button onClick={() => loadTrip(t.id)}>{t.title || t.id}</button>
           </div>
         ))}
       </div>
 
+      {/* EDITOR */}
       <div className="flex-1 p-6 overflow-y-auto space-y-4">
         <input
           className="input"
-          placeholder="Trip ID"
+          placeholder="ID"
           value={trip.id}
           onChange={(e) => setTrip({ ...trip, id: e.target.value })}
         />
@@ -245,7 +281,7 @@ export default function AdminPage() {
 
         <input
           className="input"
-          placeholder="Cover Image URL"
+          placeholder="Cover image URL"
           value={trip.coverImage}
           onChange={(e) => setTrip({ ...trip, coverImage: e.target.value })}
         />
@@ -266,8 +302,8 @@ export default function AdminPage() {
             key={i}
             item={d}
             index={i}
-            updateItem={updateDetail}
-            removeItem={deleteDetail}
+            update={updateDetail}
+            remove={removeDetail}
           />
         ))}
 
@@ -275,8 +311,12 @@ export default function AdminPage() {
           Add Timeline Item
         </button>
 
-        <button onClick={saveTrip} className="btn-primary w-full">
-          Save Trip
+        <button
+          onClick={saveTrip}
+          disabled={saving}
+          className="btn-primary w-full"
+        >
+          {saving ? "Saving..." : "Save Trip"}
         </button>
       </div>
     </div>
