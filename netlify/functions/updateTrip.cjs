@@ -17,7 +17,7 @@ exports.handler = async (event) => {
 
     const owner = "kaif13";
     const repo = "Travel-Blog";
-    const path = "src/data/mockData.js";
+    const path = "src/data/trips.js";
 
     // get file from github
     const file = await octokit.repos.getContent({
