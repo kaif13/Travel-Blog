@@ -1,15 +1,12 @@
 exports.handler = async (event) => {
   try {
     if (!event.body) {
-      return {
-        statusCode: 400,
-        body: "No request body",
-      };
+      return { statusCode: 400, body: "No request body" };
     }
 
     const { Octokit } = await import("@octokit/rest");
 
-    const { tripId, details } = JSON.parse(event.body);
+    const newTrip = JSON.parse(event.body);
 
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
@@ -17,9 +14,11 @@ exports.handler = async (event) => {
 
     const owner = "kaif13";
     const repo = "Travel-Blog";
+
+    // ⚠ MUST MATCH YOUR WEBSITE IMPORT FILE
     const path = "src/data/trips.js";
 
-    // get file from github
+    // get file
     const file = await octokit.repos.getContent({
       owner,
       repo,
@@ -28,43 +27,42 @@ exports.handler = async (event) => {
 
     const content = Buffer.from(file.data.content, "base64").toString();
 
-    // extract array
     const match = content.match(/export const MOCK_TRIPS = (\[[\s\S]*?\]);/);
 
     if (!match) {
-      throw new Error("MOCK_TRIPS not found in file");
+      throw new Error("MOCK_TRIPS array not found");
     }
 
-    const trips = eval(match[1]);
+    const trips = JSON.parse(match[1]);
 
-    // find trip
-    const index = trips.findIndex((t) => t.id === tripId);
+    // check if exists
+    const index = trips.findIndex((t) => t.id === newTrip.id);
+
     if (index === -1) {
-      throw new Error("Trip not found: " + tripId);
+      // ADD NEW TRIP
+      trips.push(newTrip);
+    } else {
+      // UPDATE EXISTING
+      trips[index] = newTrip;
     }
 
-    // update details
-    trips[index].details = details;
-
-    // rebuild file
     const updatedFile = content.replace(
       /export const MOCK_TRIPS = (\[[\s\S]*?\]);/,
       "export const MOCK_TRIPS = " + JSON.stringify(trips, null, 2) + ";",
     );
 
-    // commit update
     await octokit.repos.createOrUpdateFileContents({
       owner,
       repo,
       path,
-      message: "Update trip " + tripId,
+      message: `Update trip ${newTrip.id}`,
       content: Buffer.from(updatedFile).toString("base64"),
       sha: file.data.sha,
     });
 
     return {
       statusCode: 200,
-      body: "Trip updated successfully",
+      body: "Trip saved successfully",
     };
   } catch (err) {
     console.error(err);
