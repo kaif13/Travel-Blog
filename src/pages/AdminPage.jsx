@@ -199,14 +199,21 @@ export default function AdminPage() {
 
       if (!res.ok) throw new Error(text);
 
-      alert("Saved. Netlify deploying...");
+      alert("Saved successfully ✅");
+
+      /* ⭐ IMPORTANT — reload trips */
+      const reload = await fetch(GITHUB_RAW + "?t=" + Date.now());
+      const fileText = await reload.text();
+      const updatedTrips = extractTrips(fileText);
+
+      setTrips(updatedTrips); // refresh sidebar
+      setTrip(emptyTrip()); // clear form (optional)
     } catch (err) {
       alert("Save failed: " + err.message);
     }
 
     setSaving(false);
   };
-
   const updateDetail = (i, val) => {
     const arr = [...trip.details];
     arr[i] = val;
