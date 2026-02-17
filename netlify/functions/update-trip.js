@@ -1,35 +1,70 @@
 const { Octokit } = require("@octokit/rest");
 
 exports.handler = async (event) => {
-  const { tripName, content } = JSON.parse(event.body);
+  try {
+    const { tripId, details } = JSON.parse(event.body);
 
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
-  });
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_TOKEN,
+    });
 
-  const owner = "kaif13";
-  const repo = "Travel-Blog";
-  const path = "src/data/trips.js";
+    const owner = "kaif13";
+    const repo = "Travel-Blog";
+    const path = "src/data/mockData.js";
 
-  const file = await octokit.repos.getContent({ owner, repo, path });
+    // 1️⃣ Get existing file
+    const file = await octokit.repos.getContent({
+      owner,
+      repo,
+      path,
+    });
 
-  const text = Buffer.from(file.data.content, "base64").toString();
+    const content = Buffer.from(file.data.content, "base64").toString();
 
-  const updatedTrips = eval(text.replace("export const trips =", ""));
+    // 2️⃣ Extract array from JS file
+    const arrayMatch = content.match(
+      /export const MOCK_TRIPS = (\[[\s\S]*?\]);/,
+    );
 
-  updatedTrips[tripName] = content;
+    if (!arrayMatch) {
+      throw new Error("MOCK_TRIPS not found");
+    }
 
-  const newFile =
-    "export const trips = " + JSON.stringify(updatedTrips, null, 2);
+    const trips = eval(arrayMatch[1]);
 
-  await octokit.repos.createOrUpdateFileContents({
-    owner,
-    repo,
-    path,
-    message: "Update trip",
-    content: Buffer.from(newFile).toString("base64"),
-    sha: file.data.sha,
-  });
+    // 3️⃣ Update correct trip
+    const index = trips.findIndex((t) => t.id === tripId);
 
-  return { statusCode: 200 };
+    if (index === -1) {
+      throw new Error("Trip not found");
+    }
+
+    trips[index].details = details;
+
+    // 4️⃣ Replace array in file
+    const updatedFile = content.replace(
+      /export const MOCK_TRIPS = (\[[\s\S]*?\]);/,
+      "export const MOCK_TRIPS = " + JSON.stringify(trips, null, 2) + ";",
+    );
+
+    // 5️⃣ Commit update
+    await octokit.repos.createOrUpdateFileContents({
+      owner,
+      repo,
+      path,
+      message: "Update trip details",
+      content: Buffer.from(updatedFile).toString("base64"),
+      sha: file.data.sha,
+    });
+
+    return {
+      statusCode: 200,
+      body: "Trip updated successfully",
+    };
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: err.message,
+    };
+  }
 };
