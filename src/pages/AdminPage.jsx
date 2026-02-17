@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 ============================== */
 
 const GITHUB_RAW =
-  "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/mockData.js";
+  "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips.js";
 
 const API = "/.netlify/functions/updateTrip";
 
