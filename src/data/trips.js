@@ -282,6 +282,16 @@ export const MOCK_TRIPS = [
     "coverImage": "https://placehold.co/600x400/475569/FFFFFF?text=Upcoming",
     "details": [],
     "status": "upcoming"
+  },
+  {
+    "id": "ffgbfgn",
+    "title": "ghnfhnfnf",
+    "location": "fhndfhn",
+    "date": "fhnfghn",
+    "quote": "fhbdfhndc",
+    "coverImage": "nfgnfd",
+    "status": "upcoming",
+    "details": []
   }
 ];
 
