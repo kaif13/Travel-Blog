@@ -141,5 +141,143 @@
     "coverImage": "dfbdfb",
     "status": "upcoming",
     "details": []
+  },
+  {
+    "id": "__replace_all__",
+    "data": [
+      {
+        "id": "rajgir-2026-trip",
+        "title": "The Calm Hills of Rajgir",
+        "date": "January 2026",
+        "location": "Rajgir, Bihar, India",
+        "quote": "Among ancient hills and quiet paths, Rajgir whispers stories of peace and time.",
+        "coverImage": "https://media.istockphoto.com/id/2175930297/photo/scattered-votive-stupas-at-number-3-temple-of-nalanda-university-archeological-ruins-site.webp?a=1&b=1&s=612x612&w=0&k=20&c=6p-sTXMbhxx0_3eDt1W9ka_iYaJ2L2Ocl8i1rpgZWIM=",
+        "details": [
+          {
+            "type": "day",
+            "day": 1,
+            "title": "A Midnight Arrival Through Silent Hills and Hidden Paths"
+          },
+          {
+            "type": "memory",
+            "time": "10:00 PM",
+            "description": "Booked a current ticket and started the journey from Mughalsarai to Rajgir without any fixed plan."
+          },
+          {
+            "type": "memory",
+            "time": "02:30 AM – 05:00 AM",
+            "description": "Reached Rajgir station late at night to a town that was silent and cold. Walked through empty streets searching for a hotel but found none, so we waited quietly for morning, watching the night fade into dawn. Finally found a hotel early in the morning, checked in, and went straight to sleep.",
+            "videos": [
+              "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769150550/WhatsApp_Video_2026-01-23_at_12.11.56_PM_t07sym.mp4"
+            ]
+          },
+          {
+            "type": "memory",
+            "time": "08:30 AM",
+            "description": "Woke up fresh, had breakfast, and got ready to explore Rajgir."
+          },
+          {
+            "type": "memory",
+            "time": "10:00 AM",
+            "description": "Visited Shanti Stupa and reached the top by cable car. The ride was thrilling and the view felt unreal.",
+            "images": [
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769080247/Rajgir_-_046_Side_View__289242059259_29_bnppbf.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079325/IMG_20260103_112436080_HDR_c0bvpj.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_165012583_HDR_r5cunu.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_112813135_HDR_fibf5p.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079332/IMG_20260103_120521072_HDR_x3yz3l.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079332/IMG_20260103_114220261_kuw1in.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_123358170_wi0tat.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_123546643_HDR_ccoal2.jpg"
+            ],
+            "videos": [
+              "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149597/WhatsApp_Video_2026-01-23_at_11.55.33_stllmy.mp4"
+            ]
+          },
+          {
+            "type": "memory",
+            "time": "01:30 PM",
+            "description": "Returned back and headed towards Ghora Katora. While walking together, discovered a new lake that was incredibly beautiful and peaceful.",
+            "images": [
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_134711937_htjk0p.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_142156430_HDR_lrijru.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_165012583_HDR_r5cunu.jpg"
+            ],
+            "videos": [
+              "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147692/WhatsApp_Video_2026-01-22_at_4.49.52_PM_s4kwsh.mp4"
+            ]
+          },
+          {
+            "type": "memory",
+            "time": "03:30 PM",
+            "description": "Started another trek nearby. The path was empty — only us, surrounded by hills and silence.",
+            "images": [
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079326/IMG_20260103_161419422_HDR_i892r2.jpg",
+              "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079333/IMG_20260103_115940350_HDR_wbs8kt.jpg"
+            ],
+            "videos": [
+              "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147695/WhatsApp_Video_2026-01-22_at_4.49.37_PM_tsfqkv.mp4"
+            ]
+          },
+          {
+            "type": "memory",
+            "time": "05:30 PM",
+            "description": "As evening approached, fear started to set in. The trek felt risky, so we decided to cancel it and return safely.",
+            "videos": [
+              "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147693/WhatsApp_Video_2026-01-22_at_4.49.39_PM_kp84a5.mp4"
+            ]
+          },
+          {
+            "type": "memory",
+            "time": "07:00 PM",
+            "description": "Came back to the room, rested, and let the tiredness settle in after a long adventurous day."
+          },
+          {
+            "type": "day",
+            "day": 2,
+            "title": "Wildlife, Missed Treks & A Delayed Goodbye"
+          },
+          {
+            "type": "memory",
+            "time": "09:00 AM",
+            "description": "Woke up in the morning, checked out of the hotel while keeping all our luggage safely there, had breakfast nearby, and got ready for the final day of exploration."
+          },
+          {
+            "type": "partner",
+            "label": "Travel Partners",
+            "names": [
+              "Gulam Hussain",
+              "Sajid Akhtar",
+              "Sameer Ansari"
+            ]
+          },
+          {
+            "type": "end",
+            "text": "Through sleepless nights, silent hills, and shared laughter, the journey became a memory written by three souls walking the same path."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "id": "kashmir-2025-winter",
+        "title": "Frozen Kashmir",
+        "date": "Coming Soon",
+        "location": "Kashmir, India",
+        "quote": "Where the mountains rest under a blanket of snow, peace finds its true home.",
+        "coverImage": "https://images.unsplash.com/photo-1707762895288-6988d51c2c7f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1435",
+        "details": [],
+        "status": "upcoming"
+      },
+      {
+        "id": "upcoming-adventure",
+        "title": "Next Adventure: The Peaks Await",
+        "date": "Coming Soon",
+        "location": "Destination Unknown",
+        "quote": "The best stories are found between the pages of a passport.",
+        "coverImage": "https://placehold.co/600x400/475569/FFFFFF?text=Upcoming",
+        "details": [],
+        "status": "upcoming"
+      }
+    ]
   }
 ]
