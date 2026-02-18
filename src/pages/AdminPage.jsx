@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 const GITHUB_JSON =
   "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips.json";
 
-/* ===============================
-   EMPTY TRIP TEMPLATE
-================================ */
+/* =========================
+   EMPTY TRIP
+========================= */
 const emptyTrip = () => ({
   id: "",
   title: "",
@@ -17,114 +17,243 @@ const emptyTrip = () => ({
   details: [],
 });
 
-/* ===============================
+/* =========================
+   TIMELINE ITEM EDITOR
+========================= */
+function TimelineItem({ item, index, updateItem, deleteItem }) {
+  const update = (field, value) =>
+    updateItem(index, { ...item, [field]: value });
+
+  const updateArray = (field, i, value) => {
+    const arr = [...(item[field] || [])];
+    arr[i] = value;
+    update(field, arr);
+  };
+
+  const addArray = (field) => update(field, [...(item[field] || []), ""]);
+
+  const removeArray = (field, i) => {
+    const arr = [...(item[field] || [])];
+    arr.splice(i, 1);
+    update(field, arr);
+  };
+
+  return (
+    <div className="bg-slate-800 border border-slate-700 p-4 rounded space-y-2">
+      <div className="flex justify-between">
+        <select
+          className="input"
+          value={item.type}
+          onChange={(e) => update("type", e.target.value)}
+        >
+          <option value="day">Day</option>
+          <option value="memory">Memory</option>
+          <option value="quote">Quote</option>
+          <option value="partner">Partner</option>
+          <option value="end">End</option>
+        </select>
+
+        <button onClick={() => deleteItem(index)} className="text-red-400">
+          Delete
+        </button>
+      </div>
+
+      {item.type === "day" && (
+        <>
+          <input
+            className="input"
+            placeholder="Day Number"
+            value={item.day || ""}
+            onChange={(e) => update("day", e.target.value)}
+          />
+          <input
+            className="input"
+            placeholder="Title"
+            value={item.title || ""}
+            onChange={(e) => update("title", e.target.value)}
+          />
+        </>
+      )}
+
+      {item.type === "memory" && (
+        <>
+          <input
+            className="input"
+            placeholder="Time"
+            value={item.time || ""}
+            onChange={(e) => update("time", e.target.value)}
+          />
+
+          <textarea
+            className="input"
+            placeholder="Description"
+            value={item.description || ""}
+            onChange={(e) => update("description", e.target.value)}
+          />
+
+          <p className="text-cyan-400">Images</p>
+          {(item.images || []).map((img, i) => (
+            <div key={i} className="flex gap-2">
+              <input
+                className="input"
+                value={img}
+                onChange={(e) => updateArray("images", i, e.target.value)}
+              />
+              <button onClick={() => removeArray("images", i)}>X</button>
+            </div>
+          ))}
+          <button onClick={() => addArray("images")}>+ Add Image</button>
+
+          <p className="text-cyan-400">Videos</p>
+          {(item.videos || []).map((vid, i) => (
+            <div key={i} className="flex gap-2">
+              <input
+                className="input"
+                value={vid}
+                onChange={(e) => updateArray("videos", i, e.target.value)}
+              />
+              <button onClick={() => removeArray("videos", i)}>X</button>
+            </div>
+          ))}
+          <button onClick={() => addArray("videos")}>+ Add Video</button>
+        </>
+      )}
+
+      {item.type === "quote" && (
+        <textarea
+          className="input"
+          value={item.text || ""}
+          onChange={(e) => update("text", e.target.value)}
+        />
+      )}
+
+      {item.type === "partner" && (
+        <>
+          <input
+            className="input"
+            placeholder="Label"
+            value={item.label || ""}
+            onChange={(e) => update("label", e.target.value)}
+          />
+
+          {(item.names || []).map((n, i) => (
+            <div key={i} className="flex gap-2">
+              <input
+                className="input"
+                value={n}
+                onChange={(e) => {
+                  const arr = [...item.names];
+                  arr[i] = e.target.value;
+                  update("names", arr);
+                }}
+              />
+              <button
+                onClick={() => {
+                  const arr = [...item.names];
+                  arr.splice(i, 1);
+                  update("names", arr);
+                }}
+              >
+                X
+              </button>
+            </div>
+          ))}
+          <button onClick={() => update("names", [...(item.names || []), ""])}>
+            + Add Partner
+          </button>
+        </>
+      )}
+
+      {item.type === "end" && (
+        <textarea
+          className="input"
+          value={item.text || ""}
+          onChange={(e) => update("text", e.target.value)}
+        />
+      )}
+    </div>
+  );
+}
+
+/* =========================
    ADMIN PAGE
-================================ */
+========================= */
 export default function AdminPage() {
   const [trips, setTrips] = useState([]);
   const [trip, setTrip] = useState(emptyTrip());
   const [loading, setLoading] = useState(false);
 
-  /* ===============================
-     LOAD TRIPS FROM GITHUB
-  =================================*/
+  /* LOAD FROM GITHUB */
   const loadTrips = async () => {
-    try {
-      const res = await fetch(GITHUB_JSON + "?t=" + Date.now());
-      const data = await res.json();
-      setTrips(data);
-    } catch (err) {
-      console.error(err);
-      alert("Failed to load trips.json");
-    }
+    const res = await fetch(GITHUB_JSON + "?t=" + Date.now());
+    const data = await res.json();
+    setTrips(data);
   };
 
   useEffect(() => {
     loadTrips();
   }, []);
 
-  /* ===============================
-     LOAD TRIP FOR EDIT
-  =================================*/
+  /* LOAD TRIP */
   const loadTrip = (id) => {
     const found = trips.find((t) => t.id === id);
-    if (!found) return;
     setTrip(JSON.parse(JSON.stringify(found)));
   };
 
-  /* ===============================
-     SAVE TRIP (ADD OR EDIT)
-  =================================*/
+  /* SAVE */
   const saveTrip = async () => {
-    if (!trip.id) return alert("Trip ID required");
+    setLoading(true);
 
-    try {
-      setLoading(true);
+    await fetch("/.netlify/functions/updateTrip", {
+      method: "POST",
+      body: JSON.stringify(trip),
+    });
 
-      const res = await fetch("/.netlify/functions/updateTrip", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(trip),
-      });
-
-      if (!res.ok) throw new Error("Save failed");
-
-      alert("Trip saved");
-
-      await loadTrips();
-      setTrip(emptyTrip());
-    } catch (err) {
-      console.error(err);
-      alert("Save error");
-    } finally {
-      setLoading(false);
-    }
+    await loadTrips();
+    setTrip(emptyTrip());
+    setLoading(false);
+    alert("Saved");
   };
 
-  /* ===============================
-     DELETE TRIP WITH CONFIRMATION
-  =================================*/
-  const deleteTrip = async (tripId) => {
-    const confirmId = prompt("Type Trip ID to confirm delete:\n" + tripId);
+  /* DELETE */
+  const deleteTrip = async (id) => {
+    const confirmId = prompt("Type trip id to delete: " + id);
+    if (confirmId !== id) return;
 
-    if (confirmId !== tripId) {
-      alert("Wrong ID. Delete cancelled.");
-      return;
-    }
+    await fetch("/.netlify/functions/deleteTrip", {
+      method: "POST",
+      body: JSON.stringify({ tripId: id }),
+    });
 
-    try {
-      setLoading(true);
-
-      const res = await fetch("/.netlify/functions/deleteTrip", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tripId }),
-      });
-
-      if (!res.ok) throw new Error("Delete failed");
-
-      alert("Trip deleted");
-
-      await loadTrips();
-      setTrip(emptyTrip());
-    } catch (err) {
-      console.error(err);
-      alert("Delete error");
-    } finally {
-      setLoading(false);
-    }
+    await loadTrips();
   };
 
-  /* ===============================
-     UI
-  =================================*/
+  /* TIMELINE */
+  const updateDetail = (i, val) => {
+    const arr = [...trip.details];
+    arr[i] = val;
+    setTrip({ ...trip, details: arr });
+  };
+
+  const deleteDetail = (i) => {
+    const arr = [...trip.details];
+    arr.splice(i, 1);
+    setTrip({ ...trip, details: arr });
+  };
+
+  const addDetail = () =>
+    setTrip({
+      ...trip,
+      details: [...trip.details, { type: "memory", images: [], videos: [] }],
+    });
+
+  /* UI */
   return (
     <div className="flex h-screen bg-slate-900 text-white">
-      {/* SIDEBAR */}
-      <div className="w-64 border-r border-slate-700 p-4 space-y-3 overflow-y-auto">
+      <div className="w-64 border-r border-slate-700 p-4 space-y-2 overflow-y-auto">
         <button
           onClick={() => setTrip(emptyTrip())}
-          className="bg-cyan-600 w-full py-2 rounded"
+          className="btn-primary w-full"
         >
           + New Trip
         </button>
@@ -132,12 +261,11 @@ export default function AdminPage() {
         {trips.map((t) => (
           <div
             key={t.id}
-            className="bg-slate-800 p-2 rounded flex justify-between items-center"
+            className="flex justify-between bg-slate-800 p-2 rounded"
           >
-            <span className="cursor-pointer" onClick={() => loadTrip(t.id)}>
-              {t.title || t.id}
+            <span onClick={() => loadTrip(t.id)} className="cursor-pointer">
+              {t.title}
             </span>
-
             <button onClick={() => deleteTrip(t.id)} className="text-red-400">
               X
             </button>
@@ -145,8 +273,7 @@ export default function AdminPage() {
         ))}
       </div>
 
-      {/* EDITOR */}
-      <div className="flex-1 p-6 space-y-3 overflow-y-auto">
+      <div className="flex-1 p-6 overflow-y-auto space-y-3">
         <input
           className="input"
           placeholder="Trip ID"
@@ -189,20 +316,23 @@ export default function AdminPage() {
           onChange={(e) => setTrip({ ...trip, coverImage: e.target.value })}
         />
 
-        <select
-          className="input"
-          value={trip.status}
-          onChange={(e) => setTrip({ ...trip, status: e.target.value })}
-        >
-          <option value="completed">Completed</option>
-          <option value="upcoming">Upcoming</option>
-        </select>
+        <h2 className="text-xl font-bold">Timeline</h2>
 
-        <button
-          onClick={saveTrip}
-          disabled={loading}
-          className="bg-green-600 w-full py-3 rounded"
-        >
+        {trip.details.map((d, i) => (
+          <TimelineItem
+            key={i}
+            item={d}
+            index={i}
+            updateItem={updateDetail}
+            deleteItem={deleteDetail}
+          />
+        ))}
+
+        <button onClick={addDetail} className="btn-primary">
+          + Add Timeline Item
+        </button>
+
+        <button onClick={saveTrip} className="btn-primary w-full">
           {loading ? "Saving..." : "Save Trip"}
         </button>
       </div>
