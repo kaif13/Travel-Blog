@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-/* =====================================
+/* ================================
    CONFIG
-===================================== */
+================================ */
+
+const ADMIN_PASSWORD = "kaif123"; // 🔐 change password
 
 const GITHUB_JSON =
   "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips.json";
 
-/* =====================================
-   EMPTY TRIP
-===================================== */
+/* ================================
+   HELPERS
+================================ */
 
 const emptyTrip = () => ({
   id: "",
@@ -22,9 +24,9 @@ const emptyTrip = () => ({
   details: [],
 });
 
-/* =====================================
-   TIMELINE ITEM EDITOR
-===================================== */
+/* ================================
+   TIMELINE EDITOR
+================================ */
 
 function TimelineItem({ item, index, updateItem, removeItem }) {
   const update = (field, value) =>
@@ -45,7 +47,7 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
   };
 
   return (
-    <div className="bg-slate-800 p-4 rounded space-y-3 border border-slate-700">
+    <div className="bg-slate-800 p-4 rounded space-y-3">
       <div className="flex justify-between">
         <select
           className="input"
@@ -63,23 +65,6 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
           Delete
         </button>
       </div>
-
-      {item.type === "day" && (
-        <>
-          <input
-            className="input"
-            placeholder="Day Number"
-            value={item.day || ""}
-            onChange={(e) => update("day", e.target.value)}
-          />
-          <input
-            className="input"
-            placeholder="Title"
-            value={item.title || ""}
-            onChange={(e) => update("title", e.target.value)}
-          />
-        </>
-      )}
 
       {item.type === "memory" && (
         <>
@@ -128,45 +113,14 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
       {item.type === "quote" && (
         <textarea
           className="input"
-          placeholder="Quote"
           value={item.text || ""}
           onChange={(e) => update("text", e.target.value)}
         />
       )}
 
-      {item.type === "partner" && (
-        <>
-          <input
-            className="input"
-            placeholder="Label"
-            value={item.label || ""}
-            onChange={(e) => update("label", e.target.value)}
-          />
-
-          {(item.names || []).map((n, i) => (
-            <div key={i} className="flex gap-2">
-              <input
-                className="input"
-                value={n}
-                onChange={(e) => {
-                  const arr = [...(item.names || [])];
-                  arr[i] = e.target.value;
-                  update("names", arr);
-                }}
-              />
-            </div>
-          ))}
-
-          <button onClick={() => update("names", [...(item.names || []), ""])}>
-            Add Name
-          </button>
-        </>
-      )}
-
       {item.type === "end" && (
         <textarea
           className="input"
-          placeholder="Ending text"
           value={item.text || ""}
           onChange={(e) => update("text", e.target.value)}
         />
@@ -175,18 +129,24 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
   );
 }
 
-/* =====================================
+/* ================================
    ADMIN PAGE
-===================================== */
+================================ */
 
 export default function AdminPage() {
+  const [isAuth, setIsAuth] = useState(false);
+  const [password, setPassword] = useState("");
+
   const [trips, setTrips] = useState([]);
   const [trip, setTrip] = useState(emptyTrip());
   const [loading, setLoading] = useState(false);
 
-  /* LOAD TRIPS FROM GITHUB */
+  /* ================================
+     LOAD TRIPS FROM GITHUB
+  ================================= */
+
   const loadTrips = async () => {
-    const res = await fetch(GITHUB_JSON + "?nocache=" + Date.now(), {
+    const res = await fetch(GITHUB_JSON + "?t=" + Date.now(), {
       cache: "no-store",
     });
     const data = await res.json();
@@ -194,67 +154,66 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    loadTrips();
-  }, []);
+    if (isAuth) loadTrips();
+  }, [isAuth]);
 
-  /* LOAD EXISTING TRIP */
+  /* ================================
+     CRUD
+  ================================= */
+
   const loadTrip = (id) => {
     const t = trips.find((x) => x.id === id);
     setTrip(JSON.parse(JSON.stringify(t)));
   };
 
-  /* SAVE TRIP */
+  const newTrip = () => setTrip(emptyTrip());
+
   const saveTrip = async () => {
-    try {
-      setLoading(true);
+    setLoading(true);
 
-      const res = await fetch("/.netlify/functions/updateTrip", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(trip),
-      });
+    const res = await fetch("/.netlify/functions/updateTrip", {
+      method: "POST",
+      body: JSON.stringify(trip),
+    });
 
-      if (!res.ok) throw new Error("Save failed");
-
-      alert("Trip saved");
-
-      await loadTrips();
-      setTrip(emptyTrip());
-    } catch (err) {
-      alert(err.message);
-    } finally {
+    if (!res.ok) {
+      alert("Save failed");
       setLoading(false);
+      return;
     }
+
+    alert("Saved");
+    await loadTrips();
+    setLoading(false);
   };
 
-  /* DELETE TRIP */
   const deleteTrip = async (id) => {
     const confirmId = prompt("Type trip id to delete: " + id);
     if (confirmId !== id) return;
 
-    try {
-      setLoading(true);
+    setLoading(true);
 
-      const res = await fetch("/.netlify/functions/deleteTrip", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tripId: id }),
-      });
+    const res = await fetch("/.netlify/functions/deleteTrip", {
+      method: "POST",
+      body: JSON.stringify({ tripId: id }),
+    });
 
-      if (!res.ok) throw new Error("Delete failed");
-
-      alert("Deleted");
-
-      await loadTrips();
-      setTrip(emptyTrip());
-    } catch (err) {
-      alert(err.message);
-    } finally {
+    if (!res.ok) {
+      alert("Delete failed");
       setLoading(false);
+      return;
     }
+
+    alert("Deleted");
+    await loadTrips();
+    setTrip(emptyTrip());
+    setLoading(false);
   };
 
-  /* TIMELINE */
+  /* ================================
+     TIMELINE
+  ================================= */
+
   const updateDetail = (i, val) => {
     const arr = [...trip.details];
     arr[i] = val;
@@ -273,29 +232,57 @@ export default function AdminPage() {
       details: [...trip.details, { type: "memory", images: [], videos: [] }],
     });
 
-  /* ===================================== */
+  /* ================================
+     LOGIN SCREEN
+  ================================= */
+
+  if (!isAuth) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-slate-900 text-white">
+        <div className="bg-slate-800 p-8 rounded space-y-4 w-80">
+          <h2 className="text-xl font-bold text-center">Admin Login</h2>
+
+          <input
+            type="password"
+            className="input w-full"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            className="btn-primary w-full"
+            onClick={() => {
+              if (password === ADMIN_PASSWORD) setIsAuth(true);
+              else alert("Wrong password");
+            }}
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  /* ================================
+     MAIN UI
+  ================================= */
 
   return (
     <div className="flex h-screen bg-slate-900 text-white">
       {/* SIDEBAR */}
       <div className="w-64 border-r border-slate-700 p-4 space-y-3">
-        <button
-          onClick={() => setTrip(emptyTrip())}
-          className="btn-primary w-full"
-        >
+        <button onClick={newTrip} className="btn-primary w-full">
           + New Trip
         </button>
 
         {trips.map((t) => (
-          <div key={t.id} className="bg-slate-800 p-2 rounded space-y-1">
-            <div onClick={() => loadTrip(t.id)} className="cursor-pointer">
+          <div key={t.id} className="flex justify-between bg-slate-800 p-2">
+            <span onClick={() => loadTrip(t.id)} className="cursor-pointer">
               {t.title}
-            </div>
-            <button
-              onClick={() => deleteTrip(t.id)}
-              className="text-red-400 text-sm"
-            >
-              Delete
+            </span>
+            <button onClick={() => deleteTrip(t.id)} className="text-red-400">
+              X
             </button>
           </div>
         ))}
@@ -370,11 +357,7 @@ export default function AdminPage() {
           Add Timeline Item
         </button>
 
-        <button
-          onClick={saveTrip}
-          disabled={loading}
-          className="btn-primary w-full"
-        >
+        <button onClick={saveTrip} className="btn-primary w-full">
           {loading ? "Saving..." : "Save Trip"}
         </button>
       </div>
