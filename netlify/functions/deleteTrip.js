@@ -1,7 +1,7 @@
 exports.handler = async (event) => {
   try {
     const { Octokit } = await import("@octokit/rest");
-    const newTrip = JSON.parse(event.body);
+    const { tripId } = JSON.parse(event.body);
 
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
@@ -16,21 +16,18 @@ exports.handler = async (event) => {
     const content = Buffer.from(file.data.content, "base64").toString();
     const trips = JSON.parse(content);
 
-    const index = trips.findIndex((t) => t.id === newTrip.id);
-
-    if (index === -1) trips.push(newTrip);
-    else trips[index] = newTrip;
+    const updated = trips.filter((t) => t.id !== tripId);
 
     await octokit.repos.createOrUpdateFileContents({
       owner,
       repo,
       path,
-      message: "Update trip " + newTrip.id,
-      content: Buffer.from(JSON.stringify(trips, null, 2)).toString("base64"),
+      message: "Delete trip " + tripId,
+      content: Buffer.from(JSON.stringify(updated, null, 2)).toString("base64"),
       sha: file.data.sha,
     });
 
-    return { statusCode: 200, body: "Saved" };
+    return { statusCode: 200, body: "Deleted" };
   } catch (err) {
     return { statusCode: 500, body: err.message };
   }
