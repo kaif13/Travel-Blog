@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 
+/* =====================================
+   CONFIG
+===================================== */
+
 const GITHUB_JSON =
   "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips.json";
 
-/* =========================
+/* =====================================
    EMPTY TRIP
-========================= */
+===================================== */
+
 const emptyTrip = () => ({
   id: "",
   title: "",
@@ -17,10 +22,11 @@ const emptyTrip = () => ({
   details: [],
 });
 
-/* =========================
+/* =====================================
    TIMELINE ITEM EDITOR
-========================= */
-function TimelineItem({ item, index, updateItem, deleteItem }) {
+===================================== */
+
+function TimelineItem({ item, index, updateItem, removeItem }) {
   const update = (field, value) =>
     updateItem(index, { ...item, [field]: value });
 
@@ -39,7 +45,7 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
   };
 
   return (
-    <div className="bg-slate-800 border border-slate-700 p-4 rounded space-y-2">
+    <div className="bg-slate-800 p-4 rounded space-y-3 border border-slate-700">
       <div className="flex justify-between">
         <select
           className="input"
@@ -53,7 +59,7 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
           <option value="end">End</option>
         </select>
 
-        <button onClick={() => deleteItem(index)} className="text-red-400">
+        <button onClick={() => removeItem(index)} className="text-red-400">
           Delete
         </button>
       </div>
@@ -102,7 +108,7 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
               <button onClick={() => removeArray("images", i)}>X</button>
             </div>
           ))}
-          <button onClick={() => addArray("images")}>+ Add Image</button>
+          <button onClick={() => addArray("images")}>Add Image</button>
 
           <p className="text-cyan-400">Videos</p>
           {(item.videos || []).map((vid, i) => (
@@ -115,13 +121,14 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
               <button onClick={() => removeArray("videos", i)}>X</button>
             </div>
           ))}
-          <button onClick={() => addArray("videos")}>+ Add Video</button>
+          <button onClick={() => addArray("videos")}>Add Video</button>
         </>
       )}
 
       {item.type === "quote" && (
         <textarea
           className="input"
+          placeholder="Quote"
           value={item.text || ""}
           onChange={(e) => update("text", e.target.value)}
         />
@@ -142,24 +149,16 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
                 className="input"
                 value={n}
                 onChange={(e) => {
-                  const arr = [...item.names];
+                  const arr = [...(item.names || [])];
                   arr[i] = e.target.value;
                   update("names", arr);
                 }}
               />
-              <button
-                onClick={() => {
-                  const arr = [...item.names];
-                  arr.splice(i, 1);
-                  update("names", arr);
-                }}
-              >
-                X
-              </button>
             </div>
           ))}
+
           <button onClick={() => update("names", [...(item.names || []), ""])}>
-            + Add Partner
+            Add Name
           </button>
         </>
       )}
@@ -167,6 +166,7 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
       {item.type === "end" && (
         <textarea
           className="input"
+          placeholder="Ending text"
           value={item.text || ""}
           onChange={(e) => update("text", e.target.value)}
         />
@@ -175,17 +175,20 @@ function TimelineItem({ item, index, updateItem, deleteItem }) {
   );
 }
 
-/* =========================
+/* =====================================
    ADMIN PAGE
-========================= */
+===================================== */
+
 export default function AdminPage() {
   const [trips, setTrips] = useState([]);
   const [trip, setTrip] = useState(emptyTrip());
   const [loading, setLoading] = useState(false);
 
-  /* LOAD FROM GITHUB */
+  /* LOAD TRIPS FROM GITHUB */
   const loadTrips = async () => {
-    const res = await fetch(GITHUB_JSON + "?t=" + Date.now());
+    const res = await fetch(GITHUB_JSON + "?nocache=" + Date.now(), {
+      cache: "no-store",
+    });
     const data = await res.json();
     setTrips(data);
   };
@@ -194,38 +197,61 @@ export default function AdminPage() {
     loadTrips();
   }, []);
 
-  /* LOAD TRIP */
+  /* LOAD EXISTING TRIP */
   const loadTrip = (id) => {
-    const found = trips.find((t) => t.id === id);
-    setTrip(JSON.parse(JSON.stringify(found)));
+    const t = trips.find((x) => x.id === id);
+    setTrip(JSON.parse(JSON.stringify(t)));
   };
 
-  /* SAVE */
+  /* SAVE TRIP */
   const saveTrip = async () => {
-    setLoading(true);
+    try {
+      setLoading(true);
 
-    await fetch("/.netlify/functions/updateTrip", {
-      method: "POST",
-      body: JSON.stringify(trip),
-    });
+      const res = await fetch("/.netlify/functions/updateTrip", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(trip),
+      });
 
-    await loadTrips();
-    setTrip(emptyTrip());
-    setLoading(false);
-    alert("Saved");
+      if (!res.ok) throw new Error("Save failed");
+
+      alert("Trip saved");
+
+      await loadTrips();
+      setTrip(emptyTrip());
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  /* DELETE */
+  /* DELETE TRIP */
   const deleteTrip = async (id) => {
     const confirmId = prompt("Type trip id to delete: " + id);
     if (confirmId !== id) return;
 
-    await fetch("/.netlify/functions/deleteTrip", {
-      method: "POST",
-      body: JSON.stringify({ tripId: id }),
-    });
+    try {
+      setLoading(true);
 
-    await loadTrips();
+      const res = await fetch("/.netlify/functions/deleteTrip", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tripId: id }),
+      });
+
+      if (!res.ok) throw new Error("Delete failed");
+
+      alert("Deleted");
+
+      await loadTrips();
+      setTrip(emptyTrip());
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   /* TIMELINE */
@@ -247,10 +273,12 @@ export default function AdminPage() {
       details: [...trip.details, { type: "memory", images: [], videos: [] }],
     });
 
-  /* UI */
+  /* ===================================== */
+
   return (
     <div className="flex h-screen bg-slate-900 text-white">
-      <div className="w-64 border-r border-slate-700 p-4 space-y-2 overflow-y-auto">
+      {/* SIDEBAR */}
+      <div className="w-64 border-r border-slate-700 p-4 space-y-3">
         <button
           onClick={() => setTrip(emptyTrip())}
           className="btn-primary w-full"
@@ -259,21 +287,22 @@ export default function AdminPage() {
         </button>
 
         {trips.map((t) => (
-          <div
-            key={t.id}
-            className="flex justify-between bg-slate-800 p-2 rounded"
-          >
-            <span onClick={() => loadTrip(t.id)} className="cursor-pointer">
+          <div key={t.id} className="bg-slate-800 p-2 rounded space-y-1">
+            <div onClick={() => loadTrip(t.id)} className="cursor-pointer">
               {t.title}
-            </span>
-            <button onClick={() => deleteTrip(t.id)} className="text-red-400">
-              X
+            </div>
+            <button
+              onClick={() => deleteTrip(t.id)}
+              className="text-red-400 text-sm"
+            >
+              Delete
             </button>
           </div>
         ))}
       </div>
 
-      <div className="flex-1 p-6 overflow-y-auto space-y-3">
+      {/* EDITOR */}
+      <div className="flex-1 p-6 overflow-y-auto space-y-4">
         <input
           className="input"
           placeholder="Trip ID"
@@ -316,6 +345,15 @@ export default function AdminPage() {
           onChange={(e) => setTrip({ ...trip, coverImage: e.target.value })}
         />
 
+        <select
+          className="input"
+          value={trip.status}
+          onChange={(e) => setTrip({ ...trip, status: e.target.value })}
+        >
+          <option value="completed">Completed</option>
+          <option value="upcoming">Upcoming</option>
+        </select>
+
         <h2 className="text-xl font-bold">Timeline</h2>
 
         {trip.details.map((d, i) => (
@@ -324,15 +362,19 @@ export default function AdminPage() {
             item={d}
             index={i}
             updateItem={updateDetail}
-            deleteItem={deleteDetail}
+            removeItem={deleteDetail}
           />
         ))}
 
         <button onClick={addDetail} className="btn-primary">
-          + Add Timeline Item
+          Add Timeline Item
         </button>
 
-        <button onClick={saveTrip} className="btn-primary w-full">
+        <button
+          onClick={saveTrip}
+          disabled={loading}
+          className="btn-primary w-full"
+        >
           {loading ? "Saving..." : "Save Trip"}
         </button>
       </div>
