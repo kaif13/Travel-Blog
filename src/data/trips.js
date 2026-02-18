@@ -1,6 +1,3 @@
-// src/data/mockData.js
-// We keep all the static data here to keep our components clean.
-
 // const NainitalCover =
 //   "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075171/Nainitaal-Bg_fckfb8.avif";
 // const Boating =
@@ -83,7 +80,7 @@
 //   "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/sunset_ht6ntq.mp4";
 // import { Mountain } from "lucide-react";
 
-export const MOCK_TRIPS = [
+[
   {
     id: "rajgir-2026-trip",
     title: "The Calm Hills of Rajgir",
@@ -300,52 +297,14 @@ export const MOCK_TRIPS = [
     details: [],
     status: "upcoming",
   },
-  // {
-  //   "id": "ffgbfgn",
-  //   "title": "ghnfhnfnf",
-  //   "location": "fhndfhn",
-  //   "date": "fhnfghn",
-  //   "quote": "fhbdfhndc",
-  //   "coverImage": "nfgnfd",
-  //   "status": "upcoming",
-  //   "details": []
-  // }
-];
-
-export const GALLERY_IMAGES = [
   {
-    image: [],
-    caption: "Nainital Lake, Oct 2023",
-  },
-  {
-    src: "https://placehold.co/400x400/7C3AED/FFFFFF?text=Friends+Forever",
-    caption: "Friends at Tiffin Top",
-  },
-  {
-    src: "Mountain1",
-    caption: "Mountain Pose",
-  },
-  {
-    src: "https://placehold.co/400x400/BE123C/FFFFFF?text=Foodie+Time",
-    caption: "Trying Local Food",
-  },
-  {
-    src: "https://placehold.co/400x400/1D4ED8/FFFFFF?text=Funny+Faces",
-    caption: "Goofing around",
-  },
-  {
-    src: "https://placehold.co/400x400/EA580C/FFFFFF?text=Sunset+View",
-    caption: "That magical sunset",
-  },
-  {
-    src: "https://placehold.co/400x400/4A044E/FFFFFF?text=Night+Vibes",
-    caption: "City lights at night",
-  },
-  {
-    src: "https://placehold.co/400x400/5B21B6/FFFFFF?text=Group+Huddle",
-    caption: "The whole squad!",
+    id: "ffgbfgn",
+    title: "ghnfhnfnf",
+    location: "fhndfhn",
+    date: "fhnfghn",
+    quote: "fhbdfhndc",
+    coverImage: "nfgnfd",
+    details: [],
+    status: "upcoming",
   },
 ];
-
-export const PROFILE_IMAGE_URL =
-  "https://placehold.co/200x200/1E293B/FFFFFF?text=MK";

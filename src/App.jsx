@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useNavigate,
+  useParams,
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -15,29 +16,45 @@ import TripDetailPage from "./pages/TripDetailPage";
 import AboutMePage from "./pages/AboutMePage";
 import AdminPage from "./pages/AdminPage";
 
-import { MOCK_TRIPS } from "./data/trips";
+/* ✅ IMPORT JSON FILE */
+import tripsData from "./data/trips.json";
 
-// ✅ Internal wrapper to use navigate inside Router
+/* ==============================
+TRIP DETAIL WRAPPER
+Reads ID from URL
+============================== */
+
+function TripPage({ trips, onBack }) {
+  const { id } = useParams();
+  const trip = trips.find((t) => t.id === id);
+  return <TripDetailPage trip={trip} onBack={onBack} />;
+}
+
+/* ==============================
+APP CONTENT
+============================== */
+
 const AppContent = () => {
   const [userId] = useState("mock-user-001");
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
-  const [trips] = useState(MOCK_TRIPS);
-  const [selectedTripId, setSelectedTripId] = useState(null);
+
+  /* ✅ TRIPS STATE FROM JSON */
+  const [trips, setTrips] = useState(tripsData);
 
   const navigate = useNavigate();
 
+  /* ========================= */
+
   const handleSelectTrip = (id) => {
-    setSelectedTripId(id);
     navigate(`/trip/${id}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleBackToHome = () => {
-    setSelectedTripId(null);
     navigate("/");
   };
 
-  const currentTrip = trips.find((t) => t.id === selectedTripId);
+  /* ========================= */
 
   return (
     <div className="min-h-screen text-gray-200 p-4 md:p-8 font-sans bg-slate-900">
@@ -75,17 +92,20 @@ const AppContent = () => {
               />
             }
           />
+
           <Route path="/gallery" element={<GalleryPage />} />
+
+          {/* ✅ FIXED TRIP ROUTE */}
           <Route
             path="/trip/:id"
-            element={
-              <TripDetailPage trip={currentTrip} onBack={handleBackToHome} />
-            }
+            element={<TripPage trips={trips} onBack={handleBackToHome} />}
           />
+
           <Route
             path="/about"
             element={<AboutMePage onBack={handleBackToHome} />}
           />
+
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </main>
@@ -96,14 +116,18 @@ const AppContent = () => {
             The Journey Blog · A Personal Travel Journal
           </h1>
           <p className="text-xs text-gray-500">
-            Crafted with memories by{" "}
-            <span className="text-cyan-400 font-medium">Mohammad Kaif</span>
+            Crafted with memories by
+            <span className="text-cyan-400 font-medium"> Mohammad Kaif</span>
           </p>
         </div>
       </footer>
     </div>
   );
 };
+
+/* ==============================
+APP ROOT
+============================== */
 
 const App = () => (
   <Router>
