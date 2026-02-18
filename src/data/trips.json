@@ -99,7 +99,11 @@
       {
         "type": "partner",
         "label": "Travel Partners",
-        "names": ["Gulam Hussain", "Sajid Akhtar", "Sameer Ansari"]
+        "names": [
+          "Gulam Hussain",
+          "Sajid Akhtar",
+          "Sameer Ansari"
+        ]
       },
       {
         "type": "end",
@@ -127,5 +131,15 @@
     "coverImage": "https://placehold.co/600x400/475569/FFFFFF?text=Upcoming",
     "details": [],
     "status": "upcoming"
+  },
+  {
+    "id": "gbfb",
+    "title": "dfbfgb",
+    "location": "fgbfbg",
+    "date": "dbdfb",
+    "quote": "dbdfbd",
+    "coverImage": "dfbdfb",
+    "status": "upcoming",
+    "details": []
   }
 ]
