@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-/* ===============================
-CONFIG
-================================ */
-
-const API = "/.netlify/functions/updateTrip";
-
-const GITHUB_RAW =
+const GITHUB_JSON =
   "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips.json";
 
 /* ===============================
-EMPTY TRIP
+   EMPTY TRIP TEMPLATE
 ================================ */
-
 const emptyTrip = () => ({
   id: "",
   title: "",
@@ -25,190 +18,113 @@ const emptyTrip = () => ({
 });
 
 /* ===============================
-TIMELINE ITEM
+   ADMIN PAGE
 ================================ */
-
-function TimelineItem({ item, index, updateItem, removeItem }) {
-  const update = (field, value) =>
-    updateItem(index, { ...item, [field]: value });
-
-  const updateArray = (field, i, value) => {
-    const arr = [...(item[field] || [])];
-    arr[i] = value;
-    update(field, arr);
-  };
-
-  const addArray = (field) => update(field, [...(item[field] || []), ""]);
-
-  const removeArray = (field, i) => {
-    const arr = [...(item[field] || [])];
-    arr.splice(i, 1);
-    update(field, arr);
-  };
-
-  return (
-    <div className="bg-slate-800 border border-slate-700 p-4 rounded space-y-3">
-      <div className="flex justify-between">
-        <select
-          className="input"
-          value={item.type}
-          onChange={(e) => update("type", e.target.value)}
-        >
-          <option value="day">Day</option>
-          <option value="memory">Memory</option>
-          <option value="quote">Quote</option>
-          <option value="partner">Partner</option>
-          <option value="end">End</option>
-        </select>
-
-        <button onClick={() => removeItem(index)} className="text-red-400">
-          Delete
-        </button>
-      </div>
-
-      {item.type === "memory" && (
-        <>
-          <input
-            className="input"
-            placeholder="Time"
-            value={item.time || ""}
-            onChange={(e) => update("time", e.target.value)}
-          />
-
-          <textarea
-            className="input"
-            placeholder="Description"
-            value={item.description || ""}
-            onChange={(e) => update("description", e.target.value)}
-          />
-
-          <p className="text-cyan-400">Images</p>
-          {(item.images || []).map((img, i) => (
-            <div key={i} className="flex gap-2">
-              <input
-                className="input"
-                value={img}
-                onChange={(e) => updateArray("images", i, e.target.value)}
-              />
-              <button onClick={() => removeArray("images", i)}>X</button>
-            </div>
-          ))}
-          <button onClick={() => addArray("images")}>Add Image</button>
-
-          <p className="text-cyan-400">Videos</p>
-          {(item.videos || []).map((vid, i) => (
-            <div key={i} className="flex gap-2">
-              <input
-                className="input"
-                value={vid}
-                onChange={(e) => updateArray("videos", i, e.target.value)}
-              />
-              <button onClick={() => removeArray("videos", i)}>X</button>
-            </div>
-          ))}
-          <button onClick={() => addArray("videos")}>Add Video</button>
-        </>
-      )}
-    </div>
-  );
-}
-
-/* ===============================
-ADMIN PAGE
-================================ */
-
 export default function AdminPage() {
   const [trips, setTrips] = useState([]);
   const [trip, setTrip] = useState(emptyTrip());
-  const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  /* LOAD FROM GITHUB */
+  /* ===============================
+     LOAD TRIPS FROM GITHUB
+  =================================*/
   const loadTrips = async () => {
-    const res = await fetch(GITHUB_RAW + "?t=" + Date.now());
-    const data = await res.json();
-    setTrips(data);
+    try {
+      const res = await fetch(GITHUB_JSON + "?t=" + Date.now());
+      const data = await res.json();
+      setTrips(data);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to load trips.json");
+    }
   };
 
   useEffect(() => {
     loadTrips();
   }, []);
 
-  /* LOAD EXISTING */
+  /* ===============================
+     LOAD TRIP FOR EDIT
+  =================================*/
   const loadTrip = (id) => {
-    const t = trips.find((tr) => tr.id === id);
-    setTrip(JSON.parse(JSON.stringify(t)));
+    const found = trips.find((t) => t.id === id);
+    if (!found) return;
+    setTrip(JSON.parse(JSON.stringify(found)));
   };
 
-  /* DELETE */
-  const deleteTrip = async (id) => {
-    const filtered = trips.filter((t) => t.id !== id);
-
-    await fetch(API, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: "__replace_all__", data: filtered }),
-    });
-
-    await loadTrips();
-    setTrip(emptyTrip());
-  };
-
-  /* SAVE */
+  /* ===============================
+     SAVE TRIP (ADD OR EDIT)
+  =================================*/
   const saveTrip = async () => {
     if (!trip.id) return alert("Trip ID required");
 
-    setSaving(true);
-
     try {
-      const res = await fetch(API, {
+      setLoading(true);
+
+      const res = await fetch("/.netlify/functions/updateTrip", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(trip),
       });
 
-      const text = await res.text();
+      if (!res.ok) throw new Error("Save failed");
 
-      if (!res.ok) throw new Error(text);
-
-      alert("Saved successfully");
+      alert("Trip saved");
 
       await loadTrips();
       setTrip(emptyTrip());
     } catch (err) {
-      alert(err.message);
+      console.error(err);
+      alert("Save error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* ===============================
+     DELETE TRIP WITH CONFIRMATION
+  =================================*/
+  const deleteTrip = async (tripId) => {
+    const confirmId = prompt("Type Trip ID to confirm delete:\n" + tripId);
+
+    if (confirmId !== tripId) {
+      alert("Wrong ID. Delete cancelled.");
+      return;
     }
 
-    setSaving(false);
+    try {
+      setLoading(true);
+
+      const res = await fetch("/.netlify/functions/deleteTrip", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tripId }),
+      });
+
+      if (!res.ok) throw new Error("Delete failed");
+
+      alert("Trip deleted");
+
+      await loadTrips();
+      setTrip(emptyTrip());
+    } catch (err) {
+      console.error(err);
+      alert("Delete error");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  /* TIMELINE */
-  const updateDetail = (i, val) => {
-    const arr = [...trip.details];
-    arr[i] = val;
-    setTrip({ ...trip, details: arr });
-  };
-
-  const removeDetail = (i) => {
-    const arr = [...trip.details];
-    arr.splice(i, 1);
-    setTrip({ ...trip, details: arr });
-  };
-
-  const addDetail = () =>
-    setTrip({
-      ...trip,
-      details: [...trip.details, { type: "memory", images: [], videos: [] }],
-    });
-
-  /* =============================== */
-
+  /* ===============================
+     UI
+  =================================*/
   return (
     <div className="flex h-screen bg-slate-900 text-white">
       {/* SIDEBAR */}
-      <div className="w-64 border-r border-slate-700 p-4 space-y-3">
+      <div className="w-64 border-r border-slate-700 p-4 space-y-3 overflow-y-auto">
         <button
           onClick={() => setTrip(emptyTrip())}
-          className="btn-primary w-full"
+          className="bg-cyan-600 w-full py-2 rounded"
         >
           + New Trip
         </button>
@@ -216,10 +132,10 @@ export default function AdminPage() {
         {trips.map((t) => (
           <div
             key={t.id}
-            className="flex justify-between bg-slate-800 p-2 rounded"
+            className="bg-slate-800 p-2 rounded flex justify-between items-center"
           >
             <span className="cursor-pointer" onClick={() => loadTrip(t.id)}>
-              {t.title}
+              {t.title || t.id}
             </span>
 
             <button onClick={() => deleteTrip(t.id)} className="text-red-400">
@@ -230,7 +146,7 @@ export default function AdminPage() {
       </div>
 
       {/* EDITOR */}
-      <div className="flex-1 p-6 overflow-y-auto space-y-4">
+      <div className="flex-1 p-6 space-y-3 overflow-y-auto">
         <input
           className="input"
           placeholder="Trip ID"
@@ -268,7 +184,7 @@ export default function AdminPage() {
 
         <input
           className="input"
-          placeholder="Cover image URL"
+          placeholder="Cover Image URL"
           value={trip.coverImage}
           onChange={(e) => setTrip({ ...trip, coverImage: e.target.value })}
         />
@@ -282,28 +198,12 @@ export default function AdminPage() {
           <option value="upcoming">Upcoming</option>
         </select>
 
-        <h2 className="text-xl font-bold">Timeline</h2>
-
-        {trip.details.map((d, i) => (
-          <TimelineItem
-            key={i}
-            item={d}
-            index={i}
-            updateItem={updateDetail}
-            removeItem={removeDetail}
-          />
-        ))}
-
-        <button onClick={addDetail} className="btn-primary">
-          Add Timeline Item
-        </button>
-
         <button
           onClick={saveTrip}
-          disabled={saving}
-          className="btn-primary w-full"
+          disabled={loading}
+          className="bg-green-600 w-full py-3 rounded"
         >
-          {saving ? "Saving..." : "Save Trip"}
+          {loading ? "Saving..." : "Save Trip"}
         </button>
       </div>
     </div>
