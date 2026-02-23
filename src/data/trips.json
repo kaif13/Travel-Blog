@@ -1,368 +1,372 @@
 [
   {
-  "id": "nainital-2023",
-  "title": "The Lakes of Nainital",
-  "date": "May 2025",
-  "location": "Uttarakhand, India",
-  "quote": "Gentle lakes reflect quiet hills, where time slows and every moment feels peaceful and complete.",
-  "coverImage": "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075171/Nainitaal-Bg_fckfb8.avif",
-  "details": [
-    {
-      "type": "day",
-      "day": 1,
-      "title": "Arrival & a Calm Evening at Naini Lake"
-    },
-    {
-      "type": "memory",
-      "time": "08:00 AM",
-      "description": "After a 9-hour train journey from Lucknow, we arrived in Kathgodam and rented a scooty there.",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075169/KTNV_lmhwbd.mp4",
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075169/KTNV1_splhwa.mp4"
-      ],
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075162/KTN_x2uwls.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/KTN2_pkmocp.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075169/KTN3_jqsrym.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "11:00 AM",
-      "description": "Reached Nainital after a long drive from Kathgodam. Checked into a Ashok Hotel."
-    },
-    {
-      "type": "memory",
-      "time": "01:00 PM",
-      "description": "Enjoyed a boat ride on Naini Lake. The water was so calm, it felt like time stood still.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/w_800,dpr_auto,q_85,f_auto/v1767075159/Boating_ma1sdj.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075172/nani1_ppiu2t.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075157/nani2_tvustw.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani3_io7udq.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani4_sskpv6.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani5_ekjdkn.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/Nani-LakeV-1_anmbjk.mp4",
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075158/Nani-LakeV-2_lrfdmu.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "02:00 PM",
-      "description": "Reaching Snow View Point via a gondola ride was wonderful.The calm and beautiful atmosphere was captivating, making it feel like time had completely stopped.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075160/snow1_lmqims.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075161/snow2_gnofol.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075198/gandola_i6nbvo.mp4"
-      ]
-    },
-    {
-      "type": "quote",
-      "text": "The cool breeze and the towering peaks... this isn't just a trip, it's the essence of life."
-    },
-    {
-      "type": "day",
-      "day": 2,
-      "title": "We explored Khurpatal, Lovers Point, Suicide Point, Cave Garden, trekked Naina Peak, and spent the night in Bhimtal."
-    },
-    {
-      "type": "memory",
-      "time": "09:00 AM",
-      "description": "We went to see Khurpatal, a quiet lake village surrounded by green trees. It's a peaceful place to relax and enjoy nature.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075163/Khurpataal_rlfdgt.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "10:00 PM",
-      "description": "We went to see Lovers Point, known for its beautiful valley views, and then the dramatic Suicide Point, which offers breathtaking sights from its steep cliffs. Both spots are popular for their stunning natural grandeur.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075170/lover1_rqhlmu.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075170/lover2_n1ny5r.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "11:00 AM",
-      "description": "We went to see Cave Garden, a unique place with several interconnected natural caves that you can explore. It's an interesting spot for a different kind of natural beauty.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075161/Cave3_e4ew3p.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075160/Cave1_wxksbd.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "01:00 PM",
-      "description": "Then, before we started our trek to Naina Peak, we ate some Maggie noodles, and then began our climb."
-    },
-    {
-      "type": "memory",
-      "time": "03:00 PM",
-      "description": "After trekking for two hours, we reached the top, but had to wait for an hour for the weather to clear. However, it didn't clear up, so we started our descent.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/Trek2_ibmvbp.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek3_ioymy8.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek4_m0vbam.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek5_yxd9ej.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075167/Trek6_zxaiug.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075165/Trek1_fkrlh6.mp4",
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075174/Trek7_sgj2q9.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "05:00 PM",
-      "description": "Then, we came back down, had some tea, and left for Bhimtal."
-    },
-    {
-      "type": "quote",
-      "text": "The mountains don’t just stand tall — they teach you how to rise, no matter how heavy the storm."
-    },
-    {
-      "type": "day",
-      "day": 3,
-      "title": "On Day 3, we saw the Bhalu Gaad waterfall in Mukteshwar, then we saw Naukuchiatal. After that, we left for Kathgodam station."
-    },
-    {
-      "type": "memory",
-      "time": "09:00 AM",
-      "description": "Going from Bhimtal to Mukteshwar, we enjoyed the truly beautiful views throughout the drive.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075157/bhim1_vlmofy.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/bhim2_fetgnc.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/bhim3_wvlkob.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "11:30 AM",
-      "description": "After driving our scooty for 2.5 hours, we reached Bhalu Gaad waterfall.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu1_opsz9f.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu2_n46vjm.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu3_zss3pd.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "01:00 AM",
-      "description": "After enjoying our time at Bhalu Gaad Waterfall, we left for Naukuchiatal and, after a 2-hour drive, reached there and spent an hour.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/naukuchiya_jvhkcu.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "05:00 AM",
-      "description": "Then we came back to Bhimtal and ate Maggie",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075171/maggie_ny2bt4.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "06:00 AM",
-      "description": "And finally, after spending an hour at Bhimtal Lake, we left for Kathgodam station, enjoying a beautiful sunset view.",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/sunset_ht6ntq.mp4"
-      ]
-    },
-    {
-      "type": "partner",
-      "label": "Travel Partner",
-      "names": ["Iftakhar Ahmad Khan"]
-    },
-    {
-      "type": "end",
-      "text": "Beneath the endless sky and over the winding roads… I found peace in every breath of the journey."
-    }
-  ],
-  "status": "completed"
-},
-
+    "id": "nainital-2023",
+    "title": "The Lakes of Nainital",
+    "date": "May 2025",
+    "location": "Uttarakhand, India",
+    "quote": "Gentle lakes reflect quiet hills, where time slows and every moment feels peaceful and complete.",
+    "coverImage": "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075171/Nainitaal-Bg_fckfb8.avif",
+    "details": [
+      {
+        "type": "day",
+        "day": 1,
+        "title": "Arrival & a Calm Evening at Naini Lake"
+      },
+      {
+        "type": "memory",
+        "time": "08:00 AM",
+        "description": "After a 9-hour train journey from Lucknow, we arrived in Kathgodam and rented a scooty there.",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075169/KTNV_lmhwbd.mp4",
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075169/KTNV1_splhwa.mp4"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075162/KTN_x2uwls.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/KTN2_pkmocp.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075169/KTN3_jqsrym.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "11:00 AM",
+        "description": "Reached Nainital after a long drive from Kathgodam. Checked into a Ashok Hotel."
+      },
+      {
+        "type": "memory",
+        "time": "01:00 PM",
+        "description": "Enjoyed a boat ride on Naini Lake. The water was so calm, it felt like time stood still.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/w_800,dpr_auto,q_85,f_auto/v1767075159/Boating_ma1sdj.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075172/nani1_ppiu2t.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075157/nani2_tvustw.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani3_io7udq.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani4_sskpv6.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani5_ekjdkn.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/Nani-LakeV-1_anmbjk.mp4",
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075158/Nani-LakeV-2_lrfdmu.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "02:00 PM",
+        "description": "Reaching Snow View Point via a gondola ride was wonderful.The calm and beautiful atmosphere was captivating, making it feel like time had completely stopped.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075160/snow1_lmqims.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075161/snow2_gnofol.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075198/gandola_i6nbvo.mp4"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The cool breeze and the towering peaks... this isn't just a trip, it's the essence of life."
+      },
+      {
+        "type": "day",
+        "day": 2,
+        "title": "We explored Khurpatal, Lovers Point, Suicide Point, Cave Garden, trekked Naina Peak, and spent the night in Bhimtal."
+      },
+      {
+        "type": "memory",
+        "time": "09:00 AM",
+        "description": "We went to see Khurpatal, a quiet lake village surrounded by green trees. It's a peaceful place to relax and enjoy nature.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075163/Khurpataal_rlfdgt.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "10:00 PM",
+        "description": "We went to see Lovers Point, known for its beautiful valley views, and then the dramatic Suicide Point, which offers breathtaking sights from its steep cliffs. Both spots are popular for their stunning natural grandeur.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075170/lover1_rqhlmu.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075170/lover2_n1ny5r.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "11:00 AM",
+        "description": "We went to see Cave Garden, a unique place with several interconnected natural caves that you can explore. It's an interesting spot for a different kind of natural beauty.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075161/Cave3_e4ew3p.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075160/Cave1_wxksbd.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "01:00 PM",
+        "description": "Then, before we started our trek to Naina Peak, we ate some Maggie noodles, and then began our climb."
+      },
+      {
+        "type": "memory",
+        "time": "03:00 PM",
+        "description": "After trekking for two hours, we reached the top, but had to wait for an hour for the weather to clear. However, it didn't clear up, so we started our descent.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/Trek2_ibmvbp.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek3_ioymy8.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek4_m0vbam.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075166/Trek5_yxd9ej.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075167/Trek6_zxaiug.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075165/Trek1_fkrlh6.mp4",
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075174/Trek7_sgj2q9.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "05:00 PM",
+        "description": "Then, we came back down, had some tea, and left for Bhimtal."
+      },
+      {
+        "type": "quote",
+        "text": "The mountains don’t just stand tall — they teach you how to rise, no matter how heavy the storm."
+      },
+      {
+        "type": "day",
+        "day": 3,
+        "title": "On Day 3, we saw the Bhalu Gaad waterfall in Mukteshwar, then we saw Naukuchiatal. After that, we left for Kathgodam station."
+      },
+      {
+        "type": "memory",
+        "time": "09:00 AM",
+        "description": "Going from Bhimtal to Mukteshwar, we enjoyed the truly beautiful views throughout the drive.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075157/bhim1_vlmofy.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/bhim2_fetgnc.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/bhim3_wvlkob.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "11:30 AM",
+        "description": "After driving our scooty for 2.5 hours, we reached Bhalu Gaad waterfall.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu1_opsz9f.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu2_n46vjm.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075156/bhalu3_zss3pd.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "01:00 AM",
+        "description": "After enjoying our time at Bhalu Gaad Waterfall, we left for Naukuchiatal and, after a 2-hour drive, reached there and spent an hour.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075159/naukuchiya_jvhkcu.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "05:00 AM",
+        "description": "Then we came back to Bhimtal and ate Maggie",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075171/maggie_ny2bt4.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "06:00 AM",
+        "description": "And finally, after spending an hour at Bhimtal Lake, we left for Kathgodam station, enjoying a beautiful sunset view.",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1767075161/sunset_ht6ntq.mp4"
+        ]
+      },
+      {
+        "type": "partner",
+        "label": "Travel Partner",
+        "names": [
+          "Iftakhar Ahmad Khan"
+        ]
+      },
+      {
+        "type": "end",
+        "text": "Beneath the endless sky and over the winding roads… I found peace in every breath of the journey."
+      }
+    ],
+    "status": "completed"
+  },
   {
-  "id": "rajgir-2026-trip",
-  "title": "The Calm Hills of Rajgir",
-  "date": "January 2026",
-  "location": "Rajgir, Bihar, India",
-  "quote": "Among ancient hills and quiet paths, Rajgir whispers stories of peace and time.",
-  "coverImage": "https://media.istockphoto.com/id/2175930297/photo/scattered-votive-stupas-at-number-3-temple-of-nalanda-university-archeological-ruins-site.webp?a=1&b=1&s=612x612&w=0&k=20&c=6p-sTXMbhxx0_3eDt1W9ka_iYaJ2L2Ocl8i1rpgZWIM=",
-  "details": [
-    {
-      "type": "day",
-      "day": 1,
-      "title": "A Midnight Arrival Through Silent Hills and Hidden Paths"
-    },
-    {
-      "type": "memory",
-      "time": "10:00 PM",
-      "description": "Booked a current ticket and started the journey from Mughalsarai to Rajgir without any fixed plan."
-    },
-    {
-      "type": "memory",
-      "time": "02:30 AM – 05:00 AM",
-      "description": "Reached Rajgir station late at night to a town that was silent and cold. Walked through empty streets searching for a hotel but found none, so we waited quietly for morning, watching the night fade into dawn. Finally found a hotel early in the morning, checked in, and went straight to sleep.",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769150550/WhatsApp_Video_2026-01-23_at_12.11.56_PM_t07sym.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "08:30 AM",
-      "description": "Woke up fresh, had breakfast, and got ready to explore Rajgir."
-    },
-    {
-      "type": "memory",
-      "time": "10:00 AM",
-      "description": "Visited Shanti Stupa and reached the top by cable car. The ride was thrilling and the view felt unreal.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769080247/Rajgir_-_046_Side_View__289242059259_29_bnppbf.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079325/IMG_20260103_112436080_HDR_c0bvpj.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_165012583_HDR_r5cunu.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_112813135_HDR_fibf5p.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079332/IMG_20260103_120521072_HDR_x3yz3l.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079332/IMG_20260103_114220261_kuw1in.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_123358170_wi0tat.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_123546643_HDR_ccoal2.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149597/WhatsApp_Video_2026-01-23_at_11.55.33_stllmy.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "01:30 PM",
-      "description": "Returned back and headed towards Ghora Katora. While walking together, discovered a new lake that was incredibly beautiful and peaceful.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_134711937_htjk0p.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_142156430_HDR_lrijru.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_165012583_HDR_r5cunu.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147692/WhatsApp_Video_2026-01-22_at_4.49.52_PM_s4kwsh.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "03:30 PM",
-      "description": "Started another trek nearby. The path was empty — only us, surrounded by hills and silence.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079326/IMG_20260103_161419422_HDR_i892r2.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079333/IMG_20260103_115940350_HDR_wbs8kt.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147695/WhatsApp_Video_2026-01-22_at_4.49.37_PM_tsfqkv.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "05:30 PM",
-      "description": "As evening approached, fear started to set in. The trek felt risky, so we decided to cancel it and return safely.",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147693/WhatsApp_Video_2026-01-22_at_4.49.39_PM_kp84a5.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "07:00 PM",
-      "description": "Came back to the room, rested, and let the tiredness settle in after a long adventurous day."
-    },
-    {
-      "type": "day",
-      "day": 2,
-      "title": "Wildlife, Missed Treks & A Delayed Goodbye"
-    },
-    {
-      "type": "memory",
-      "time": "09:00 AM",
-      "description": "Woke up in the morning, checked out of the hotel while keeping all our luggage safely there, had breakfast nearby, and got ready for the final day of exploration."
-    },
-    {
-      "type": "memory",
-      "time": "11:00 AM",
-      "description": "Left for the Zoo Safari. Our entry ticket was scheduled for 12:00 PM, so we spent some time roaming around the area.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079329/IMG_20260104_114650179_HDR_ggc8k2.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "12:00 PM",
-      "description": "Entered the Zoo Safari. The ticket also included a wildlife show, which we watched and enjoyed together.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079330/IMG_20260104_114113714_HDR_pvumog.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079329/IMG_20260104_124306667_h3bsgp.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079333/IMG_20260104_125437659_jsi1z5.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.29_A_ixdg87.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.29_oysh8d.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148144/WhatsApp_Image_2026-01-23_at_11.28.29_AM_xec3et.jpg"
-      ],
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769148146/WhatsApp_Video_2026-01-23_at_11.28.28_AM_t4qcto.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "02:00 PM",
-      "description": "Returned for lunch after the safari and took a short break to relax.",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149820/WhatsApp_Video_2026-01-23_at_11.59.52_AM_zm42k6.mp4"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "03:00 PM",
-      "description": "Visited Brahm Kund. We planned to trek uphill, but unfortunately, entry was closed after 3 PM."
-    },
-    {
-      "type": "memory",
-      "time": "03:30 PM",
-      "description": "Instead, we went to the opposite hill and sat there for almost two hours, clicking photos and enjoying the quiet view.",
-      "images": [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148142/WhatsApp_Image_2026-01-23_at_11.28.21_AM_amlqfh.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.28_vtb90r.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.28_AM_deku4w.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148142/WhatsApp_Image_2026-01-23_at_11.28.19_AM_eqaq5f.jpg"
-      ]
-    },
-    {
-      "type": "memory",
-      "time": "06:00 PM",
-      "description": "After eating and drinking something nearby, we started walking back to the hotel on foot."
-    },
-    {
-      "type": "memory",
-      "time": "08:00 PM",
-      "description": "Collected our luggage from the hotel, had dinner, and left for Rajgir station, where we found out that the train was delayed."
-    },
-    {
-      "type": "memory",
-      "time": "11:00 PM",
-      "description": "After a two-hour wait, the train finally arrived. We boarded it and headed back to Mughalsarai, ending the journey.",
-      "videos": [
-        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149602/WhatsApp_Video_2026-01-23_at_11.55.33_AM_ylarda.mp4"
-      ]
-    },
-    {
-      "type": "partner",
-      "label": "Travel Partners",
-      "names": ["Gulam Hussain", "Sajid Akhtar", "Sameer Ansari"]
-    },
-    {
-      "type": "end",
-      "text": "Through sleepless nights, silent hills, and shared laughter, the journey became a memory written by three souls walking the same path."
-    }
-  ],
-  "status": "completed"
-},
-
+    "id": "rajgir-2026-trip",
+    "title": "The Calm Hills of Rajgir",
+    "date": "January 2026",
+    "location": "Rajgir, Bihar, India",
+    "quote": "Among ancient hills and quiet paths, Rajgir whispers stories of peace and time.",
+    "coverImage": "https://media.istockphoto.com/id/2175930297/photo/scattered-votive-stupas-at-number-3-temple-of-nalanda-university-archeological-ruins-site.webp?a=1&b=1&s=612x612&w=0&k=20&c=6p-sTXMbhxx0_3eDt1W9ka_iYaJ2L2Ocl8i1rpgZWIM=",
+    "details": [
+      {
+        "type": "day",
+        "day": 1,
+        "title": "A Midnight Arrival Through Silent Hills and Hidden Paths"
+      },
+      {
+        "type": "memory",
+        "time": "10:00 PM",
+        "description": "Booked a current ticket and started the journey from Mughalsarai to Rajgir without any fixed plan."
+      },
+      {
+        "type": "memory",
+        "time": "02:30 AM – 05:00 AM",
+        "description": "Reached Rajgir station late at night to a town that was silent and cold. Walked through empty streets searching for a hotel but found none, so we waited quietly for morning, watching the night fade into dawn. Finally found a hotel early in the morning, checked in, and went straight to sleep.",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769150550/WhatsApp_Video_2026-01-23_at_12.11.56_PM_t07sym.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "08:30 AM",
+        "description": "Woke up fresh, had breakfast, and got ready to explore Rajgir."
+      },
+      {
+        "type": "memory",
+        "time": "10:00 AM",
+        "description": "Visited Shanti Stupa and reached the top by cable car. The ride was thrilling and the view felt unreal.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769080247/Rajgir_-_046_Side_View__289242059259_29_bnppbf.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079325/IMG_20260103_112436080_HDR_c0bvpj.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_165012583_HDR_r5cunu.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_112813135_HDR_fibf5p.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079332/IMG_20260103_120521072_HDR_x3yz3l.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079332/IMG_20260103_114220261_kuw1in.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_123358170_wi0tat.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_123546643_HDR_ccoal2.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149597/WhatsApp_Video_2026-01-23_at_11.55.33_stllmy.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "01:30 PM",
+        "description": "Returned back and headed towards Ghora Katora. While walking together, discovered a new lake that was incredibly beautiful and peaceful.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079338/IMG_20260103_134711937_htjk0p.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_142156430_HDR_lrijru.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079327/IMG_20260103_165012583_HDR_r5cunu.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147692/WhatsApp_Video_2026-01-22_at_4.49.52_PM_s4kwsh.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "03:30 PM",
+        "description": "Started another trek nearby. The path was empty — only us, surrounded by hills and silence.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079326/IMG_20260103_161419422_HDR_i892r2.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079333/IMG_20260103_115940350_HDR_wbs8kt.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147695/WhatsApp_Video_2026-01-22_at_4.49.37_PM_tsfqkv.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "05:30 PM",
+        "description": "As evening approached, fear started to set in. The trek felt risky, so we decided to cancel it and return safely.",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769147693/WhatsApp_Video_2026-01-22_at_4.49.39_PM_kp84a5.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "07:00 PM",
+        "description": "Came back to the room, rested, and let the tiredness settle in after a long adventurous day."
+      },
+      {
+        "type": "day",
+        "day": 2,
+        "title": "Wildlife, Missed Treks & A Delayed Goodbye"
+      },
+      {
+        "type": "memory",
+        "time": "09:00 AM",
+        "description": "Woke up in the morning, checked out of the hotel while keeping all our luggage safely there, had breakfast nearby, and got ready for the final day of exploration."
+      },
+      {
+        "type": "memory",
+        "time": "11:00 AM",
+        "description": "Left for the Zoo Safari. Our entry ticket was scheduled for 12:00 PM, so we spent some time roaming around the area.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079329/IMG_20260104_114650179_HDR_ggc8k2.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "12:00 PM",
+        "description": "Entered the Zoo Safari. The ticket also included a wildlife show, which we watched and enjoyed together.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079330/IMG_20260104_114113714_HDR_pvumog.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079329/IMG_20260104_124306667_h3bsgp.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769079333/IMG_20260104_125437659_jsi1z5.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.29_A_ixdg87.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.29_oysh8d.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148144/WhatsApp_Image_2026-01-23_at_11.28.29_AM_xec3et.jpg"
+        ],
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769148146/WhatsApp_Video_2026-01-23_at_11.28.28_AM_t4qcto.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "02:00 PM",
+        "description": "Returned for lunch after the safari and took a short break to relax.",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149820/WhatsApp_Video_2026-01-23_at_11.59.52_AM_zm42k6.mp4"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "03:00 PM",
+        "description": "Visited Brahm Kund. We planned to trek uphill, but unfortunately, entry was closed after 3 PM."
+      },
+      {
+        "type": "memory",
+        "time": "03:30 PM",
+        "description": "Instead, we went to the opposite hill and sat there for almost two hours, clicking photos and enjoying the quiet view.",
+        "images": [
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148142/WhatsApp_Image_2026-01-23_at_11.28.21_AM_amlqfh.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.28_vtb90r.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148143/WhatsApp_Image_2026-01-23_at_11.28.28_AM_deku4w.jpg",
+          "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1769148142/WhatsApp_Image_2026-01-23_at_11.28.19_AM_eqaq5f.jpg"
+        ]
+      },
+      {
+        "type": "memory",
+        "time": "06:00 PM",
+        "description": "After eating and drinking something nearby, we started walking back to the hotel on foot."
+      },
+      {
+        "type": "memory",
+        "time": "08:00 PM",
+        "description": "Collected our luggage from the hotel, had dinner, and left for Rajgir station, where we found out that the train was delayed."
+      },
+      {
+        "type": "memory",
+        "time": "11:00 PM",
+        "description": "After a two-hour wait, the train finally arrived. We boarded it and headed back to Mughalsarai, ending the journey.",
+        "videos": [
+          "https://res.cloudinary.com/dv6boe8ig/video/upload/v1769149602/WhatsApp_Video_2026-01-23_at_11.55.33_AM_ylarda.mp4"
+        ]
+      },
+      {
+        "type": "partner",
+        "label": "Travel Partners",
+        "names": [
+          "Gulam Hussain",
+          "Sajid Akhtar",
+          "Sameer Ansari"
+        ]
+      },
+      {
+        "type": "end",
+        "text": "Through sleepless nights, silent hills, and shared laughter, the journey became a memory written by three souls walking the same path."
+      }
+    ],
+    "status": "completed"
+  },
   {
     "id": "kashmir-2025-winter",
     "title": "Frozen Kashmir",
@@ -372,5 +376,21 @@
     "coverImage": "https://images.unsplash.com/photo-1707762895288-6988d51c2c7f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1435",
     "details": [],
     "status": "upcoming"
+  },
+  {
+    "id": "kashmir-2026-winter",
+    "title": "Frozen Kashmir",
+    "date": "January 2026",
+    "location": "Kashmir, India",
+    "quote": "Where the mountains rest under a blanket of snow, peace finds its true home.",
+    "coverImage": "https://images.unsplash.com/photo-1707762895288-6988d51c2c7f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1435",
+    "details": [
+      {
+        "type": "day",
+        "images": [],
+        "videos": []
+      }
+    ],
+    "status": "completed"
   }
 ]
