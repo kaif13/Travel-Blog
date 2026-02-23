@@ -378,7 +378,139 @@
       {
         "type": "day",
         "images": [],
-        "videos": []
+        "videos": [],
+        "day": "1",
+        "description": "The Long Night at New Delhi Station Before the Journey to Kashmir"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "Reached New Delhi Railway Station with Abhishek and Iftakhar. Met Ashish there, and together we had dinner before waiting for our train.",
+        "text": "",
+        "time": "Evening"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "Our train, Jhelum Express, was supposed to arrive at night, but it was delayed for many hours. We kept waiting at the station.",
+        "text": "",
+        "time": "09:00 PM (Scheduled Time)"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "To pass the time, we bought a pack of playing cards and started playing at the station while waiting for the train.",
+        "text": "",
+        "time": "Around 12:00 AM"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "While playing cards, CRPF officers caught us and warned that they could take us to the police station. We requested them many times, paid a fine, and they finally let us go. Before leaving, they also gave us some advice and safety tips.",
+        "text": "",
+        "time": "Late Night"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "After a very long wait, Jhelum Express finally arrived. We boarded the train, feeling tired from the night, and soon fell asleep as our journey toward Kashmir began.",
+        "text": "",
+        "time": "04:00 AM"
+      },
+      {
+        "type": "day",
+        "images": [],
+        "videos": [],
+        "day": "2 ",
+        "name": "",
+        "description": "Entering Jammu & Kashmir and the Mountain Road to Srinagar",
+        "text": "",
+        "time": ""
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "Woke up in the train and had a simple breakfast of peanut butter, bread, and poha while enjoying the journey.",
+        "text": "",
+        "time": "Morning"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "As soon as we entered Jammu & Kashmir, our phone networks stopped working after Kathua. Everyone lost signal, making the journey feel more isolated and adventurous.",
+        "text": "",
+        "time": "After Kathua"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "We got down and had tea before continuing our journey toward Srinagar.",
+        "text": "",
+        "time": "04:00 PM"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "On the way, we met some cab drivers. After talking for a while, we booked a cab to Srinagar for ₹3600 and started the road journey.",
+        "text": "",
+        "time": "Around 05:00 PM"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "Stopped at a restaurant on the way and had dinner before continuing the drive through the mountains.",
+        "text": "",
+        "time": "Around 06:00 PM"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "Reached Banihal at night. The temperature was around -9°C. We stopped for tea, feeling the intense cold of the mountains.",
+        "text": "",
+        "time": "09:30 PM"
+      },
+      {
+        "type": "memory",
+        "images": [],
+        "videos": [],
+        "day": "",
+        "name": "",
+        "description": "Continued the journey and finally reached Srinagar. Our driver, Sakib bhai, helped us find a hotel for ₹1500 per night. Exhausted from the long journey, we checked in and went straight to sleep.",
+        "text": "",
+        "time": "Late Night"
       }
     ],
     "status": "completed"
