@@ -66,6 +66,26 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
         </button>
       </div>
 
+      {/* ================= DAY ================= */}
+      {item.type === "day" && (
+        <>
+          <input
+            className="input"
+            placeholder="Day number (ex: Day 1)"
+            value={item.day || ""}
+            onChange={(e) => update("day", e.target.value)}
+          />
+
+          <textarea
+            className="input"
+            placeholder="Day description (optional)"
+            value={item.description || ""}
+            onChange={(e) => update("description", e.target.value)}
+          />
+        </>
+      )}
+
+      {/* ================= MEMORY ================= */}
       {item.type === "memory" && (
         <>
           <input
@@ -110,17 +130,40 @@ function TimelineItem({ item, index, updateItem, removeItem }) {
         </>
       )}
 
+      {/* ================= QUOTE ================= */}
       {item.type === "quote" && (
         <textarea
           className="input"
+          placeholder="Quote text"
           value={item.text || ""}
           onChange={(e) => update("text", e.target.value)}
         />
       )}
 
+      {/* ================= PARTNER ================= */}
+      {item.type === "partner" && (
+        <>
+          <input
+            className="input"
+            placeholder="Partner name"
+            value={item.name || ""}
+            onChange={(e) => update("name", e.target.value)}
+          />
+
+          <textarea
+            className="input"
+            placeholder="About partner / role (optional)"
+            value={item.description || ""}
+            onChange={(e) => update("description", e.target.value)}
+          />
+        </>
+      )}
+
+      {/* ================= END ================= */}
       {item.type === "end" && (
         <textarea
           className="input"
+          placeholder="Trip ending text"
           value={item.text || ""}
           onChange={(e) => update("text", e.target.value)}
         />
@@ -141,10 +184,7 @@ export default function AdminPage() {
   const [trip, setTrip] = useState(emptyTrip());
   const [loading, setLoading] = useState(false);
 
-  /* ================================
-     LOAD TRIPS FROM GITHUB
-  ================================= */
-
+  /* LOAD TRIPS */
   const loadTrips = async () => {
     const res = await fetch(GITHUB_JSON + "?t=" + Date.now(), {
       cache: "no-store",
@@ -157,10 +197,7 @@ export default function AdminPage() {
     if (isAuth) loadTrips();
   }, [isAuth]);
 
-  /* ================================
-     CRUD
-  ================================= */
-
+  /* CRUD */
   const loadTrip = (id) => {
     const t = trips.find((x) => x.id === id);
     setTrip(JSON.parse(JSON.stringify(t)));
@@ -210,10 +247,7 @@ export default function AdminPage() {
     setLoading(false);
   };
 
-  /* ================================
-     TIMELINE
-  ================================= */
-
+  /* TIMELINE */
   const updateDetail = (i, val) => {
     const arr = [...trip.details];
     arr[i] = val;
@@ -229,13 +263,22 @@ export default function AdminPage() {
   const addDetail = () =>
     setTrip({
       ...trip,
-      details: [...trip.details, { type: "memory", images: [], videos: [] }],
+      details: [
+        ...trip.details,
+        {
+          type: "memory",
+          images: [],
+          videos: [],
+          day: "",
+          name: "",
+          description: "",
+          text: "",
+          time: "",
+        },
+      ],
     });
 
-  /* ================================
-     LOGIN SCREEN
-  ================================= */
-
+  /* LOGIN */
   if (!isAuth) {
     return (
       <div className="h-screen flex items-center justify-center bg-slate-900 text-white">
@@ -264,10 +307,7 @@ export default function AdminPage() {
     );
   }
 
-  /* ================================
-     MAIN UI
-  ================================= */
-
+  /* MAIN UI */
   return (
     <div className="flex h-screen bg-slate-900 text-white">
       {/* SIDEBAR */}
