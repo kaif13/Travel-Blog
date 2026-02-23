@@ -368,151 +368,166 @@
     "status": "completed"
   },
   {
-    "id": "kashmir-2026-winter",
-    "title": "Frozen Kashmir",
-    "date": "January 2026",
-    "location": "Kashmir, India",
-    "quote": "Where the mountains rest under a blanket of snow, peace finds its true home.",
-    "coverImage": "https://images.unsplash.com/photo-1707762895288-6988d51c2c7f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1435",
-    "details": [
-      {
-        "type": "day",
-        "images": [],
-        "videos": [],
-        "day": "1",
-        "description": "The Long Night at New Delhi Station Before the Journey to Kashmir"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "Reached New Delhi Railway Station with Abhishek and Iftakhar. Met Ashish there, and together we had dinner before waiting for our train.",
-        "text": "",
-        "time": "Evening"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "Our train, Jhelum Express, was supposed to arrive at night, but it was delayed for many hours. We kept waiting at the station.",
-        "text": "",
-        "time": "09:00 PM (Scheduled Time)"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "To pass the time, we bought a pack of playing cards and started playing at the station while waiting for the train.",
-        "text": "",
-        "time": "Around 12:00 AM"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "While playing cards, CRPF officers caught us and warned that they could take us to the police station. We requested them many times, paid a fine, and they finally let us go. Before leaving, they also gave us some advice and safety tips.",
-        "text": "",
-        "time": "Late Night"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "After a very long wait, Jhelum Express finally arrived. We boarded the train, feeling tired from the night, and soon fell asleep as our journey toward Kashmir began.",
-        "text": "",
-        "time": "04:00 AM"
-      },
-      {
-        "type": "day",
-        "images": [],
-        "videos": [],
-        "day": "2 ",
-        "name": "",
-        "description": "Entering Jammu & Kashmir and the Mountain Road to Srinagar",
-        "text": "",
-        "time": ""
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "Woke up in the train and had a simple breakfast of peanut butter, bread, and poha while enjoying the journey.",
-        "text": "",
-        "time": "Morning"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "As soon as we entered Jammu & Kashmir, our phone networks stopped working after Kathua. Everyone lost signal, making the journey feel more isolated and adventurous.",
-        "text": "",
-        "time": "After Kathua"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "We got down and had tea before continuing our journey toward Srinagar.",
-        "text": "",
-        "time": "04:00 PM"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "On the way, we met some cab drivers. After talking for a while, we booked a cab to Srinagar for ₹3600 and started the road journey.",
-        "text": "",
-        "time": "Around 05:00 PM"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "Stopped at a restaurant on the way and had dinner before continuing the drive through the mountains.",
-        "text": "",
-        "time": "Around 06:00 PM"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "Reached Banihal at night. The temperature was around -9°C. We stopped for tea, feeling the intense cold of the mountains.",
-        "text": "",
-        "time": "09:30 PM"
-      },
-      {
-        "type": "memory",
-        "images": [],
-        "videos": [],
-        "day": "",
-        "name": "",
-        "description": "Continued the journey and finally reached Srinagar. Our driver, Sakib bhai, helped us find a hotel for ₹1500 per night. Exhausted from the long journey, we checked in and went straight to sleep.",
-        "text": "",
-        "time": "Late Night"
-      }
-    ],
-    "status": "completed"
-  }
+  "id": "kashmir-2026-trip",
+  "title": "Journey to the Valleys of Kashmir",
+  "date": "January 2026",
+  "location": "Kashmir, India",
+  "quote": "Through long waits, unexpected moments, and silent journeys, every road to Kashmir begins with a story.",
+  "coverImage": "https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop",
+  "details": [
+    {
+      "type": "day",
+      "day": 1,
+      "title": "The Long Night at New Delhi Station Before the Journey to Kashmir"
+    },
+    {
+      "type": "memory",
+      "time": "Evening",
+      "description": "Reached New Delhi Railway Station with Abhishek and Iftakhar. Met Ashish there, and together we had dinner before waiting for our train."
+    },
+    {
+      "type": "memory",
+      "time": "09:00 PM (Scheduled Time)",
+      "description": "Our train, Jhelum Express, was supposed to arrive at night, but it was delayed for many hours. We kept waiting at the station."
+    },
+    {
+      "type": "memory",
+      "time": "Around 12:00 AM",
+      "description": "To pass the time, we bought a pack of playing cards and started playing at the station while waiting for the train."
+    },
+    {
+      "type": "memory",
+      "time": "Late Night",
+      "description": "While playing cards, CRPF officers caught us and warned that they could take us to the police station. We requested them many times, paid a fine, and they finally let us go. Before leaving, they also gave us some advice and safety tips."
+    },
+    {
+      "type": "memory",
+      "time": "04:00 AM",
+      "description": "After a very long wait, Jhelum Express finally arrived. We boarded the train, feeling tired from the night, and soon fell asleep as our journey toward Kashmir began."
+    },
+
+    {
+      "type": "day",
+      "day": 2,
+      "title": "Entering Jammu & Kashmir and the Mountain Road to Srinagar"
+    },
+    {
+      "type": "memory",
+      "time": "Morning",
+      "description": "Woke up in the train and had a simple breakfast of peanut butter, bread, and poha while enjoying the journey."
+    },
+    {
+      "type": "memory",
+      "time": "After Kathua",
+      "description": "As soon as we entered Jammu & Kashmir, our phone networks stopped working after Kathua. Everyone lost signal, making the journey feel more isolated and adventurous."
+    },
+    {
+      "type": "memory",
+      "time": "04:00 PM",
+      "description": "We got down and had tea before continuing our journey toward Banihal."
+    },
+    {
+      "type": "memory",
+      "time": "Around 05:00 PM",
+      "description": "On the way, we met some cab drivers. After talking for a while, we booked a cab to Srinagar for ₹3600 and started the road journey."
+    },
+    {
+      "type": "memory",
+      "time": "Around 06:00 PM",
+      "description": "Stopped at a restaurant on the way and had dinner before continuing the drive through the mountains."
+    },
+    {
+      "type": "memory",
+      "time": "09:30 PM",
+      "description": "Reached Banihal at night. The temperature was around -9°C. We stopped for tea, feeling the intense cold of the mountains."
+    },
+    {
+      "type": "memory",
+      "time": "Late Night",
+      "description": "Continued the journey and finally reached Srinagar. Our driver, Sakib bhai, helped us find a hotel for ₹1500 per night. Exhausted from the long journey, we checked in and went straight to sleep."
+    },
+
+    {
+      "type": "day",
+      "day": 3,
+      "title": "Snowy Adventures in Sonamarg and a Cozy Evening"
+    },
+    {
+      "type": "memory",
+      "time": "Morning",
+      "description": "Checked out of the hotel early with all our luggage and started the journey toward Sonamarg. Stopped on the way for breakfast before continuing."
+    },
+    {
+      "type": "memory",
+      "time": "On the Way",
+      "description": "For the first time, we saw snow-covered mountains up close. The view was breathtaking and made the journey even more exciting."
+    },
+    {
+      "type": "memory",
+      "time": "11:00 AM",
+      "description": "Reached Sonamarg and booked ponies for ₹1600 per person. It felt quite expensive, but we went ahead with it."
+    },
+    {
+      "type": "memory",
+      "time": "Midday",
+      "description": "Visited different scenic points, played in the snow, made reels, ate Maggi, and truly enjoyed the snowy atmosphere."
+    },
+    {
+      "type": "memory",
+      "time": "02:30 PM",
+      "description": "Returned downhill on the ponies and then sat in the cab to head back."
+    },
+    {
+      "type": "memory",
+      "time": "Evening (On the Way Back)",
+      "description": "Booked a new hotel on the way for ₹3000 per day, including breakfast and dinner. Stopped for tea before reaching."
+    },
+    {
+      "type": "memory",
+      "time": "Around 06:00 PM",
+      "description": "Checked into the hotel, freshened up, and relaxed after the long day."
+    },
+    {
+      "type": "memory",
+      "time": "Night",
+      "description": "Lit hookah, had dinner, played cards, enjoyed the cozy evening together, and then went to sleep."
+    },
+
+    {
+      "type": "day",
+      "day": 4,
+      "title": "Local Sightseeing Around Srinagar"
+    },
+    {
+      "type": "memory",
+      "time": "Morning",
+      "description": "Went out for local sightseeing. First, we visited Shankaracharya Temple. Iftakhar bhai joked around a bit there, making the moment fun and memorable."
+    },
+    {
+      "type": "memory",
+      "time": "Late Morning",
+      "description": "From the temple, we went to Dal Lake. We explored the lake in a boat ride for ₹2000, drank kahwa, ate sweet corn, and enjoyed the peaceful beauty of the water. We also gave the boatman a ₹200 tip."
+    },
+    {
+      "type": "memory",
+      "time": "Afternoon",
+      "description": "Next, we visited Pari Mahal and spent some time enjoying the views and relaxing there."
+    },
+    {
+      "type": "memory",
+      "time": "Later Afternoon",
+      "description": "We planned to visit the zoo, but when we reached, it was closed. So we returned and stopped on the way to eat food around 4 PM."
+    },
+    {
+      "type": "memory",
+      "time": "Evening",
+      "description": "Went back to the room, rested, played cards, transferred photos from our phones, and relaxed."
+    },
+    {
+      "type": "memory",
+      "time": "Night",
+      "description": "Had something to eat, smoked hookah, spent some quiet time together, and then went to sleep."
+    }
+  ]
+}
 ]
