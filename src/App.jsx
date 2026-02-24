@@ -5,8 +5,10 @@ import {
   Route,
   useNavigate,
   useParams,
+  Link,
 } from "react-router-dom";
 
+import { Archive } from "lucide-react";
 import Navbar from "./components/Navbar";
 import ProfileModal from "./components/ProfileModal";
 
@@ -16,8 +18,8 @@ import TripDetailPage from "./pages/TripDetailPage";
 import AboutMePage from "./pages/AboutMePage";
 import AdminPage from "./pages/AdminPage";
 
-/* ✅ IMPORT JSON FILE */
-import tripsData from "./data/trips.json";
+/* ✅ CHANGED: Import from separate trip files */
+import tripsData from "./data/trips/tripsData.js";
 
 /* ==============================
 TRIP DETAIL WRAPPER
@@ -38,7 +40,7 @@ const AppContent = () => {
   const [userId] = useState("mock-user-001");
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
-  /* ✅ TRIPS STATE FROM JSON */
+  /* ✅ TRIPS STATE FROM SEPARATE FILES */
   const [trips, setTrips] = useState(tripsData);
 
   const navigate = useNavigate();
@@ -110,15 +112,20 @@ const AppContent = () => {
         </Routes>
       </main>
 
-      <footer className="mt-14 text-center text-gray-400 text-sm">
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="tracking-wide">
-            The Journey Blog · A Personal Travel Journal
-          </h1>
-          <p className="text-xs text-gray-500">
-            Crafted with memories by
-            <span className="text-cyan-400 font-medium"> Mohammad Kaif</span>
-          </p>
+      <footer className="mt-14 text-gray-400 text-sm">
+        <div className="relative flex flex-col items-center">
+          {/* Responsive Back Button */}
+
+          {/* Centered Footer Content */}
+          <div className="flex flex-col items-center gap-2">
+            <h1 className="tracking-wide text-base">
+              The Journey Blog · A Personal Travel Journal
+            </h1>
+            <p className="text-sm text-gray-500">
+              Crafted with memories by
+              <span className="text-cyan-400 font-medium"> Mohammad Kaif</span>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

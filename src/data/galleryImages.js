@@ -1,7 +1,7 @@
 export const GALLERY_IMAGES = [
   {
-    src: "https://placehold.co/400x400/0891B2/FFFFFF?text=Me+at+the+lake",
-    caption: "Nainital Lake",
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771916168/IMG_E9633_2.JPG_rtx2lt.jpg",
+    caption: "Gulmarg",
   },
   {
     src: "https://placehold.co/400x400/7C3AED/FFFFFF?text=Friends+Forever",

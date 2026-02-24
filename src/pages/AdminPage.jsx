@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 const ADMIN_PASSWORD = "kaif123"; // 🔐 change password
 
 const GITHUB_JSON =
-  "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips.json";
+  "https://raw.githubusercontent.com/kaif13/Travel-Blog/main/src/data/trips/tripsData.js";
 
 /* ================================
    HELPERS
