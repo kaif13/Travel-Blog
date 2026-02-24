@@ -1,3 +1,5 @@
+import { Images } from "lucide-react";
+
 const kashmirTrip = {
   id: "kashmir-2026-trip",
   title: "Frozen Paths Of Kashmir",
@@ -19,18 +21,28 @@ const kashmirTrip = {
       time: "Evening",
       description:
         "Reached New Delhi Railway Station with Abhishek and Iftakhar. Met Ashish there, and together we had dinner before waiting for our train.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771927252/IMG_20260110_213825999_HDR_tdemln.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771927252/IMG_20260110_224451584_HDR_zechf0.jpg",
+      ],
     },
     {
       type: "memory",
       time: "09:00 PM (Scheduled Time)",
       description:
         "Our train, Jhelum Express, was supposed to arrive at night, but it was delayed for many hours. We kept waiting at the station.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771927749/OXKLSk9K1Vk5qGuJ6GPtI.1034.IRZXSOY_qium7x.mp4",
+      ],
     },
     {
       type: "memory",
       time: "Around 12:00 AM",
       description:
         "To pass the time, we bought a pack of playing cards and started playing at the station while waiting for the train.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771927745/0NDNN1YQFpPmHiwYeYZ20.1034.IRZXSOY_t6egm4.mp4",
+      ],
     },
     {
       type: "memory",
@@ -54,6 +66,9 @@ const kashmirTrip = {
       time: "Morning",
       description:
         "Woke up in the train and had a simple breakfast of peanut butter, bread, and poha while enjoying the journey.",
+      // videos: [
+      //   "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771927749/rzgaVDEXDObRuGHJqLgTB.1034.IRZXSOY_vrreod.mp4",
+      // ],
     },
     {
       type: "memory",
@@ -66,18 +81,33 @@ const kashmirTrip = {
       time: "04:00 PM",
       description:
         "We got down and had tea before continuing our journey toward Banihal.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771927253/IMG_20260111_161637777_HDR_hkepxu.jpg",
+      ],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771927747/5h5zFzQAqRM1NkdX6mNgR.1034.IRZXSOY_ghxfzz.mp4",
+      ],
     },
     {
       type: "memory",
       time: "Around 05:00 PM",
       description:
         "On the way, we met some cab drivers. After talking for a while, we booked a cab to Srinagar for ₹3600 and started the road journey.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1771927495/IMG20260111191059_xt4uo8.jpg",
+      ],
     },
     {
       type: "memory",
       time: "Around 06:00 PM",
       description:
         "Stopped at a restaurant on the way and had dinner before continuing the drive through the mountains.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771927252/IMG_20260111_180646501_HDR_e8va6c.jpg",
+      ],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771928567/Snapchat-1495671159_kpozko.mp4",
+      ],
     },
     {
       type: "memory",
