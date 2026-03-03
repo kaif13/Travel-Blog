@@ -135,24 +135,43 @@ const kashmirTrip = {
       time: "Morning",
       description:
         "Checked out of the hotel early with all our luggage and started the journey toward Sonamarg. Stopped on the way for breakfast before continuing.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533831/IMG_20260112_100032345_HDR_fht7p6.jpg",
+
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533830/IMG_20260112_090101104_HDR_lxfj6j.jpg",
+      ],
     },
     {
       type: "memory",
       time: "On the Way",
       description:
         "For the first time, we saw snow-covered mountains up close. The view was breathtaking and made the journey even more exciting.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533835/IMG_20260112_110456049_HDR_PCT_ldntic.jpg",
+      ],
     },
     {
       type: "memory",
       time: "11:00 AM",
       description:
         "Reached Sonamarg and booked ponies for ₹1600 per person. It felt quite expensive, but we went ahead with it.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772534928/Snapchat-116828496_wzcgde.mp4",
+      ],
     },
     {
       type: "memory",
       time: "Midday",
       description:
         "Visited different scenic points, played in the snow, made reels, ate Maggi, and truly enjoyed the snowy atmosphere.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533836/IMG_20260112_133206681_HDR_PCT_2_a1wbzn.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533832/IMG_20260112_141446080_HDR_PCT_aik0yf.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533837/IMG_20260112_114814503_HDR_hqefoy.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533835/IMG_20260112_123621264_HDR_PORTRAIT_ppahcm.jpg",
+
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533754/IMG_9302_zgdcsu.jpg",
+      ],
     },
     {
       type: "memory",
@@ -198,12 +217,26 @@ const kashmirTrip = {
       time: "Late Morning",
       description:
         "From the temple, we went to Dal Lake. We explored the lake in a boat ride for ₹2000, drank kahwa, ate sweet corn, and enjoyed the peaceful beauty of the water. We also gave the boatman a ₹200 tip.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772534922/IMG_20260113_133457005_HDR_ep8qmb.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772534921/Snapchat-667396652_h4v7d7.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535461/IMG_9519_rhl0uz.jpg",
+      ],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772534925/Snapchat-1376950087_cqfgul.mp4",
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772534928/Snapchat-1294415691_rafrwm.mp4",
+      ],
     },
     {
       type: "memory",
       time: "Afternoon",
       description:
         "Next, we visited Pari Mahal and spent some time enjoying the views and relaxing there.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535462/IMG_9550_xvotqu.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535463/IMG_9574_mo3wsn.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535461/IMG_9559_cho8ku.jpg",
+      ],
     },
     {
       type: "memory",
