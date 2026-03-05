@@ -66,9 +66,9 @@ const kashmirTrip = {
       time: "Morning",
       description:
         "Woke up in the train and had a simple breakfast of peanut butter, bread, and poha while enjoying the journey.",
-      // videos: [
-      //   "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771927749/rzgaVDEXDObRuGHJqLgTB.1034.IRZXSOY_vrreod.mp4",
-      // ],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772694522/WhatsApp_Video_2026-03-05_at_12.37.50_PM_kycfl9.mp4",
+      ],
     },
     {
       type: "memory",
@@ -104,6 +104,7 @@ const kashmirTrip = {
         "Stopped at a restaurant on the way and had dinner before continuing the drive through the mountains.",
       images: [
         "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771927252/IMG_20260111_180646501_HDR_e8va6c.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772694684/WhatsApp_Image_2026-03-05_at_12.39.27_PM_ah6xfv.jpg",
       ],
       videos: [
         "https://res.cloudinary.com/dv6boe8ig/video/upload/v1771928567/Snapchat-1495671159_kpozko.mp4",
@@ -114,6 +115,9 @@ const kashmirTrip = {
       time: "09:30 PM",
       description:
         "Reached Banihal at night. The temperature was around -9°C. We stopped for tea, feeling the intense cold of the mountains.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772694799/WhatsApp_Video_2026-03-05_at_12.43.02_PM_tuuykr.mp4",
+      ],
     },
     {
       type: "memory",
@@ -136,9 +140,9 @@ const kashmirTrip = {
       description:
         "Checked out of the hotel early with all our luggage and started the journey toward Sonamarg. Stopped on the way for breakfast before continuing.",
       images: [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533831/IMG_20260112_100032345_HDR_fht7p6.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533831/IMG_20260112_100032345_HDR_fht7p6.jpg",
 
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533830/IMG_20260112_090101104_HDR_lxfj6j.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533830/IMG_20260112_090101104_HDR_lxfj6j.jpg",
       ],
     },
     {
@@ -147,7 +151,7 @@ const kashmirTrip = {
       description:
         "For the first time, we saw snow-covered mountains up close. The view was breathtaking and made the journey even more exciting.",
       images: [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533835/IMG_20260112_110456049_HDR_PCT_ldntic.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533835/IMG_20260112_110456049_HDR_PCT_ldntic.jpg",
       ],
     },
     {
@@ -165,12 +169,12 @@ const kashmirTrip = {
       description:
         "Visited different scenic points, played in the snow, made reels, ate Maggi, and truly enjoyed the snowy atmosphere.",
       images: [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533836/IMG_20260112_133206681_HDR_PCT_2_a1wbzn.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533832/IMG_20260112_141446080_HDR_PCT_aik0yf.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533837/IMG_20260112_114814503_HDR_hqefoy.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533835/IMG_20260112_123621264_HDR_PORTRAIT_ppahcm.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533836/IMG_20260112_133206681_HDR_PCT_2_a1wbzn.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533832/IMG_20260112_141446080_HDR_PCT_aik0yf.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533837/IMG_20260112_114814503_HDR_hqefoy.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533835/IMG_20260112_123621264_HDR_PORTRAIT_ppahcm.jpg",
 
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772533754/IMG_9302_zgdcsu.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto//v1772533754/IMG_9302_zgdcsu.jpg",
       ],
     },
     {
@@ -181,15 +185,9 @@ const kashmirTrip = {
     },
     {
       type: "memory",
-      time: "Evening (On the Way Back)",
+      time: "Evening (05:00 PM)",
       description:
-        "Booked a new hotel on the way for ₹3000 per day, including breakfast and dinner. Stopped for tea before reaching.",
-    },
-    {
-      type: "memory",
-      time: "Around 06:00 PM",
-      description:
-        "Checked into the hotel, freshened up, and relaxed after the long day.",
+        "Booked a new hotel for ₹3000/day with meals on the way back, stopped for tea, checked in around 6 PM, freshened up, and relaxed.",
     },
     {
       type: "memory",
@@ -218,9 +216,9 @@ const kashmirTrip = {
       description:
         "From the temple, we went to Dal Lake. We explored the lake in a boat ride for ₹2000, drank kahwa, ate sweet corn, and enjoyed the peaceful beauty of the water. We also gave the boatman a ₹200 tip.",
       images: [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772534922/IMG_20260113_133457005_HDR_ep8qmb.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772534921/Snapchat-667396652_h4v7d7.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535461/IMG_9519_rhl0uz.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772534922/IMG_20260113_133457005_HDR_ep8qmb.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772534921/Snapchat-667396652_h4v7d7.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772535461/IMG_9519_rhl0uz.jpg",
       ],
       videos: [
         "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772534925/Snapchat-1376950087_cqfgul.mp4",
@@ -233,9 +231,12 @@ const kashmirTrip = {
       description:
         "Next, we visited Pari Mahal and spent some time enjoying the views and relaxing there.",
       images: [
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535462/IMG_9550_xvotqu.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535463/IMG_9574_mo3wsn.jpg",
-        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535461/IMG_9559_cho8ku.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772535462/IMG_9550_xvotqu.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772535463/IMG_9574_mo3wsn.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772535461/IMG_9559_cho8ku.jpg",
+      ],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772693798/4VWsnUl1n2bXOLE0VANIV.1034.IRZXSOY_zaxl75.mp4",
       ],
     },
     {
@@ -246,15 +247,9 @@ const kashmirTrip = {
     },
     {
       type: "memory",
-      time: "Evening",
+      time: "Evening & Night",
       description:
-        "Went back to the room, rested, played cards, transferred photos from our phones, and relaxed.",
-    },
-    {
-      type: "memory",
-      time: "Night",
-      description:
-        "Had something to eat, smoked hookah, spent some quiet time together, and then went to sleep.",
+        "Returned to the room, rested, played cards, transferred photos from our phones, relaxed, had something to eat, smoked hookah, spent some quiet time together, and eventually went to sleep.",
     },
     {
       type: "quote",
@@ -268,41 +263,43 @@ const kashmirTrip = {
     {
       type: "memory",
       time: "09:00 AM",
-      description: "Left for Gulmarg after breakfast.",
-    },
-    {
-      type: "memory",
-      time: "Tangmarg",
-      description: "Rented snow boots before continuing the journey.",
+      description:
+        "Left for Gulmarg after breakfast and rented snow boots at Tangmarg on the way.",
     },
     {
       type: "memory",
       time: "11:00 AM",
       description:
         "Reached Gulmarg and stood in line for Gondola Phase 1 and Phase 2. After waiting about one hour, our turn came.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772692925/IMG_9599_qqtilq.mov",
+      ],
     },
     {
       type: "memory",
       time: "Midday",
       description:
         "First went to Phase 2 at around 14,300 feet. Oxygen level was low but views were breathtaking. Spent about one hour taking photos and making reels.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772692919/IMG_9605_rdvw0m.mov",
+      ],
     },
     {
       type: "memory",
       time: "Afternoon",
       description:
         "Returned to Phase 1 and enjoyed playing in the snow for around two hours.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772692931/IMG_9677_og8mpo.mov",
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772692926/IMG_9690_flo9fi.mov",
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772693823/t7AcAadfTAnJ1VpM84xmf.1034.IRZXSOY_nlporb.mp4",
+      ],
     },
     {
       type: "memory",
-      time: "03:30 PM",
-      description: "Stood in line again to return by gondola.",
-    },
-    {
-      type: "memory",
-      time: "Evening",
+      time: "03:30 PM - Evening",
       description:
-        "After reaching down, visited Gulmarg woolen factory for shopping. Friends bought shawls.",
+        "Queued to return by gondola, then visited the Gulmarg woolen factory where friends bought shawls.",
     },
     {
       type: "memory",
@@ -324,12 +321,18 @@ const kashmirTrip = {
       time: "09:00 AM",
       description:
         "Left for Pahalgam in the morning. Stopped at a dry fruits shop on the way, drank kahwa, and bought some dry fruits.",
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1772693798/ddbugiVuaOGUvHWqP2DpL.1034.IRZXSOY_b58cpr.mp4",
+      ],
     },
     {
       type: "memory",
       time: "12:00 PM",
       description:
         "Reached Apple Valley and drank fresh apple juice before continuing toward Pahalgam.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772693388/IMG_E9708_rxopgv.jpg",
+      ],
     },
     {
       type: "memory",
@@ -342,12 +345,20 @@ const kashmirTrip = {
       time: "Betab Valley",
       description:
         "Visited Betab Valley and spent about one hour enjoying the scenery.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772693385/IMG_9721_p9wke1.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772693391/IMG_9764_r3tgwb.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772693385/IMG_9747_hbbodj.jpg",
+      ],
     },
     {
       type: "memory",
       time: "Aru Valley",
       description:
         "Went to Aru Valley, had snacks, explored the area, and made reels.",
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772693385/IMG_9872_n8et8y.jpg",
+      ],
     },
     {
       type: "memory",
@@ -357,15 +368,9 @@ const kashmirTrip = {
     },
     {
       type: "memory",
-      time: "07:00 PM",
+      time: "07:00 PM - Night",
       description:
-        "Reached hotel. Sakib bhai stayed for a while, tried hookah, and arranged a cab for Jammu next day at ₹1000 per person.",
-    },
-    {
-      type: "memory",
-      time: "Night",
-      description:
-        "Had dinner, shared photos with each other, packed bags for the journey, and went to sleep.",
+        "Reached the hotel, met Sakib bhai, tried hookah, arranged a cab for Jammu (₹1000/person), had dinner, shared photos, packed bags, and went to sleep.",
     },
     {
       type: "quote",
