@@ -1,8 +1,8 @@
 import nainitalTrip from "./nainital";
 import rajgirTrip from "./rajgir";
 import kashmirTrip from "./kashmir";
-// import newTrip from "./trips/newtrip"; // ← add this
+import jibhi from "./jibhi";
 
-const allTrips = [nainitalTrip, rajgirTrip, kashmirTrip]; // ← add here
+const allTrips = [nainitalTrip, rajgirTrip, kashmirTrip, jibhi]; // ← add here
 
 export default allTrips;
