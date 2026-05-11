@@ -1,7 +1,7 @@
-import React from "react";
-import { MapPin, Calendar, BookOpen, Archive } from "lucide-react";
+import React, { memo } from "react";
+import { MapPin, Calendar } from "lucide-react";
 
-const MemoryCard = ({ trip, onSelectTrip }) => {
+const MemoryCard = memo(({ trip, onSelectTrip, priority = false }) => {
   const isUpcoming = trip.status === "upcoming";
 
   return (
@@ -17,6 +17,10 @@ const MemoryCard = ({ trip, onSelectTrip }) => {
         <img
           src={trip.coverImage}
           alt={trip.title}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="w-full h-48 object-cover transition duration-300 ease-in-out group-hover:opacity-90"
           onError={(e) => {
             e.target.onerror = null;
@@ -50,6 +54,7 @@ const MemoryCard = ({ trip, onSelectTrip }) => {
       </div>
     </div>
   );
-};
+});
 
+MemoryCard.displayName = "MemoryCard";
 export default MemoryCard;

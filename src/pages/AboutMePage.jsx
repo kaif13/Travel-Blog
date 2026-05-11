@@ -82,6 +82,9 @@ const AboutMePage = ({ onBack }) => {
           <img
             src={kaif}
             alt="Kaif"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             className="w-64 md:w-80 lg:w-96 rounded-xl shadow-2xl border-4 border-cyan-500 object-cover"
           />
         </div>

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import MemoryCard from "../components/MemoryCard";
 
-const HomePage = ({ trips, onSelectTrip, userId }) => (
+const HomePage = memo(({ trips, onSelectTrip }) => (
   <div>
     <div className="text-center mb-12 p-8 bg-slate-900/30 rounded-xl shadow-inner border border-slate-700">
       <h1 className="text-4xl md:text-6xl font-extrabold text-cyan-300 mb-4 tracking-wider">
@@ -12,11 +12,17 @@ const HomePage = ({ trips, onSelectTrip, userId }) => (
       </p>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {trips.map((trip) => (
-        <MemoryCard key={trip.id} trip={trip} onSelectTrip={onSelectTrip} />
+      {trips.map((trip, index) => (
+        <MemoryCard
+          key={trip.id}
+          trip={trip}
+          onSelectTrip={onSelectTrip}
+          priority={index < 3}
+        />
       ))}
     </div>
   </div>
-);
+));
 
+HomePage.displayName = "HomePage";
 export default HomePage;

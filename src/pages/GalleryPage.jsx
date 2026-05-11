@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { GALLERY_IMAGES } from "../data/galleryImages";
 
-const GalleryPage = () => (
+const GalleryPage = memo(() => (
   <div className="animate-in fade-in duration-500 px-2 sm:px-4 md:px-6">
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-cyan-300 mb-8 sm:mb-10 md:mb-12 tracking-wider text-center">
       Photo Gallery
@@ -22,6 +22,10 @@ const GalleryPage = () => (
           <img
             src={image.src}
             alt={image.caption}
+            loading={index < 4 ? "eager" : "lazy"}
+            decoding="async"
+            fetchPriority={index < 4 ? "high" : "auto"}
+            sizes="(min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
             className="w-full aspect-square sm:aspect-[4/5] md:aspect-[3/4] object-cover border border-gray-200"
           />
 
@@ -32,6 +36,7 @@ const GalleryPage = () => (
       ))}
     </div>
   </div>
-);
+));
 
+GalleryPage.displayName = "GalleryPage";
 export default GalleryPage;

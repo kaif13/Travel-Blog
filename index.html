@@ -59,6 +59,19 @@ A personal space to share travel inspiration, guides, and real travel experience
       name="twitter:image"
       content="https://travel-blog-kaif.netlify.app/og-image.jpg"
     />
+    <!-- ⭐ PERFORMANCE OPTIMIZATION: Preload & DNS Prefetch -->
+    <!-- DNS Prefetch for external CDN -->
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+    <!-- Preload critical images for faster initial render -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075165/kaif_iaaei5.jpg"
+      fetchpriority="high"
+    />
   </head>
 
   <body>

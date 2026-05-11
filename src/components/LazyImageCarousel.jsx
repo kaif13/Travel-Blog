@@ -14,6 +14,8 @@ export default function LazyImageCarousel({
   spinnerDelay = 150,
   fallbackSrc = null,
   imgAlt = (i) => `carousel-${i}`,
+  loading = "lazy",
+  fetchPriority = "auto",
 }) {
   const [index, setIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -77,16 +79,6 @@ export default function LazyImageCarousel({
     setShowShimmer(false);
   }
 
-  // basic prev/next (kept simple)
-  function prev() {
-    if (!images || images.length === 0) return;
-    setIndex((p) => (p - 1 + images.length) % images.length);
-  }
-  function next() {
-    if (!images || images.length === 0) return;
-    setIndex((p) => (p + 1) % images.length);
-  }
-
   // If no images, show a friendly placeholder box
   if (!images || images.length === 0) {
     return (
@@ -117,7 +109,9 @@ export default function LazyImageCarousel({
           ref={imgRef}
           src={currentSrc}
           alt={typeof imgAlt === "function" ? imgAlt(index) : imgAlt}
-          loading="lazy"
+          loading={loading}
+          decoding="async"
+          fetchPriority={fetchPriority}
           onLoad={handleLoad}
           onError={handleError}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${

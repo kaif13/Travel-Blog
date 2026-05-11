@@ -1,65 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { memo } from "react";
 import { BookOpen, Book } from "lucide-react";
 
-/**
- * Optimized LazyImage — FAST version
- */
-function LazyImage({
-  src,
-  alt = "",
-  className = "w-full h-40",
-  fallbackSrc = "https://placehold.co/300x300/1E293B/94A3B8?text=Photo",
-}) {
-  const [loaded, setLoaded] = useState(false);
-  const [showShimmer, setShowShimmer] = useState(false);
-  const [errored, setErrored] = useState(false);
-
-  useEffect(() => {
-    setLoaded(false);
-    setShowShimmer(false);
-    setErrored(false);
-
-    const t = setTimeout(() => {
-      if (!loaded) setShowShimmer(true);
-    }, 150);
-
-    return () => clearTimeout(t);
-  }, [src]);
-
-  const finalSrc = errored ? fallbackSrc : src;
-
-  return (
-    <div className={`relative overflow-hidden rounded-lg ${className}`}>
-      {showShimmer && !loaded && (
-        <div className="absolute inset-0 bg-gray-300 overflow-hidden">
-          <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-        </div>
-      )}
-
-      <img
-        src={finalSrc}
-        alt={alt}
-        loading="lazy"
-        onLoad={() => {
-          setLoaded(true);
-          setShowShimmer(false);
-        }}
-        onError={() => {
-          setErrored(true);
-          setLoaded(true);
-          setShowShimmer(false);
-        }}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
-      />
-    </div>
-  );
-}
-
-const MemoryTimeline = ({ details = [] }) => {
-  const [activeImage, setActiveImage] = useState(null);
-
+const MemoryTimeline = memo(({ details = [] }) => {
   return (
     <div className="relative border-l-2 border-cyan-700/50 ml-3 md:ml-5 pl-6 md:pl-8 mt-6">
       {details.map((item, index) => {
@@ -103,10 +45,13 @@ const MemoryTimeline = ({ details = [] }) => {
                         onClick={() => window.open(imgSrc, "_blank")}
                         className="w-full rounded-lg overflow-hidden"
                       >
-                        <LazyImage
+                        <img
                           src={imgSrc}
                           alt={`Trip moment ${imgIndex + 1}`}
-                          className="w-full aspect-square sm:h-40 md:h-48"
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(min-width: 768px) 33vw, (min-width: 640px) 33vw, 50vw"
+                          className="w-full aspect-square sm:h-40 md:h-48 object-cover rounded-lg"
                         />
                       </button>
                     ))}
@@ -124,6 +69,7 @@ const MemoryTimeline = ({ details = [] }) => {
                         muted
                         loop
                         playsInline
+                        preload="metadata"
                         className="rounded-lg w-full h-52 sm:h-64 object-cover border border-slate-700 shadow-md"
                       />
                     ))}
@@ -194,6 +140,7 @@ const MemoryTimeline = ({ details = [] }) => {
       })}
     </div>
   );
-};
+});
 
+MemoryTimeline.displayName = "MemoryTimeline";
 export default MemoryTimeline;

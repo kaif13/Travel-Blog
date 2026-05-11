@@ -1,25 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback, Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useNavigate,
   useParams,
-  Link,
 } from "react-router-dom";
 
-import { Archive } from "lucide-react";
 import Navbar from "./components/Navbar";
-import ProfileModal from "./components/ProfileModal";
 
-import HomePage from "./pages/HomePage";
-import GalleryPage from "./pages/GalleryPage";
-import TripDetailPage from "./pages/TripDetailPage";
-import AboutMePage from "./pages/AboutMePage";
-import AdminPage from "./pages/AdminPage";
+// Lazy load pages for better performance
+const HomePage = lazy(() => import("./pages/HomePage"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage"));
+const TripDetailPage = lazy(() => import("./pages/TripDetailPage"));
+const AboutMePage = lazy(() => import("./pages/AboutMePage"));
+const AdminPage = lazy(() => import("./pages/AdminPage"));
+const ProfileModal = lazy(() => import("./components/ProfileModal"));
 
 /* ✅ CHANGED: Import from separate trip files */
 import tripsData from "./data/trips/tripsData.js";
+
+/* ==============================
+LOADING FALLBACK
+============================== */
+
+function PageFallback() {
+  return (
+    <div className="flex items-center justify-center py-12">
+      <div className="animate-pulse text-gray-400">Loading...</div>
+    </div>
+  );
+}
 
 /* ==============================
 TRIP DETAIL WRAPPER
@@ -37,24 +48,40 @@ APP CONTENT
 ============================== */
 
 const AppContent = () => {
-  const [userId] = useState("mock-user-001");
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
   /* ✅ TRIPS STATE FROM SEPARATE FILES */
-  const [trips, setTrips] = useState(tripsData);
-
   const navigate = useNavigate();
 
   /* ========================= */
 
-  const handleSelectTrip = (id) => {
-    navigate(`/trip/${id}`);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const handleSelectTrip = useCallback(
+    (id) => {
+      navigate(`/trip/${id}`);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    [navigate],
+  );
 
-  const handleBackToHome = () => {
+  const handleBackToHome = useCallback(() => {
     navigate("/");
-  };
+  }, [navigate]);
+
+  const handleShowGallery = useCallback(() => {
+    navigate("/gallery");
+  }, [navigate]);
+
+  const handleShowAbout = useCallback(() => {
+    navigate("/about");
+  }, [navigate]);
+
+  const handleProfileClick = useCallback(() => {
+    setIsProfileModalOpen(true);
+  }, []);
+
+  const handleProfileClose = useCallback(() => {
+    setIsProfileModalOpen(false);
+  }, []);
 
   /* ========================= */
 
@@ -72,43 +99,65 @@ const AppContent = () => {
       </style>
 
       {isProfileModalOpen && (
-        <ProfileModal onClose={() => setIsProfileModalOpen(false)} />
+        <Suspense fallback={null}>
+          <ProfileModal onClose={handleProfileClose} />
+        </Suspense>
       )}
 
       <main className="max-w-6xl mx-auto bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 p-6 md:p-12 rounded-lg shadow-2xl">
         <Navbar
-          onShowGallery={() => navigate("/gallery")}
+          onShowGallery={handleShowGallery}
           onShowHome={handleBackToHome}
-          onProfileClick={() => setIsProfileModalOpen(true)}
-          onShowAbout={() => navigate("/about")}
+          onProfileClick={handleProfileClick}
+          onShowAbout={handleShowAbout}
         />
 
         <Routes>
           <Route
             path="/"
             element={
-              <HomePage
-                trips={trips}
-                onSelectTrip={handleSelectTrip}
-                userId={userId}
-              />
+              <Suspense fallback={<PageFallback />}>
+                <HomePage trips={tripsData} onSelectTrip={handleSelectTrip} />
+              </Suspense>
             }
           />
 
-          <Route path="/gallery" element={<GalleryPage />} />
+          <Route
+            path="/gallery"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <GalleryPage />
+              </Suspense>
+            }
+          />
 
           {/* ✅ FIXED TRIP ROUTE */}
           <Route
             path="/trip/:id"
-            element={<TripPage trips={trips} onBack={handleBackToHome} />}
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <TripPage trips={tripsData} onBack={handleBackToHome} />
+              </Suspense>
+            }
           />
 
           <Route
             path="/about"
-            element={<AboutMePage onBack={handleBackToHome} />}
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AboutMePage onBack={handleBackToHome} />
+              </Suspense>
+            }
           />
 
-          <Route path="/admin" element={<AdminPage />} />
+          <Route
+            path="/admin"
+            element={
+              <Suspense fallback={<PageFallback />}>
+                <AdminPage />
+              </Suspense>
+            }
+          />
         </Routes>
       </main>
 

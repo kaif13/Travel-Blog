@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimize animations with GPU acceleration */
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
@@ -12,10 +13,37 @@
   animation: shimmer 1.5s infinite;
 }
 
+/* Performance optimizations for smooth animations */
 .input {
   @apply w-full bg-slate-900 border border-slate-600 px-3 py-2 rounded;
 }
 
 .btn-primary {
   @apply bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-2 rounded font-bold;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations for better performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Image optimization */
+img {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contain layout for images to improve performance */
+.lazy-image-container {
+  contain: layout style paint;
 }

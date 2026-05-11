@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { X } from "lucide-react";
 
-const ImageGalleryModal = ({ images, onClose }) => {
+const ImageGalleryModal = memo(({ images, onClose }) => {
   if (!images || images.length === 0) return null;
 
   return (
@@ -10,7 +10,7 @@ const ImageGalleryModal = ({ images, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="bg-slate-900 rounded-lg p-4 shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-auto relative transform scale-0 animate-scaleUp"
+        className="bg-slate-900 rounded-lg p-4 shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-auto relative animate-modalScale"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button inside the box */}
@@ -30,6 +30,8 @@ const ImageGalleryModal = ({ images, onClose }) => {
               key={index}
               src={img}
               alt={`Gallery ${index + 1}`}
+              loading="lazy"
+              decoding="async"
               className="rounded-md object-cover w-full h-24 sm:h-28 cursor-pointer"
               onError={(e) => {
                 e.target.onerror = null;
@@ -43,17 +45,24 @@ const ImageGalleryModal = ({ images, onClose }) => {
 
       <style>
         {`
-          @keyframes scaleUp {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
+          @keyframes modalScale {
+            from {
+              opacity: 0;
+              transform: scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1);
+            }
           }
-          .animate-scaleUp {
-            animation: scaleUp 0.2s ease-out forwards;
+          .animate-modalScale {
+            animation: modalScale 0.2s ease-out forwards;
           }
         `}
       </style>
     </div>
   );
-};
+});
 
+ImageGalleryModal.displayName = "ImageGalleryModal";
 export default ImageGalleryModal;

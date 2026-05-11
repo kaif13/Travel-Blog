@@ -24,6 +24,8 @@ const TripDetailPage = ({ trip, onBack }) => {
           imgAlt={() => trip.title}
           className="w-full h-80"
           spinnerDelay={150} // optional: adjust shimmer delay (ms)
+          loading="eager"
+          fetchPriority="high"
         />
 
         {/* Overlay on top of the carousel */}
