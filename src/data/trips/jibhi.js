@@ -6,7 +6,7 @@ const jibhiTrip = {
   quote:
     "In the quiet forests of Jibhi every stream and mountain breeze feels like a peaceful escape.",
   coverImage:
-    "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772706921/best-time-to-visit_qg2c92.avif",
+    "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772706921/best-time-to-visit_qg2c92.avif",
   details: [
     {
       type: "day",
@@ -20,7 +20,9 @@ const jibhiTrip = {
       description:
         "We reached Delhi around 3 PM and headed straight to Kashmiri Gate to catch our overnight bus to Himachal.",
       images: [],
-      videos: [],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/v1778645954/VID_20260407_142756089_uvaicl.mp4",
+      ],
     },
 
     {
@@ -75,7 +77,9 @@ const jibhiTrip = {
       time: "09:00 AM",
       description:
         "A local driver uncle helped us find a beautiful homestay for ₹2000 per day. We booked two rooms, freshened up, and relaxed for a while.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645942/IMG_20260408_112335386_HDR_ilramq.jpg",
+      ],
       videos: [],
     },
 
@@ -85,7 +89,9 @@ const jibhiTrip = {
       description:
         "After checking in, we went outside for breakfast and enjoyed delicious parathas. The balcony view from our room was breathtaking, with a beautiful flowing river right beside the mountains.",
       images: [],
-      videos: [],
+      videos: [
+        "https://res.cloudinary.com/dv6boe8ig/video/upload/w_800,dpr_auto,q_85,f_auto/v1778645953/Snapchat-134791974_f83aph.mp4",
+      ],
     },
 
     {
@@ -102,7 +108,11 @@ const jibhiTrip = {
       time: "04:00 PM",
       description:
         "In the evening, we went to explore Mini Thailand and the nearby waterfall. We had tea there, clicked lots of photos, enjoyed the cold breeze, and spent quality time together surrounded by nature.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645940/IMG_20260408_161515082_ieodd4.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778645947/IMG_20260408_174545347_HDR_gkxmbl.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778645948/IMG_20260408_174328001_HDR_q32jxt.jpg",
+      ],
       videos: [],
     },
 
@@ -139,7 +149,9 @@ const jibhiTrip = {
       time: "10:00 AM",
       description:
         "We woke up around 10 AM and went outside near the flowing river. We sat there for almost an hour, enjoyed the peaceful atmosphere, clicked lots of photos, and admired the beauty around us.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645803/20260410_095107_rru5gy.jpg",
+      ],
       videos: [],
     },
 
@@ -175,7 +187,11 @@ const jibhiTrip = {
       time: "02:00 PM",
       description:
         "We spent hours playing in the snow, clicking photos, drinking hot tea, eating Maggie, and fully enjoying the magical winter atmosphere. Unfortunately, we couldn't visit Raghupur Fort because the routes were closed due to excessive snowfall.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645824/20260409_142434_x6srl8.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645818/20260409_142813_fvoxla.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778645803/20260409_142817_z2hbfp.jpg",
+      ],
       videos: [],
     },
 
@@ -184,7 +200,10 @@ const jibhiTrip = {
       time: "04:30 PM",
       description:
         "After spending almost three unforgettable hours there, we started walking back downhill towards our cab. During the walk, snowfall began again, making the entire experience feel even more magical.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645826/20260409_132947_vf9dpw.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645817/20260409_165854_gxsoiz.jpg",
+      ],
       videos: [],
     },
 
@@ -266,7 +285,9 @@ const jibhiTrip = {
       time: "01:00 PM",
       description:
         "The trek became one of the most memorable parts of the trip. While climbing, we kept talking, making videos, joking around, discovering new paths, and enjoying every moment together.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645947/IMG_20260410_130059450_srdeqf.jpg",
+      ],
       videos: [],
     },
 
@@ -275,7 +296,11 @@ const jibhiTrip = {
       time: "02:00 PM",
       description:
         "After almost two exhausting hours, we finally reached Chaini Kothi. Everyone was tired, so we sat there for some time and enjoyed the peaceful mountain atmosphere.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645804/20260410_145929_jzw91y.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645802/20260410_150253_mztl0l.jpg",
+        "",
+      ],
       videos: [],
     },
 
@@ -293,7 +318,10 @@ const jibhiTrip = {
       time: "04:00 PM",
       description:
         "We started walking back towards our cab and reached after nearly an hour. By then, it was already around 5 PM and we immediately left for AUT to catch our bus.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778646697/copy_of_snapchat-1017340257_uxn1ze_bb7a79.jpg",
+        "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778645824/20260410_160955_t7dwzs.jpg",
+      ],
       videos: [],
     },
 

@@ -12,6 +12,10 @@ export const GALLERY_IMAGES = [
     caption: "Dal Lake",
   },
   {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645817/20260409_165854_gxsoiz.jpg",
+    caption: "Snowfall",
+  },
+  {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533836/IMG_20260112_133206681_HDR_PCT_2_a1wbzn.jpg",
     caption: "Sonamarg",
   },
@@ -20,8 +24,12 @@ export const GALLERY_IMAGES = [
     caption: "Sonamarg",
   },
   {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713066/WhatsApp_Image_2026-03-05_at_5.44.31_PM_yoquvp.jpg",
-    caption: "Random",
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713133/df_yvnjmk.jpg",
+    caption: "Jamshedpur",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645947/IMG_20260408_174545347_HDR_gkxmbl.jpg",
+    caption: "Jibhi",
   },
 
   {
@@ -41,6 +49,10 @@ export const GALLERY_IMAGES = [
     caption: "Naini Lake",
   },
   {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645803/20260409_142822_stipjb.jpg",
+    caption: "Jalori Pass",
+  },
+  {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713066/WhatsApp_Image_2026-03-05_at_5.44.30_PM_nvxw1h.jpg",
     caption: "Mukhteshwar",
   },
@@ -55,5 +67,9 @@ export const GALLERY_IMAGES = [
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713133/df_yvnjmk.jpg",
     caption: "Jamshedpur",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645826/20260409_132947_vf9dpw.jpg",
+    caption: "Love",
   },
 ];

@@ -9,15 +9,18 @@ const GalleryPage = memo(() => (
 
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5 md:gap-8 p-2 sm:p-3 md:p-4">
       {GALLERY_IMAGES.map((image, index) => (
-        <div
+        <button
           key={index}
+          type="button"
+          onClick={() => window.open(image.src, "_blank")}
           className="bg-white p-2 pb-7 sm:pb-8 md:pb-9 rounded-md shadow-lg
-                     transform transition-transform duration-300
-                     hover:scale-105 md:hover:scale-110
-                     hover:rotate-0 hover:z-10
-                     odd:rotate-[-1deg] sm:odd:rotate-[-2deg]
-                     even:rotate-[1deg] sm:even:rotate-[2deg]
-                     relative"
+                       transform transition-transform duration-300
+                       hover:scale-105 md:hover:scale-110
+                       hover:rotate-0 hover:z-10
+                       odd:rotate-[-1deg] sm:odd:rotate-[-2deg]
+                       even:rotate-[1deg] sm:even:rotate-[2deg]
+                       relative cursor-pointer focus:outline-none focus:ring-4 focus:ring-cyan-300/60"
+          aria-label={`Open ${image.caption} photo in new tab`}
         >
           <img
             src={image.src}
@@ -29,10 +32,10 @@ const GalleryPage = memo(() => (
             className="w-full aspect-square sm:aspect-[4/5] md:aspect-[3/4] object-cover border border-gray-200"
           />
 
-          <p className="text-center text-xs sm:text-sm md:text-base text-gray-700 mt-2 font-semibold absolute bottom-2 left-0 right-0 px-1">
+          <span className="block text-center text-xs sm:text-sm md:text-base text-gray-700 mt-2 font-semibold absolute bottom-2 left-0 right-0 px-1">
             {image.caption}
-          </p>
-        </div>
+          </span>
+        </button>
       ))}
     </div>
   </div>
