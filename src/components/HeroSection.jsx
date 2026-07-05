@@ -3,14 +3,14 @@ import { motion, useReducedMotion } from "motion/react";
 function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
   const words = [
-    { text: "The", from: -120, delay: 0.1 },
-    { text: "Journey", from: -120, delay: 0.28 },
-    { text: "Continues...", from: 120, delay: 0.46 },
+    { text: "The", from: -64, delay: 0.08 },
+    { text: "Journey", from: -64, delay: 0.26 },
+    { text: "Continues...", from: 64, delay: 0.44 },
   ];
 
   return (
     <section
-      className="relative isolate min-h-[100svh] overflow-hidden bg-brand-primary"
+      className="relative isolate min-h-[72svh] overflow-hidden bg-black sm:min-h-[90svh]"
       id="homepage-hero"
     >
       <div className="absolute inset-0 -z-10">
@@ -22,20 +22,20 @@ function HeroSection() {
           <img
             src="https://res.cloudinary.com/dv6boe8ig/image/upload/v1783178632/Untitled_design_rh16yx.png"
             alt="Sunlit mountain valley"
-            className="h-full w-full scale-105 object-cover object-[center_38%] opacity-90 blur-[2px] sm:object-center"
+            className="h-full w-full object-cover object-center opacity-100"
             id="hero-bg-image"
             referrerPolicy="no-referrer"
           />
         </picture>
-        <div className="absolute inset-0 bg-black/28" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/42 via-black/5 to-black/18" />
+        <div className="absolute inset-0 bg-black/42" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/72 via-black/22 to-black/76" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/38 via-transparent to-black/38" />
       </div>
 
-      <div className="flex min-h-[100svh] items-center justify-center px-4 pb-12 pt-24 text-center sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pt-24">
+      <div className="flex min-h-[72svh] items-center justify-center px-4 pb-10 pt-20 text-center sm:min-h-[90svh] sm:px-6 sm:pb-14 sm:pt-24 lg:px-8">
         <h1
           aria-label="The Journey Continues"
-          className="w-full max-w-[min(94vw,88rem)] font-serif text-[clamp(3.5rem,min(17vw,15svh),6.8rem)] font-black leading-[0.82] tracking-tight text-[#FFF8ED] drop-shadow-[0_10px_28px_rgba(0,0,0,0.65)] sm:text-[clamp(5.25rem,min(16vw,18svh),10rem)] sm:leading-[0.78] lg:text-[clamp(7rem,min(13vw,21svh),13.75rem)]"
+          className="w-full max-w-[min(92vw,72rem)] font-serif text-[clamp(3.25rem,14vw,6rem)] font-black leading-[0.9] tracking-tight text-white drop-shadow-[0_10px_28px_rgba(0,0,0,0.82)] sm:text-[clamp(4.75rem,12vw,8.5rem)] sm:leading-[0.84] lg:text-[clamp(6rem,10vw,10.75rem)]"
           id="hero-main-title"
         >
           {words.map((word) => (
@@ -47,11 +47,13 @@ function HeroSection() {
               }
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                duration: 0.85,
                 delay: word.delay,
-                ease: [0.16, 1, 0.3, 1],
+                type: "spring",
+                stiffness: 48,
+                damping: 20,
+                mass: 1.1,
               }}
-              className="block whitespace-nowrap"
+              className="block whitespace-nowrap will-change-transform transform-gpu"
             >
               {word.text}
             </motion.span>

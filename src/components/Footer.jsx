@@ -17,22 +17,30 @@ function Footer({ setActiveTab }) {
   };
 
   return (
-    <footer className="bg-brand-primary text-[#FFF8ED] pt-16 pb-8 border-t border-brand-accent/20" id="main-footer">
+    <footer
+      className="bg-brand-primary text-[#FFF8ED] pt-16 pb-8 border-t border-brand-accent/20"
+      id="main-footer"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="space-y-4" id="footer-brand">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("home")}>
-              <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-brand-primary font-bold">
-                <Compass className="w-5 h-5 text-brand-primary" />
-              </div>
+            <div
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={() => navigate("home")}
+            >
               <span className="font-serif text-2xl font-bold tracking-tight">
                 Kaif<span className="text-brand-accent">Travel</span>Blog
               </span>
             </div>
             <p className="text-[#FFF8ED]/75 text-sm leading-relaxed max-w-sm">
-              One dream. Every Indian state. A lifetime of memories before marriage. Documenting my emotional and adventurous travel journey to explore all 28 states and 8 Union Territories of India.
+              One dream. Every Indian state. A lifetime of memories before
+              marriage. Documenting my emotional and adventurous travel journey
+              to explore all 28 states and 8 Union Territories of India.
             </p>
-            <div className="flex items-center gap-2 text-brand-accent text-sm font-medium" id="footer-stats-badge">
+            <div
+              className="flex items-center gap-2 text-brand-accent text-sm font-medium"
+              id="footer-stats-badge"
+            >
               <MapPin className="w-4 h-4" />
               <span>Current Milestone: 5 / 28 States Explored</span>
             </div>
@@ -61,7 +69,8 @@ function Footer({ setActiveTab }) {
               Travel Stories
             </h3>
             <p className="text-[#FFF8ED]/75 text-sm leading-relaxed">
-              Browse full travel stories plus the shorter photo-backed memories from the trip folder.
+              Browse full travel stories plus the shorter photo-backed memories
+              from the trip folder.
             </p>
             <button
               onClick={() => navigate("stories")}
@@ -74,9 +83,13 @@ function Footer({ setActiveTab }) {
         </div>
 
         <div className="pt-8 mt-8 border-t border-[#FFF8ED]/15 text-center text-xs text-[#FFF8ED]/60 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>&copy; {currentYear} KaifTravelBlog. Made with pride and passion in India.</p>
+          <p>
+            &copy; {currentYear} KaifTravelBlog. Made with pride and passion in
+            India.
+          </p>
           <p className="flex items-center gap-1">
-            Chasing sunset dreams before wedding bells <Heart className="w-3.5 h-3.5 text-brand-accent fill-current" />
+            Chasing sunset dreams before wedding bells{" "}
+            <Heart className="w-3.5 h-3.5 text-brand-accent fill-current" />
           </p>
         </div>
       </div>
