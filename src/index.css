@@ -1,49 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
-/* Optimize animations with GPU acceleration */
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Poppins", "Inter", system-ui, sans-serif;
+  --font-handwritten: "Caveat", cursive;
+
+  --color-brand-bg: #fff8ed;
+  --color-brand-card: #ffffff;
+  --color-brand-primary: #102a43;
+  --color-brand-accent: #d97706;
+  --color-brand-accent-dark: #c2410c;
+  --color-brand-highlight: #166534;
+  --color-brand-text: #222222;
+  --color-brand-border: #e5e7eb;
 }
 
-.animate-shimmer {
-  animation: shimmer 1.5s infinite;
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
-/* Performance optimizations for smooth animations */
-.input {
-  @apply w-full bg-slate-900 border border-slate-600 px-3 py-2 rounded;
+/* Custom scrollbar to keep it looking premium */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.btn-primary {
-  @apply bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-2 rounded font-bold;
+::-webkit-scrollbar-track {
+  background: #fff8ed;
 }
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
+::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 4px;
 }
-
-/* Optimize animations for better performance */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Image optimization */
-img {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Contain layout for images to improve performance */
-.lazy-image-container {
-  contain: layout style paint;
+::-webkit-scrollbar-thumb:hover {
+  background: #c2410c;
 }

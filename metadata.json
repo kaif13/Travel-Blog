@@ -1,0 +1,8 @@
+{
+  "name": "KaifTravelBlog",
+  "description": "An interactive personal travel blog documenting Kaif's journey to visit every state in India, featuring stories, memories, and a custom journey map.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

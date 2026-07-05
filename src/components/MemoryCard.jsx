@@ -1,60 +1,37 @@
-import React, { memo } from "react";
-import { MapPin, Calendar } from "lucide-react";
-
-const MemoryCard = memo(({ trip, onSelectTrip, priority = false }) => {
-  const isUpcoming = trip.status === "upcoming";
-
-  return (
-    <div
-      className={`bg-slate-800/50 backdrop-blur-md border border-slate-700 shadow-xl rounded-xl overflow-hidden transform transition-all duration-300 ${
-        isUpcoming
-          ? "cursor-not-allowed"
-          : "hover:scale-[1.03] hover:shadow-cyan-500/30 cursor-pointer group"
-      }`}
-      onClick={() => !isUpcoming && onSelectTrip(trip.id)}
-    >
-      <div className={`relative ${isUpcoming ? "filter grayscale" : ""}`}>
-        <img
-          src={trip.coverImage}
-          alt={trip.title}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          fetchPriority={priority ? "high" : "auto"}
-          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="w-full h-48 object-cover transition duration-300 ease-in-out group-hover:opacity-90"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src =
-              "https://placehold.co/600x400/1E293B/94A3B8?text=Image+Not+Found";
-          }}
-        />
-        {isUpcoming && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <span className="text-white text-xl font-bold tracking-widest">
-              UPCOMING
-            </span>
-          </div>
-        )}
-      </div>
-      <div className="p-6">
-        <h3 className="text-2xl font-bold text-gray-100 mb-2">{trip.title}</h3>
-        <p className="text-sm text-gray-400 flex items-center mb-4">
-          <MapPin className="w-4 h-4 mr-2 text-red-400" /> {trip.location} |{" "}
-          <Calendar className="w-4 h-4 ml-3 mr-2 text-blue-400" /> {trip.date}
-        </p>
-        <blockquote className="italic text-gray-300 border-l-4 border-cyan-400 pl-4 py-1 my-3">
-          "{trip.quote}"
-        </blockquote>
-        <button
-          disabled={isUpcoming}
-          className="mt-4 w-full text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 disabled:bg-slate-600 disabled:cursor-not-allowed bg-cyan-600 hover:bg-cyan-700"
-        >
-          {isUpcoming ? "Coming Soon..." : "Explore Journey"}
-        </button>
-      </div>
-    </div>
-  );
-});
-
-MemoryCard.displayName = "MemoryCard";
-export default MemoryCard;
+import { MapPin, Calendar, Heart } from "lucide-react";
+import { motion } from "motion/react";
+function MemoryCard({ memory, index }) {
+  const rotationDegrees = index % 3 === 0 ? "rotate-1" : index % 3 === 1 ? "-rotate-1" : "rotate-0.5";
+  return <motion.div
+    initial={{ opacity: 0, scale: 0.95, y: 15 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ duration: 0.4, delay: index * 0.05 }}
+    whileHover={{
+      scale: 1.03,
+      rotate: 0,
+      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      transition: { duration: 0.2 }
+    }}
+    className={`bg-white p-4 pb-7 rounded-lg shadow-md border border-brand-border/40 ${rotationDegrees} transition-all duration-300 group cursor-pointer h-full flex flex-col justify-between`}
+    id={`memory-card-${memory.id}`}
+  ><div>{
+    /* Memory Photo */
+  }<div className="relative aspect-square overflow-hidden rounded bg-gray-100 border border-black/5" id={`memory-img-wrapper-${memory.id}`}><img
+    src={memory.image}
+    alt={memory.caption}
+    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+    referrerPolicy="no-referrer"
+    id={`memory-img-${memory.id}`}
+  /><div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />{
+    /* Category overlay */
+  }<span className="absolute top-3 left-3 bg-brand-primary/90 backdrop-blur-sm text-[#FFF8ED] text-[10px] font-bold px-2.5 py-1 rounded-md tracking-wider uppercase">{memory.category}</span>{
+    /* Mood tag overlay */
+  }<span className="absolute bottom-3 right-3 bg-brand-accent/90 backdrop-blur-sm text-brand-primary text-[10px] font-bold px-2.5 py-1 rounded-md flex items-center gap-1 shadow-sm"><Heart className="w-2.5 h-2.5 fill-current" />{memory.mood}</span></div>{
+    /* Polaroid caption text */
+  }<div className="mt-4 px-1" id={`memory-text-${memory.id}`}><p className="font-handwritten text-xl sm:text-2xl text-[#102A43] leading-snug font-semibold text-center line-clamp-3 group-hover:text-brand-accent transition-colors duration-200">{memory.caption}</p></div></div>{
+    /* Polaroid Footer */
+  }<div className="mt-4 pt-3 border-t border-dashed border-gray-200 flex items-center justify-between text-xs text-brand-text/60 px-1 font-sans"><div className="flex items-center gap-1 font-medium text-brand-primary/80"><MapPin className="w-3.5 h-3.5 text-brand-accent" /><span className="truncate max-w-[130px]">{memory.location}</span></div><div className="flex items-center gap-1 font-medium"><Calendar className="w-3.5 h-3.5" /><span>{memory.date}</span></div></div></motion.div>;
+}
+export {
+  MemoryCard as default
+};
