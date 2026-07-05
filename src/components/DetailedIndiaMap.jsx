@@ -1,5 +1,5 @@
 ﻿import { useState, useRef, useCallback } from "react";
-import { CheckCircle2, Circle } from "lucide-react";
+import { CheckCircle2, Circle, Minus } from "lucide-react";
 
 import {
   MAP_COLORS,
@@ -215,7 +215,7 @@ export default function DetailedIndiaMap() {
             className="w-8 h-8 rounded-full bg-brand-card border border-brand-border text-brand-primary text-lg leading-none flex items-center justify-center active:scale-95 transition hover:border-brand-accent"
             aria-label="zoom out"
           >
-            âˆ’
+            <Minus className="h-4 w-4" />
           </button>
           <button
             onClick={reset}
