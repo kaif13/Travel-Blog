@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Compass, Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 function Navbar({ activeTab, setActiveTab }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,7 @@ function Navbar({ activeTab, setActiveTab }) {
       className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ${scrolled ? "bg-[#FFF8ED]/95 backdrop-blur-md shadow-md border-[#E5E7EB]" : "bg-[#FFF8ED]/35 backdrop-blur-sm border-transparent"}`}
       id="main-navbar"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center">
         <div className="flex items-center justify-between w-full">
           {/* Logo / Brand */}
           <div
@@ -50,10 +50,10 @@ function Navbar({ activeTab, setActiveTab }) {
             id="nav-logo"
           >
             <div>
-              <span className="font-serif text-xl sm:text-2xl font-bold text-brand-primary tracking-tight block">
+              <span className="font-serif text-lg sm:text-2xl font-bold text-brand-primary tracking-tight block">
                 Kaif<span className="text-brand-accent">Travel</span>Blog
               </span>
-              <span className="text-[10px] uppercase tracking-widest text-brand-accent-dark font-medium -mt-1 block flex items-center gap-1">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-brand-accent-dark font-medium -mt-1 block flex items-center gap-1">
                 One Dream <Heart className="w-2.5 h-2.5 fill-current" /> Every
                 State
               </span>

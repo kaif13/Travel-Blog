@@ -16,11 +16,34 @@
   --color-brand-border: #e5e7eb;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--color-brand-bg);
   color: var(--color-brand-text);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+span {
+  overflow-wrap: anywhere;
 }
 
 /* Custom scrollbar to keep it looking premium */

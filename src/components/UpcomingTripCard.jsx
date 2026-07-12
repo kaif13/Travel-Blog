@@ -13,7 +13,7 @@ function UpcomingTripCard({ trip }) {
       className="bg-brand-card rounded-2xl overflow-hidden shadow-md border border-brand-border/60 h-full group"
       id={`upcoming-trip-${trip.id}`}
     >
-      <div className="relative h-64 overflow-hidden" id={`upcoming-image-container-${trip.id}`}>
+      <div className="relative h-56 overflow-hidden sm:h-64" id={`upcoming-image-container-${trip.id}`}>
         <img
           src={trip.image}
           alt={trip.destination}
@@ -27,7 +27,7 @@ function UpcomingTripCard({ trip }) {
             {trip.status}
           </span>
         </div>
-        <div className="absolute bottom-5 left-5 right-5 text-white">
+        <div className="absolute bottom-4 left-4 right-4 text-white sm:bottom-5 sm:left-5 sm:right-5">
           <div className="flex items-center gap-1.5 text-xs text-brand-accent font-semibold mb-1 uppercase tracking-widest">
             <Calendar className="w-3.5 h-3.5" />
             <span>{trip.expectedMonth}</span>
@@ -39,7 +39,7 @@ function UpcomingTripCard({ trip }) {
         </div>
       </div>
 
-      <div className="p-6 space-y-5" id={`upcoming-details-${trip.id}`}>
+      <div className="p-5 space-y-4 sm:p-6 sm:space-y-5" id={`upcoming-details-${trip.id}`}>
         <div className="flex flex-wrap items-center gap-3 text-xs text-brand-text/75 font-medium pb-3 border-b border-brand-border/40">
           <div className="flex items-center gap-1 text-brand-primary">
             <MapPin className="w-3.5 h-3.5 text-brand-accent" />

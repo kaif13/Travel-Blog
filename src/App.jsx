@@ -72,7 +72,7 @@ function App() {
       {/* Dynamic Header & Navigation */}
       <Navbar activeTab={activeTab} setActiveTab={navigateToTab} />
       {/* Main Page Body Frame */}
-      <main className="flex-grow pt-24 pb-16" id="applet-main-content">
+      <main className="flex-grow pt-20 pb-12 sm:pt-24 sm:pb-16" id="applet-main-content">
         <AnimatePresence mode="wait">
           {/* ==================== 1. HOME TAB ==================== */}
           {activeTab === "home" && (
@@ -92,7 +92,7 @@ function App() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+              className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8"
             >
               <SectionHeading
                 title="The India Travel Atlas"
@@ -113,7 +113,7 @@ function App() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+              className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8"
             >
               {selectedStorySlug ? (
                 // Detailed View of single travel story
@@ -153,7 +153,7 @@ function App() {
                     subtitle="Real trip-folder stories with short image-backed memories, road moments, mountain mornings, and human connection logs."
                     accent="The Travel Diaries"
                   />
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     {tripStories.map((story) => (
                       <StoryCard
                         key={story.id}
@@ -173,7 +173,7 @@ function App() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+              className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8"
             >
               <SectionHeading
                 title="The Visual Memory Album"
@@ -182,14 +182,14 @@ function App() {
               />
               {/* Filtering Menu */}
               <div
-                className="flex flex-wrap justify-center gap-2 mb-10 max-w-4xl mx-auto"
+                className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10 max-w-4xl mx-auto"
                 id="memories-category-filters"
               >
                 {memoryCategories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setSelectedMemoryCategory(cat)}
-                    className={`px-4 py-2 text-xs sm:text-sm rounded-full border transition-all duration-200 cursor-pointer font-medium ${selectedMemoryCategory === cat ? "bg-brand-primary text-white border-brand-primary font-semibold shadow-sm" : "bg-white text-brand-primary border-brand-border hover:bg-brand-accent/10"}`}
+                    className={`px-3 py-2 text-xs sm:px-4 sm:text-sm rounded-full border transition-all duration-200 cursor-pointer font-medium ${selectedMemoryCategory === cat ? "bg-brand-primary text-white border-brand-primary font-semibold shadow-sm" : "bg-white text-brand-primary border-brand-border hover:bg-brand-accent/10"}`}
                   >
                     {cat}
                   </button>
@@ -197,7 +197,7 @@ function App() {
               </div>
               {/* Polaroid Grid */}
               <div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4"
                 id="polaroids-masonry-grid"
               >
                 {filteredMemories.map((memory, index) => (
@@ -213,14 +213,14 @@ function App() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+              className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8"
             >
               <SectionHeading
                 title="Next Horizons"
                 subtitle="Future expeditions waiting on the horizon, shown simply with a photo, a short description, and the reason I want to visit."
                 accent="Upcoming Quest Plans"
               />
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-6 xl:grid-cols-2 xl:gap-8">
                 {upcomingTrips.map((trip) => (
                   <UpcomingTripCard key={trip.id} trip={trip} />
                 ))}

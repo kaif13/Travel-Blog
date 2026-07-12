@@ -1,11 +1,5 @@
 import {
-  Camera,
   ChevronRight,
-  Heart,
-  MapPinned,
-  Plane,
-  Route,
-  Sparkles,
 } from "lucide-react";
 import { motion } from "motion/react";
 import HeroSection from "./HeroSection";
@@ -21,7 +15,7 @@ const SectionIntro = ({ eyebrow, title, text, actionLabel, onAction }) => (
       <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-brand-accent-dark">
         {eyebrow}
       </span>
-      <h2 className="mt-2 font-serif text-3xl font-bold tracking-tight text-brand-primary sm:text-4xl">
+      <h2 className="mt-2 font-serif text-2xl font-bold leading-tight tracking-tight text-brand-primary sm:text-4xl">
         {title}
       </h2>
       {text && (
@@ -33,7 +27,7 @@ const SectionIntro = ({ eyebrow, title, text, actionLabel, onAction }) => (
     {actionLabel && (
       <button
         onClick={onAction}
-        className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-accent/30 bg-white px-5 py-2.5 text-sm font-bold text-brand-primary shadow-sm transition hover:-translate-y-0.5 hover:border-brand-accent hover:text-brand-accent-dark"
+        className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-accent/30 bg-white px-4 py-2.5 text-sm font-bold text-brand-primary shadow-sm transition hover:-translate-y-0.5 hover:border-brand-accent hover:text-brand-accent-dark sm:px-5"
       >
         <span>{actionLabel}</span>
         <ChevronRight className="h-4 w-4" />
@@ -60,14 +54,14 @@ function HomePage({
     >
       <HeroSection />
 
-      <section className="py-16 sm:py-20" id="journey-progress-anchor">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+      <section className="py-12 sm:py-20" id="journey-progress-anchor">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-10">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-brand-accent-dark">
                 Progress Log
               </span>
-              <h2 className="mt-3 font-serif text-4xl font-bold tracking-tight text-brand-primary sm:text-5xl">
+              <h2 className="mt-3 font-serif text-3xl font-bold leading-tight tracking-tight text-brand-primary sm:text-5xl">
                 A cleaner count of where the road has taken me.
               </h2>
               <p className="mt-5 text-base leading-8 text-brand-text/75">
@@ -81,8 +75,8 @@ function HomePage({
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20" id="home-map-preview-sec">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-12 sm:py-20" id="home-map-preview-sec">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Visual Atlas"
             title="My Journey Map Overview"
@@ -99,8 +93,8 @@ function HomePage({
         </div>
       </section>
 
-      <section className="py-16 sm:py-20" id="home-stories-sec">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20" id="home-stories-sec">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Travel Chronicles"
             title="Latest Diary Logs"
@@ -108,7 +102,7 @@ function HomePage({
             actionLabel={`Read all ${totalStories} logs`}
             onAction={() => navigateToTab("stories")}
           />
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {featuredStories.map((story) => (
               <StoryCard
                 key={story.id}
@@ -120,8 +114,8 @@ function HomePage({
         </div>
       </section>
 
-      <section className="bg-[#f7efe1] py-16 sm:py-20" id="home-memories-sec">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#f7efe1] py-12 sm:py-20" id="home-memories-sec">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Camera Rolls"
             title="Memory Frames"
@@ -129,7 +123,7 @@ function HomePage({
             actionLabel="View photo catalog"
             onAction={() => navigateToTab("memories")}
           />
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {featuredMemories.map((memory, index) => (
               <MemoryCard key={memory.id} memory={memory} index={index} />
             ))}
@@ -137,8 +131,8 @@ function HomePage({
         </div>
       </section>
 
-      <section className="py-16 sm:py-20" id="home-upcoming-sec">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20" id="home-upcoming-sec">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Next Destinations"
             title="Upcoming Places On My Mind"
@@ -146,7 +140,7 @@ function HomePage({
             actionLabel="View upcoming trips"
             onAction={() => navigateToTab("upcoming")}
           />
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
             {featuredUpcoming.map((trip) => (
               <UpcomingTripCard key={trip.id} trip={trip} />
             ))}

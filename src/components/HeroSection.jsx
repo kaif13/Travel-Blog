@@ -10,7 +10,7 @@ function HeroSection() {
 
   return (
     <section
-      className="relative isolate min-h-[72svh] overflow-hidden bg-black sm:min-h-[90svh]"
+      className="relative isolate min-h-[68svh] overflow-hidden bg-black sm:min-h-[90svh]"
       id="homepage-hero"
     >
       <div className="absolute inset-0 -z-10">
@@ -32,10 +32,10 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/38 via-transparent to-black/38" />
       </div>
 
-      <div className="flex min-h-[72svh] items-center justify-center px-4 pb-10 pt-20 text-center sm:min-h-[90svh] sm:px-6 sm:pb-14 sm:pt-24 lg:px-8">
+      <div className="flex min-h-[68svh] items-center justify-center px-4 pb-10 pt-20 text-center sm:min-h-[90svh] sm:px-6 sm:pb-14 sm:pt-24 lg:px-8">
         <h1
           aria-label="The Journey Continues"
-          className="w-full max-w-[min(92vw,72rem)] font-serif text-[clamp(3.25rem,14vw,6rem)] font-black leading-[0.9] tracking-tight text-white drop-shadow-[0_10px_28px_rgba(0,0,0,0.82)] sm:text-[clamp(4.75rem,12vw,8.5rem)] sm:leading-[0.84] lg:text-[clamp(6rem,10vw,10.75rem)]"
+          className="w-full max-w-[min(92vw,72rem)] font-serif text-[clamp(2.65rem,13vw,5rem)] font-black leading-[0.94] tracking-tight text-white drop-shadow-[0_10px_28px_rgba(0,0,0,0.82)] sm:text-[clamp(4.75rem,12vw,8.5rem)] sm:leading-[0.84] lg:text-[clamp(6rem,10vw,10.75rem)]"
           id="hero-main-title"
         >
           {words.map((word) => (

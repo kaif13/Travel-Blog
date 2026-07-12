@@ -1,6 +1,5 @@
-import { Coffee, Music, Quote, Sun } from "lucide-react";
+import { Coffee, Quote, Sun } from "lucide-react";
 import { motion } from "motion/react";
-import SectionHeading from "./SectionHeading";
 
 function AboutSection({ navigateToTab }) {
   return (
@@ -9,14 +8,14 @@ function AboutSection({ navigateToTab }) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
-      className="max-w-4xl mx-auto px-4"
+      className="max-w-4xl mx-auto px-3 sm:px-4"
       id="about-me-manifesto-view"
     >
       {/*  */}
 
-      <div className="bg-brand-card p-8 sm:p-12 rounded-3xl border border-brand-border/60 shadow-md space-y-8 font-sans leading-relaxed text-brand-text">
-        <div className="flex flex-col md:flex-row items-center gap-8 pb-8 border-b border-brand-border/60">
-          <div className="w-32 h-32 rounded-full overflow-hidden shrink-0 ring-4 ring-brand-accent/30 shadow-md">
+      <div className="bg-brand-card p-5 sm:p-12 rounded-2xl sm:rounded-3xl border border-brand-border/60 shadow-md space-y-7 sm:space-y-8 font-sans leading-relaxed text-brand-text">
+        <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 pb-7 sm:pb-8 border-b border-brand-border/60">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 ring-4 ring-brand-accent/30 shadow-md">
             <img
               src="https://res.cloudinary.com/dv6boe8ig/image/upload/v1771916168/IMG_E9633_2.JPG_rtx2lt.jpg"
               alt="Kaif - The Wandering Soul"
@@ -25,7 +24,7 @@ function AboutSection({ navigateToTab }) {
             />
           </div>
           <div className="space-y-2 text-center md:text-left">
-            <h3 className="font-serif text-3xl font-bold text-brand-primary">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-brand-primary">
               Hello, I'm Mohammad Kaif
             </h3>
             <p className="text-brand-accent-dark font-semibold text-sm uppercase tracking-wider">
@@ -140,7 +139,7 @@ function AboutSection({ navigateToTab }) {
             dream before marriage."
           </p>
 
-          <div className="mt-4 flex justify-center gap-4">
+          <div className="mt-4 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
             <button
               onClick={() => navigateToTab("map")}
               className="bg-brand-primary text-white hover:bg-brand-accent hover:text-brand-primary px-6 py-2.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer"

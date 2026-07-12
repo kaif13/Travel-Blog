@@ -1,4 +1,4 @@
-import { BookOpen, Compass, Heart, MapPin } from "lucide-react";
+import { BookOpen, Heart, MapPin } from "lucide-react";
 
 function Footer({ setActiveTab }) {
   const currentYear = new Date().getFullYear();
@@ -22,7 +22,7 @@ function Footer({ setActiveTab }) {
       id="main-footer"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-9 sm:gap-12 mb-10 sm:mb-12">
           <div className="space-y-4" id="footer-brand">
             <div
               className="flex items-center gap-2 cursor-pointer"
@@ -50,7 +50,7 @@ function Footer({ setActiveTab }) {
             <h3 className="font-serif text-lg font-semibold text-brand-accent tracking-wide">
               Explore the Journey
             </h3>
-            <ul className="grid grid-cols-2 gap-2 text-sm text-[#FFF8ED]/80">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#FFF8ED]/80">
               {quickLinks.map((link) => (
                 <li key={link.id}>
                   <button
@@ -74,7 +74,7 @@ function Footer({ setActiveTab }) {
             </p>
             <button
               onClick={() => navigate("stories")}
-              className="inline-flex items-center gap-2 bg-[#FFF8ED]/10 hover:bg-brand-accent hover:text-brand-primary text-[#FFF8ED] px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#FFF8ED]/10 hover:bg-brand-accent hover:text-brand-primary text-[#FFF8ED] px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer"
             >
               <BookOpen className="w-4 h-4" />
               <span>Open Stories</span>
