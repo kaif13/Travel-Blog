@@ -1,33 +1,41 @@
 import { motion } from "motion/react";
 import { Map, MapPin, Milestone } from "lucide-react";
+import { JOURNEY_STATS } from "../data/indiaMapData";
 
 function JourneyStats() {
+  const {
+    totalStates,
+    totalUnionTerritories,
+    visitedStates,
+    visitedUnionTerritories,
+    visitedCities,
+  } = JOURNEY_STATS;
+
   const stats = [
     {
       label: "States",
-      value: "5 / 28",
+      value: `${visitedStates} / ${totalStates}`,
       note: "visited so far",
-      percentage: (5 / 28) * 100,
+      percentage: (visitedStates / totalStates) * 100,
       icon: MapPin,
     },
     {
       label: "Union Territories",
-      value: "1 / 8",
+      value: `${visitedUnionTerritories} / ${totalUnionTerritories}`,
       note: "checked in",
-      percentage: (1 / 8) * 100,
+      percentage:
+        (visitedUnionTerritories / totalUnionTerritories) * 100,
       icon: Map,
     },
     {
       label: "Cities",
-      value: "18+",
+      value: visitedCities,
       note: "explored",
-      percentage: 65,
+      percentage: Math.min((visitedCities / 28) * 100, 100),
       icon: Milestone,
     },
   ];
 
-  const totalStates = 28;
-  const visitedStates = 5;
   const overallPercentage = Math.round((visitedStates / totalStates) * 100);
   const circumference = 2 * Math.PI * 48;
   const dashOffset = circumference - (overallPercentage / 100) * circumference;

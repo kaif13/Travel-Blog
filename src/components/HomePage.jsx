@@ -123,7 +123,7 @@ function HomePage({
             actionLabel="View photo catalog"
             onAction={() => navigateToTab("memories")}
           />
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {featuredMemories.map((memory, index) => (
               <MemoryCard key={memory.id} memory={memory} index={index} />
             ))}

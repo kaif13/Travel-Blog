@@ -18,7 +18,6 @@ import { motion, AnimatePresence } from "motion/react";
 function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [selectedStorySlug, setSelectedStorySlug] = useState(null);
-  const [selectedMemoryCategory, setSelectedMemoryCategory] = useState("All");
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace("#", "");
@@ -56,14 +55,6 @@ function App() {
   const latestFeaturedStories = tripStories.slice(0, 3);
   const featuredMemories = memories.slice(0, 4);
   const featuredUpcoming = upcomingTrips.slice(0, 3);
-  const memoryCategories = [
-    "All",
-    ...new Set(memories.map((memory) => memory.category)),
-  ];
-  const filteredMemories =
-    selectedMemoryCategory === "All"
-      ? memories
-      : memories.filter((m) => m.category === selectedMemoryCategory);
   return (
     <div
       className="min-h-screen bg-brand-bg text-brand-text selection:bg-brand-accent/30 selection:text-brand-primary flex flex-col justify-between"
@@ -180,27 +171,12 @@ function App() {
                 subtitle="Candid snapshots and Polaroid captions capturing roadside local culinary delights, culture, and train rides."
                 accent="Polaroid Gallery"
               />
-              {/* Filtering Menu */}
-              <div
-                className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10 max-w-4xl mx-auto"
-                id="memories-category-filters"
-              >
-                {memoryCategories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedMemoryCategory(cat)}
-                    className={`px-3 py-2 text-xs sm:px-4 sm:text-sm rounded-full border transition-all duration-200 cursor-pointer font-medium ${selectedMemoryCategory === cat ? "bg-brand-primary text-white border-brand-primary font-semibold shadow-sm" : "bg-white text-brand-primary border-brand-border hover:bg-brand-accent/10"}`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
               {/* Polaroid Grid */}
               <div
-                className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4"
+                className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4"
                 id="polaroids-masonry-grid"
               >
-                {filteredMemories.map((memory, index) => (
+                {memories.map((memory, index) => (
                   <MemoryCard key={memory.id} memory={memory} index={index} />
                 ))}
               </div>

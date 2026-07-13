@@ -97,119 +97,136 @@ const upcomingTrips = [
     image:
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800",
   },
-  {
-    id: 5,
-    destination: "Monuments & Heritage of Karnataka",
-    state: "Karnataka",
-    status: "Dreaming",
-    expectedMonth: "January 2027",
-    reason:
-      "Exploring the ruins of the Vijayanagara Empire in Hampi, staring at the grand Mysore Palace, and trekking the Western Ghats of Coorg.",
-    travelType: "Solo",
-    dreamMoment:
-      "Watching the sunrise from behind the boulder-strewn hills of Hampi, with the ancient Virupaksha temple silhouetted in gold.",
-    checklist: [
-      {
-        task: "Map out historical sites in Hampi and Badami",
-        completed: false,
-      },
-      { task: "Find a local architectural guide in Hampi", completed: false },
-    ],
-    progress: 10,
-    image:
-      "https://images.unsplash.com/photo-1600100397608-f010e42fa023?auto=format&fit=crop&q=80&w=800",
-  },
 ];
 const GALLERY_IMAGES = [
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1771916168/IMG_E9633_2.JPG_rtx2lt.jpg",
     caption: "Gulmarg",
-    tripId: "kashmir-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772695861/WhatsApp_Image_2026-03-05_at_1.00.31_PM_rr8nav.jpg",
-    caption: "Moment",
-    tripId: "kashmir-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772534922/IMG_20260113_133457005_HDR_ep8qmb.jpg",
-    caption: "Dal Lake",
+    location: "Gulmarg",
     tripId: "kashmir-2026-trip",
   },
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645817/20260409_165854_gxsoiz.jpg",
     caption: "Snowfall",
+    location: "Jibhi",
     tripId: "jibhi-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533836/IMG_20260112_133206681_HDR_PCT_2_a1wbzn.jpg",
-    caption: "Sonamarg",
-    tripId: "kashmir-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772695563/WhatsApp_Image_2026-03-05_at_12.55.42_PM_eu5gne.jpg",
-    caption: "Sonamarg",
-    tripId: "kashmir-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713133/df_yvnjmk.jpg",
-    caption: "Jamshedpur",
-    tripId: null,
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645947/IMG_20260408_174545347_HDR_gkxmbl.jpg",
-    caption: "Jibhi",
-    tripId: "jibhi-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772696034/WhatsApp_Image_2026-03-05_at_1.03.27_PM_rmfumt.jpg",
-    caption: "Pahalgam",
-    tripId: "kashmir-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772696265/WhatsApp_Image_2026-03-05_at_1.04.23_PM_lc3tpp.jpg",
-    caption: "Rajgir",
-    tripId: "rajgir-2026-trip",
-  },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772696322/WhatsApp_Image_2026-03-05_at_1.07.33_PM_revtpq.jpg",
-    caption: "Solo",
-    tripId: null,
   },
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1767075158/nani4_sskpv6.jpg",
     caption: "Naini Lake",
+    location: "Nainital",
     tripId: "nainital-2023",
   },
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645803/20260409_142822_stipjb.jpg",
     caption: "Jalori Pass",
+    location: "Jalori Pass",
     tripId: "jibhi-2026-trip",
   },
   {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772695861/WhatsApp_Image_2026-03-05_at_1.00.31_PM_rr8nav.jpg",
+    caption: "Moment",
+    location: "Sonamarg",
+    tripId: "kashmir-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645947/IMG_20260408_174545347_HDR_gkxmbl.jpg",
+    caption: "Jibhi",
+    location: "Jibhi",
+    tripId: "jibhi-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772535461/IMG_9519_rhl0uz.jpg",
+    caption: "Dal Lake",
+    location: "Srinagar, Kashmir",
+    tripId: "kashmir-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772696265/WhatsApp_Image_2026-03-05_at_1.04.23_PM_lc3tpp.jpg",
+    caption: "Rajgir",
+    location: "Rajgir",
+    tripId: "rajgir-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772533836/IMG_20260112_133206681_HDR_PCT_2_a1wbzn.jpg",
+    caption: "Sonamarg",
+    location: "Sonamarg",
+    tripId: "kashmir-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772695563/WhatsApp_Image_2026-03-05_at_12.55.42_PM_eu5gne.jpg",
+    caption: "Sonamarg",
+    location: "Sonamarg",
+    tripId: "kashmir-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713133/df_yvnjmk.jpg",
+    caption: "Jamshedpur",
+    location: "Jamshedpur",
+    tripId: null,
+  },
+
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772696034/WhatsApp_Image_2026-03-05_at_1.03.27_PM_rmfumt.jpg",
+    caption: "Pahalgam",
+    location: "Pahalgam",
+    tripId: "kashmir-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778645802/20260410_150253_mztl0l.jpg",
+    caption: "Pose",
+    location: "Chaini ki kothi",
+  },
+
+  {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713066/WhatsApp_Image_2026-03-05_at_5.44.30_PM_nvxw1h.jpg",
     caption: "Mukhteshwar",
+    location: "Mukhteshwar",
     tripId: "nainital-2023",
   },
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713133/WhatsApp_Image_2026-03-05_at_5.44.33_PM_mcshsr.jpg",
     caption: "Jabalpur",
+    location: "Jabalpur",
     tripId: null,
   },
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713066/WhatsApp_Image_2026-03-05_at_5.44.32_PM_i4skq1.jpg",
     caption: "Lucknow",
+    location: "Lucknow",
     tripId: null,
   },
-  {
-    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1772713133/df_yvnjmk.jpg",
-    caption: "Jamshedpur",
-    tripId: null,
-  },
+
   {
     src: "https://res.cloudinary.com/dv6boe8ig/image/upload/w_800,dpr_auto,q_85,f_auto/v1778645826/20260409_132947_vf9dpw.jpg",
     caption: "Love",
+    location: "Jalori Pass",
     tripId: "jibhi-2026-trip",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772713066/WhatsApp_Image_2026-03-05_at_5.44.31_PM_yoquvp.jpg",
+    caption: "Random",
+    location: "Nainital",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1769079327/IMG_20260103_112813135_HDR_fibf5p.jpg",
+    caption: "Gandola",
+    location: "Rajgir",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1772693391/IMG_9764_r3tgwb.jpg",
+    caption: "Cheeeese",
+    location: "Pahalgam",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778646697/copy_of_snapchat-1017340257_uxn1ze_bb7a79.jpg",
+    caption: "Group",
+    location: "Chaini ki kothi",
+  },
+  {
+    src: "https://res.cloudinary.com/dv6boe8ig/image/upload/v1778651237/WhatsApp_Image_2026-05-13_at_10.56.36_AM_vfezvf.jpg",
+    caption: "Hang",
+    location: "Jibhi",
   },
 ];
 
@@ -226,11 +243,10 @@ const memories = GALLERY_IMAGES.map((image, index) => ({
   id: index + 1,
   image: image.src,
   caption: image.caption,
-  location: image.caption,
+  location: image.location,
   date: image.tripId ? "Trip Memory" : "Personal",
   category: getGalleryCategory(image.tripId),
   mood: image.tripId ? "Travel" : "Solo",
   tripId: image.tripId,
 }));
 export { memories, upcomingTrips };
-

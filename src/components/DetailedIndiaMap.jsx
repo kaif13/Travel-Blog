@@ -37,9 +37,9 @@ function PlacesPopup({ name, places, visitedPlaces = [], onClose }) {
             </h2>
             <button
               onClick={onClose}
-              className="w-8 h-8 shrink-0 rounded-full bg-brand-bg text-brand-primary flex items-center justify-center text-lg border border-brand-border"
+              className="w-8 h-8 shrink-0 cursor-pointer rounded-full bg-brand-bg text-brand-primary flex items-center justify-center text-lg border border-brand-border"
             >
-              Ã—
+              X
             </button>
           </div>
           <div className="mb-3 flex items-center justify-between gap-3">
@@ -301,6 +301,44 @@ export default function DetailedIndiaMap() {
             );
           })}
 
+          {/* Keep geographically tiny union territories visible and selectable. */}
+          {MAP_DATA.compactTerritories.map((territory) => {
+            const isActive =
+              selected === territory.name || hovered === territory.name;
+            const isVisited = VISITED_STATES.has(territory.name);
+            return (
+              <g
+                key={`${territory.name}-markers`}
+                onMouseEnter={() => setHovered(territory.name)}
+                onMouseLeave={() => setHovered(null)}
+                onClick={() => setSelected(territory.name)}
+                style={{ cursor: "pointer" }}
+              >
+                {territory.markers.map((marker, index) => (
+                  <circle
+                    key={`${territory.name}-marker-${index}`}
+                    cx={marker.cx}
+                    cy={marker.cy}
+                    r={isActive ? 6 : 4}
+                    fill={
+                      isActive
+                        ? isVisited
+                          ? MAP_COLORS.visitedActive
+                          : MAP_COLORS.active
+                        : isVisited
+                          ? MAP_COLORS.visited
+                          : MAP_COLORS.unvisited
+                    }
+                    fillOpacity={isActive ? 0.96 : isVisited ? 0.88 : 0.82}
+                    stroke={isActive ? MAP_COLORS.border : "#c2410c"}
+                    strokeOpacity={isActive ? 0.95 : 0.75}
+                    strokeWidth={isActive ? 1.6 : 1.1}
+                  />
+                ))}
+              </g>
+            );
+          })}
+
           {/* Lakshadweep â€” tiny islands, shown as a marker since polygon is sub-pixel */}
           <g
             onMouseEnter={() => setHovered("Lakshadweep")}
@@ -332,22 +370,51 @@ export default function DetailedIndiaMap() {
 
           {/* permanent state name labels */}
           <g style={{ pointerEvents: "none" }}>
-            {MAP_DATA.states.map((s) => (
+            {MAP_DATA.states
+              .filter(
+                (state) =>
+                  !MAP_DATA.compactTerritories.some(
+                    (territory) => territory.name === state.name,
+                  ),
+              )
+              .map((s) => (
+                <text
+                  key={s.name + "-label"}
+                  x={s.cx}
+                  y={s.cy}
+                  textAnchor="middle"
+                  fontSize="9"
+                  fontFamily="'Work Sans', sans-serif"
+                  fontWeight="600"
+                  fill={
+                    VISITED_STATES.has(s.name) ? "#fff8ed" : MAP_COLORS.label
+                  }
+                  stroke={
+                    VISITED_STATES.has(s.name) ? "#102a43" : "#fff8ed"
+                  }
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                  opacity="0.9"
+                >
+                  {s.name}
+                </text>
+              ))}
+            {MAP_DATA.compactTerritories.map((territory) => (
               <text
-                key={s.name + "-label"}
-                x={s.cx}
-                y={s.cy}
+                key={`${territory.name}-label`}
+                x={territory.labelX}
+                y={territory.labelY}
                 textAnchor="middle"
                 fontSize="9"
                 fontFamily="'Work Sans', sans-serif"
-                fontWeight="600"
-                fill={VISITED_STATES.has(s.name) ? "#fff8ed" : MAP_COLORS.label}
-                stroke={VISITED_STATES.has(s.name) ? "#102a43" : "#fff8ed"}
+                fontWeight="700"
+                fill={MAP_COLORS.label}
+                stroke="#fff8ed"
                 strokeWidth="2"
                 paintOrder="stroke"
-                opacity="0.9"
+                opacity="0.95"
               >
-                {s.name}
+                {territory.label}
               </text>
             ))}
             <text
@@ -390,5 +457,3 @@ export default function DetailedIndiaMap() {
     </div>
   );
 }
-
-

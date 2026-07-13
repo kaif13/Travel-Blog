@@ -1,15 +1,21 @@
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   ArrowLeft,
   Calendar,
+  ChevronLeft,
+  ChevronRight,
   MapPin,
   Users,
   Heart,
   Sparkles,
   AlertCircle,
+  X,
 } from "lucide-react";
 import { motion } from "motion/react";
 
 function StoryDetail({ story, onBack }) {
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
   const title = story.title || `My Journey to ${story.city || story.location}`;
   const placeName =
     story.location?.split(",")[0] || story.city || story.state || "this place";
@@ -43,6 +49,44 @@ function StoryDetail({ story, onBack }) {
       caption: memory.caption || memory.text,
     })) ||
     [];
+
+  const photoDiaryCount =
+    memories.length < 10 ? 12 : Math.min(memories.length, 15);
+  const photoDiaryMemories = memories.length
+    ? Array.from(
+        { length: photoDiaryCount },
+        (_, index) => memories[index % memories.length],
+      )
+    : [];
+
+  useEffect(() => {
+    if (selectedPhotoIndex === null) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setSelectedPhotoIndex(null);
+      if (event.key === "ArrowLeft") {
+        setSelectedPhotoIndex(
+          (current) =>
+            (current - 1 + photoDiaryMemories.length) %
+            photoDiaryMemories.length,
+        );
+      }
+      if (event.key === "ArrowRight") {
+        setSelectedPhotoIndex(
+          (current) => (current + 1) % photoDiaryMemories.length,
+        );
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPhotoIndex, photoDiaryMemories.length]);
 
   const snapshotItems = [
     { label: "Duration", value: story.tripDuration },
@@ -176,20 +220,6 @@ function StoryDetail({ story, onBack }) {
           </div>
         </div>
       </div>
-
-      {/* Mood Tags */}
-      {/* {moodTags.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-8">
-          {moodTags.map((tag, index) => (
-            <span
-              key={`${tag}-${index}`}
-              className="bg-brand-card text-brand-accent-dark border border-brand-accent/20 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )} */}
 
       {/* Extra Snapshot Details */}
       {snapshotItems.length > 0 && (
@@ -398,37 +428,130 @@ function StoryDetail({ story, onBack }) {
           className="mt-10 pt-6 border-t border-brand-border/60 sm:mt-12 sm:pt-8"
           id="story-detail-short-memories"
         >
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-brand-primary text-center mb-8">
-            Moments I Still Carry from {placeName}
-          </h3>
+          <div className="mx-auto mb-6 max-w-2xl text-center sm:mb-8">
+            <h3 className="font-serif text-2xl font-bold text-brand-primary sm:text-3xl">
+              Photo Diary from {placeName}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-brand-text/65 sm:text-base">
+              Tiny frames from the road, people, food, places, and moments I
+              still remember.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {memories.map((memory, index) => (
-              <motion.div
-                key={`${memory.title}-${index}`}
-                whileHover={{ y: -4, scale: 1.01 }}
-                className="bg-brand-card rounded-2xl overflow-hidden shadow-sm border border-brand-border/60"
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-5">
+            {photoDiaryMemories.map((memory, index) => (
+              <motion.button
+                type="button"
+                key={`${memory.title || "memory"}-${index}`}
+                onClick={() => setSelectedPhotoIndex(index)}
+                whileHover={{ y: -3, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative aspect-square cursor-zoom-in overflow-hidden rounded-xl border border-brand-border/60 bg-brand-bg shadow-sm"
+                aria-label={`Open ${memory.title || memory.caption || "travel memory"}`}
               >
-                <div className="h-56 overflow-hidden bg-brand-bg">
-                  <img
-                    src={memory.image}
-                    alt={memory.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-
-                <div className="p-5">
-                  <span className="text-[10px] text-brand-accent-dark font-bold uppercase tracking-widest">
-                    {memory.title}
+                <img
+                  src={memory.image}
+                  alt={memory.title || memory.caption || "Travel memory"}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-brand-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-x-0 bottom-0 translate-y-2 p-2 text-left opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <span className="line-clamp-1 text-[10px] font-bold uppercase tracking-wider text-[#FFF8ED] sm:text-xs">
+                    {memory.title || memory.caption || "Travel memory"}
                   </span>
-                  <p className="text-sm text-brand-text/85 leading-relaxed mt-2 line-clamp-4">
-                    {memory.caption}
-                  </p>
+                  {memory.title && memory.caption && (
+                    <p className="mt-0.5 line-clamp-1 text-[9px] text-[#FFF8ED]/75 sm:text-[10px]">
+                      {memory.caption}
+                    </p>
+                  )}
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
+
+          {selectedPhotoIndex !== null &&
+            createPortal(
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 backdrop-blur-sm sm:p-8"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Photo diary viewer"
+                onClick={() => setSelectedPhotoIndex(null)}
+              >
+                <button
+                  type="button"
+                  onClick={() => setSelectedPhotoIndex(null)}
+                  className="absolute right-3 top-3 z-20 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 sm:right-6 sm:top-6"
+                  aria-label="Close photo viewer"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedPhotoIndex(
+                      (selectedPhotoIndex - 1 + photoDiaryMemories.length) %
+                        photoDiaryMemories.length,
+                    );
+                  }}
+                  className="absolute left-2 z-20 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 sm:left-6"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="h-7 w-7" />
+                </button>
+
+                <div
+                  className="flex max-h-[94vh] w-full max-w-5xl flex-col items-center"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <img
+                    src={photoDiaryMemories[selectedPhotoIndex].image}
+                    alt={
+                      photoDiaryMemories[selectedPhotoIndex].title ||
+                      photoDiaryMemories[selectedPhotoIndex].caption ||
+                      "Travel memory"
+                    }
+                    className="max-h-[72vh] max-w-full rounded-lg object-contain shadow-2xl sm:max-h-[76vh]"
+                    referrerPolicy="no-referrer"
+                  />
+
+                  <div className="mt-3 w-full max-w-2xl px-12 text-center text-white sm:mt-4">
+                    <span className="text-xs font-bold tracking-widest text-brand-accent">
+                      {selectedPhotoIndex + 1} / {photoDiaryMemories.length}
+                    </span>
+                    <h4 className="mt-1 font-serif text-lg font-bold sm:text-xl">
+                      {photoDiaryMemories[selectedPhotoIndex].title ||
+                        "Travel Memory"}
+                    </h4>
+                    {photoDiaryMemories[selectedPhotoIndex].caption && (
+                      <p className="mt-1 line-clamp-3 text-xs leading-relaxed text-white/75 sm:text-sm">
+                        {photoDiaryMemories[selectedPhotoIndex].caption}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setSelectedPhotoIndex(
+                      (selectedPhotoIndex + 1) % photoDiaryMemories.length,
+                    );
+                  }}
+                  className="absolute right-2 z-20 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 sm:right-6"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="h-7 w-7" />
+                </button>
+              </motion.div>,
+              document.body,
+            )}
         </section>
       )}
 
